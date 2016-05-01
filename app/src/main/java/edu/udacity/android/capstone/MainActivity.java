@@ -1,4 +1,4 @@
-package capstone.android.udacity.edu.udacity_android_project_capstone;
+package edu.udacity.android.capstone;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import edu.udacity.android.capstone.R;
 
 public class MainActivity extends AppCompatActivity {
 

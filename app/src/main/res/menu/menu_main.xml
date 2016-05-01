@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="capstone.android.udacity.edu.udacity_android_project_capstone.MainActivity">
+      tools:context="edu.udacity.android.capstone.MainActivity">
     <item
             android:id="@+id/action_settings"
             android:title="@string/action_settings"

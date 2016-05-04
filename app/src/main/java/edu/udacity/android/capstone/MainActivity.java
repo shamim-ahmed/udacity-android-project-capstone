@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import edu.udacity.android.capstone.R;
+import edu.udacity.android.capstone.service.FlickrSearchService;
+import edu.udacity.android.capstone.service.GuardianSearchService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                FlickrSearchService.getInstance().performSearch("tulip", MainActivity.this);
             }
         });
     }

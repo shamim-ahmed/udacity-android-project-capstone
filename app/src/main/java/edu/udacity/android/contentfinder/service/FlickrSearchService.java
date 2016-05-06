@@ -1,10 +1,10 @@
-package edu.udacity.android.capstone.service;
+package edu.udacity.android.contentfinder.service;
 
 import android.app.Activity;
 import android.net.Uri;
 
-import edu.udacity.android.capstone.CapstoneApplication;
-import edu.udacity.android.capstone.task.FlickrSearchTask;
+import edu.udacity.android.contentfinder.ContentFinderApplication;
+import edu.udacity.android.contentfinder.task.FlickrSearchTask;
 
 /**
  * Created by shamim on 5/1/16.
@@ -19,7 +19,7 @@ public class FlickrSearchService implements SearchService {
 
     @Override
     public void performSearch(String keyword, Activity activity) {
-        CapstoneApplication application = (CapstoneApplication) activity.getApplication();
+        ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("search.api.scheme.flickr");
         String authority = application.getProperty("search.api.host.flickr");
         String path = application.getProperty("search.api.path.flickr");

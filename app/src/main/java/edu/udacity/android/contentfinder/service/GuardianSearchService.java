@@ -1,11 +1,11 @@
-package edu.udacity.android.capstone.service;
+package edu.udacity.android.contentfinder.service;
 
 import android.app.Activity;
 import android.net.Uri;
 
-import edu.udacity.android.capstone.CapstoneApplication;
-import edu.udacity.android.capstone.task.GuardianSearchTask;
-import edu.udacity.android.capstone.task.SearchTask;
+import edu.udacity.android.contentfinder.ContentFinderApplication;
+import edu.udacity.android.contentfinder.task.GuardianSearchTask;
+import edu.udacity.android.contentfinder.task.SearchTask;
 
 /**
  * Created by shamim on 5/1/16.
@@ -21,7 +21,7 @@ public class GuardianSearchService implements SearchService {
 
     @Override
     public void performSearch(String keyword, Activity activity) {
-        CapstoneApplication application = (CapstoneApplication) activity.getApplication();
+        ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("search.api.scheme.guardian");
         String authority = application.getProperty("search.api.host.guardian");
         String path = application.getProperty("search.api.path.guardian");

@@ -1,4 +1,4 @@
-package edu.udacity.android.capstone.task;
+package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-import edu.udacity.android.capstone.util.IOUtils;
+import edu.udacity.android.contentfinder.util.IOUtils;
 
 /**
  * Created by shamim on 5/3/16.

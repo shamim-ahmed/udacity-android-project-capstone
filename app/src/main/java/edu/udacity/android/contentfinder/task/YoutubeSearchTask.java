@@ -1,4 +1,4 @@
-package edu.udacity.android.capstone.task;
+package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
 

@@ -1,17 +1,14 @@
-package edu.udacity.android.capstone;
+package edu.udacity.android.contentfinder;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import edu.udacity.android.capstone.R;
-import edu.udacity.android.capstone.service.FlickrSearchService;
-import edu.udacity.android.capstone.service.GuardianSearchService;
+import edu.udacity.android.contentfinder.service.FlickrSearchService;
 
 public class MainActivity extends AppCompatActivity {
 

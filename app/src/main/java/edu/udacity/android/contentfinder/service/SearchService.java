@@ -1,4 +1,4 @@
-package edu.udacity.android.capstone.service;
+package edu.udacity.android.contentfinder.service;
 
 import android.app.Activity;
 

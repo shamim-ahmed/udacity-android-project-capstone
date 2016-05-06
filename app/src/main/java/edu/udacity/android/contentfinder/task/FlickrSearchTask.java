@@ -1,8 +1,6 @@
-package edu.udacity.android.capstone.task;
+package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
-
-import edu.udacity.android.capstone.service.SearchService;
 
 /**
  * Created by shamim on 5/4/16.

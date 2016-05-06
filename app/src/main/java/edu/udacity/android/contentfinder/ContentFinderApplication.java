@@ -1,4 +1,4 @@
-package edu.udacity.android.capstone;
+package edu.udacity.android.contentfinder;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,8 +10,8 @@ import java.util.Properties;
 /**
  * Created by shamim on 5/1/16.
  */
-public class CapstoneApplication extends Application {
-    private static final String TAG = CapstoneApplication.class.getSimpleName();
+public class ContentFinderApplication extends Application {
+    private static final String TAG = ContentFinderApplication.class.getSimpleName();
     private final Properties configProperties = new Properties();
 
     @Override

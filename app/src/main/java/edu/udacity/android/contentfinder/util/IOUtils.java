@@ -1,4 +1,4 @@
-package edu.udacity.android.capstone.util;
+package edu.udacity.android.contentfinder.util;
 
 import android.util.Log;
 import java.io.Closeable;

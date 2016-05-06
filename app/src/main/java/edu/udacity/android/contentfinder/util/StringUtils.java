@@ -1,4 +1,4 @@
-package edu.udacity.android.capstone.util;
+package edu.udacity.android.contentfinder.util;
 
 public class StringUtils {
     public static boolean isBlank(String str) {

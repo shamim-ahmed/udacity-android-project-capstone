@@ -1,5 +1,6 @@
 package edu.udacity.android.contentfinder.db;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,6 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class ContentFinderDbHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "contentFinder.db";
     public static final int DATABASE_VERSION = 1;
+
+    public ContentFinderDbHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
 
     public static final String CREATE_TAG_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.TagEntry.TABLE_NAME + "("
             + ContentFinderContract.TagEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "

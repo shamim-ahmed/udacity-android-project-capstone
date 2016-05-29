@@ -5,6 +5,10 @@ public class StringUtils {
         return str == null || str.trim().equals("");
     }
 
+    public static boolean isNotBlank(String str) {
+        return !isBlank(str);
+    }
+
     // private constructor to prevent instantiation
     private StringUtils() {
     }

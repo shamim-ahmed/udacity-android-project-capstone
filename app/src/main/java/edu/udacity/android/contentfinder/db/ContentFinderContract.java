@@ -7,7 +7,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import edu.udacity.android.contentfinder.model.ContentType;
+import edu.udacity.android.contentfinder.model.MediaItemType;
 
 /**
  * Created by shamim on 5/6/16.
@@ -18,16 +18,16 @@ public class ContentFinderContract {
     public static final String CONTENT_AUTHORITY = "edu.udacity.android.contentfinder";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static class TagEntry implements BaseColumns {
-        public static final String TABLE_NAME = "Tag";
-        public static final String COLUMN_TAG_NAME = "name";
+    public static class KeywordEntry implements BaseColumns {
+        public static final String TABLE_NAME = "Keyword";
+        public static final String COLUMN_WORD = "word";
 
-        public static final String PATH_TAG = "tag";
-        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_TAG).build();
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + PATH_TAG;
-        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + PATH_TAG;
+        public static final String PATH_KEYWORD = "keyword";
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_KEYWORD).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + PATH_KEYWORD;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + PATH_KEYWORD;
 
-        public static String getTagNameFromUri(Uri uri) {
+        public static String getKeywordFromUri(Uri uri) {
             List<String> segmentList = uri.getPathSegments();
 
             if (segmentList.size() < 2) {
@@ -37,14 +37,14 @@ public class ContentFinderContract {
             return segmentList.get(1);
         }
 
-        public static Uri buildUriFromTagName(String tagName) {
-            return BASE_CONTENT_URI.buildUpon().appendPath(PATH_TAG).appendPath(tagName).build();
+        public static Uri buildUriFromKeyword(String keyword) {
+            return BASE_CONTENT_URI.buildUpon().appendPath(PATH_KEYWORD).appendPath(keyword).build();
         }
     }
 
-    public static class ContentEntry implements BaseColumns {
-        public static final String TABLE_NAME = "Content";
-        public static final String COLUMN_CONTENT_ID = "content_id";
+    public static class MediaItemEntry implements BaseColumns {
+        public static final String TABLE_NAME = "MediaItem";
+        public static final String COLUMN_ITEM_ID = "item_id";
         public static final String COLUMN_CONTENT_TYPE = "type";
         public static final String COLUMN_TITLE = "title";
         public static final String COLUMN_SUMMARY = "summary";
@@ -52,53 +52,53 @@ public class ContentFinderContract {
         public static final String COLUMN_THUMBNAIL_URL = "thumbnail_url";
         public static final String COLUMN_PHOTO_URL = "photo_url";
 
-        public static final String PATH_CONTENT = "content";
+        public static final String PATH_MEDIA_ITEM = "mediaItem";
         public static final String PATH_TYPE = "type";
-        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendEncodedPath(PATH_CONTENT).build();
-        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + PATH_CONTENT;
-        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + PATH_CONTENT;
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendEncodedPath(PATH_MEDIA_ITEM).build();
+        public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + PATH_MEDIA_ITEM;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + PATH_MEDIA_ITEM;
 
         /**
-         * @param uri the input URI of the form /content/123
-         * @return the id of the content
+         * @param uri the input URI of the form /mediaItem/123
+         * @return the id of the media item
          */
-        public static Long getContentIdFromUri(Uri uri) {
+        public static Long getMediaItemIdFromUri(Uri uri) {
             List<String> segmentList = uri.getPathSegments();
 
             if (segmentList.size() < 2) {
                 return null;
             }
 
-            Long contentId = null;
+            Long mediaItemId = null;
 
             try {
-                contentId = Long.valueOf(segmentList.get(1));
+                mediaItemId = Long.valueOf(segmentList.get(1));
             } catch (Exception ex) {
-                Log.e(TAG, "error while parsing content id");
+                Log.e(TAG, "error while parsing media item id");
             }
 
-            return contentId;
+            return mediaItemId;
         }
 
         /**
-         * @param uri the input URI of the form /content/photo or /content/photo/tag/cat
-         * @return the content type
+         * @param uri the input URI of the form /mediaItem/photo or /mediaItem/photo/keyword/cat
+         * @return media item type
          */
-        public static ContentType getContentTypeFromUri(Uri uri) {
+        public static MediaItemType getMediaItemTypeFromUri(Uri uri) {
             List<String> segmentList = uri.getPathSegments();
 
             if (segmentList.size() < 2) {
                 return null;
             }
 
-            return ContentType.valueOf(segmentList.get(1));
+            return MediaItemType.valueOf(segmentList.get(1));
         }
 
         /**
-         * @param uri the input URI of the form /content/photo/tag/cat
-         * @return the tag name
+         * @param uri the input URI of the form /mediaItem/photo/keyword/cat
+         * @return the keyword
          */
-        public static String getTagNamFromUri(Uri uri) {
+        public static String getKeywordFromUri(Uri uri) {
             List<String> segmentList = uri.getPathSegments();
 
             if (segmentList.size() < 4) {
@@ -108,18 +108,18 @@ public class ContentFinderContract {
             return segmentList.get(3);
         }
 
-        public static Uri buildUriFromContentId(Long contentId) {
+        public static Uri buildUriFromMediaItemId(Long mediaItemId) {
             return BASE_CONTENT_URI.buildUpon()
-                    .appendPath(PATH_CONTENT)
-                    .appendPath(contentId.toString())
+                    .appendPath(PATH_MEDIA_ITEM)
+                    .appendPath(mediaItemId.toString())
                     .build();
         }
 
-        public static Uri buildUriFromContentTypeAndTagName(ContentType contentType, String tagName) {
+        public static Uri buildUriFromMediaItemTypeAndKeyword(MediaItemType mediaItemType, String keyword) {
             return BASE_CONTENT_URI.buildUpon()
-                    .appendPath(contentType.toString())
-                    .appendPath(TagEntry.PATH_TAG)
-                    .appendPath(tagName)
+                    .appendPath(mediaItemType.toString())
+                    .appendPath(KeywordEntry.PATH_KEYWORD)
+                    .appendPath(keyword)
                     .build();
         }
     }

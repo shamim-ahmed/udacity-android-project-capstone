@@ -10,33 +10,34 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import edu.udacity.android.contentfinder.model.ContentType;
+import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
 /**
  * Created by shamim on 5/9/16.
  */
 public class ContentFinderDataProvider extends ContentProvider {
-    private static final String LOG_ID = ContentFinderDataProvider.class.getSimpleName();
+    private static final String TAG = ContentFinderDataProvider.class.getSimpleName();
 
-    public static final int TAG = 100;
-    public static final int TAG_WITH_NAME = 101;
-    private static final int CONTENT = 201;
-    private static final int CONTENT_WITH_ID = 202;
-    private static final int CONTENT_WITH_TAG = 203;
-    private static final int CONTENT_WITH_TYPE_AND_TAG = 204;
+    public static final int KEYWORD = 100;
+    public static final int KEYWORD_WITH_NAME = 101;
 
-    private static final String TAG_NAME_SELECTION = "tag_name = ?";
-    private static final String CONTENT_ID_SELECTION = "content_id = ?";
-    private static final String CONTENT_TAG_SELECTION = "tag = ?";
-    private static final String CONTENT_TYPE_AND_TAG_SELECTION = "type = ? and tag = ";
+    private static final int MEDIA_ITEM = 201;
+    private static final int MEDIA_ITEM_WITH_ID = 202;
+    private static final int MEDIA_ITEM_WITH_KEYWORD = 203;
+    private static final int MEDIA_ITEM_WITH_TYPE_AND_KEYWORD = 204;
+
+    private static final String KEYWORD_SELECTION = "word = ?";
+    private static final String MEDIA_ITEM_ID_SELECTION = "item_id = ?";
+    private static final String MEDIA_ITEM_KEYWORD_SELECTION = "word = ?";
+    private static final String MEDIA_ITEM_TYPE_AND_KEYWORD_SELECTION = "type = ? and keyword = ?";
 
     private static final SQLiteQueryBuilder sTagQueryBuilder = new SQLiteQueryBuilder();
     private static final SQLiteQueryBuilder sConentQueryBuilder = new SQLiteQueryBuilder();
 
     static {
-        sTagQueryBuilder.setTables(ContentFinderContract.TagEntry.TABLE_NAME);
-        sConentQueryBuilder.setTables(ContentFinderContract.ContentEntry.TABLE_NAME);
+        sTagQueryBuilder.setTables(ContentFinderContract.KeywordEntry.TABLE_NAME);
+        sConentQueryBuilder.setTables(ContentFinderContract.MediaItemEntry.TABLE_NAME);
     }
 
     private static final UriMatcher sUriMatcher = buildUriMatcher();
@@ -45,13 +46,13 @@ public class ContentFinderDataProvider extends ContentProvider {
     private static UriMatcher buildUriMatcher() {
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.TagEntry.PATH_TAG, TAG);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD, KEYWORD);
         // TODO figure out if this is correct
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.TagEntry.PATH_TAG + "/*", TAG_WITH_NAME);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.ContentEntry.PATH_CONTENT, CONTENT);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.ContentEntry.PATH_CONTENT + "/*", CONTENT_WITH_ID);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.ContentEntry.PATH_CONTENT + "/" + ContentFinderContract.TagEntry.PATH_TAG + "/*", CONTENT_WITH_TAG);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.ContentEntry.PATH_CONTENT + "/" + ContentFinderContract.ContentEntry.PATH_TYPE + "/*/" + ContentFinderContract.TagEntry.PATH_TAG + "/*", CONTENT_WITH_TYPE_AND_TAG);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/*", KEYWORD_WITH_NAME);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM, MEDIA_ITEM);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/*", MEDIA_ITEM_WITH_ID);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/*", MEDIA_ITEM_WITH_KEYWORD);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/*/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/*", MEDIA_ITEM_WITH_TYPE_AND_KEYWORD);
 
         return matcher;
     }
@@ -71,52 +72,52 @@ public class ContentFinderDataProvider extends ContentProvider {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
         switch (matchValue) {
-            case TAG: {
+            case KEYWORD: {
                 cursor = sTagQueryBuilder.query(database, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             }
-            case TAG_WITH_NAME: {
-                String tagName = ContentFinderContract.TagEntry.getTagNameFromUri(uri);
+            case KEYWORD_WITH_NAME: {
+                String tagName = ContentFinderContract.KeywordEntry.getKeywordFromUri(uri);
 
                 if (StringUtils.isNotBlank(tagName)) {
-                    cursor = sTagQueryBuilder.query(database, projection, TAG_NAME_SELECTION, new String[]{tagName}, null, null, sortOrder);
+                    cursor = sTagQueryBuilder.query(database, projection, KEYWORD_SELECTION, new String[]{tagName}, null, null, sortOrder);
                 }
 
                 break;
             }
-            case CONTENT: {
+            case MEDIA_ITEM: {
                 cursor = sConentQueryBuilder.query(database, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             }
-            case CONTENT_WITH_ID: {
-                Long contentId = ContentFinderContract.ContentEntry.getContentIdFromUri(uri);
+            case MEDIA_ITEM_WITH_ID: {
+                Long contentId = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
 
                 if (contentId != null) {
-                    cursor = sTagQueryBuilder.query(database, projection, CONTENT_ID_SELECTION, new String[]{contentId.toString()}, null, null, sortOrder);
+                    cursor = sTagQueryBuilder.query(database, projection, MEDIA_ITEM_ID_SELECTION, new String[]{contentId.toString()}, null, null, sortOrder);
                 }
 
                 break;
             }
-            case CONTENT_WITH_TAG: {
-                String tagName = ContentFinderContract.ContentEntry.getTagNamFromUri(uri);
+            case MEDIA_ITEM_WITH_KEYWORD: {
+                String tagName = ContentFinderContract.MediaItemEntry.getKeywordFromUri(uri);
 
                 if (StringUtils.isNotBlank(tagName)) {
-                    cursor = sTagQueryBuilder.query(database, projection, CONTENT_TAG_SELECTION, new String[]{tagName}, null, null, sortOrder);
+                    cursor = sTagQueryBuilder.query(database, projection, MEDIA_ITEM_KEYWORD_SELECTION, new String[]{tagName}, null, null, sortOrder);
                 }
 
                 break;
             }
-            case CONTENT_WITH_TYPE_AND_TAG:
-                ContentType contentType = ContentFinderContract.ContentEntry.getContentTypeFromUri(uri);
-                String tagName = ContentFinderContract.ContentEntry.getTagNamFromUri(uri);
+            case MEDIA_ITEM_WITH_TYPE_AND_KEYWORD:
+                MediaItemType contentType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(uri);
+                String tagName = ContentFinderContract.MediaItemEntry.getKeywordFromUri(uri);
 
                 if (contentType != null && StringUtils.isNotBlank(tagName)) {
-                    cursor = sTagQueryBuilder.query(database, projection, CONTENT_TYPE_AND_TAG_SELECTION, new String[]{contentType.toString(), tagName}, null, null, sortOrder);
+                    cursor = sTagQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_SELECTION, new String[]{contentType.toString(), tagName}, null, null, sortOrder);
                 }
 
                 break;
             default: {
-                Log.w(LOG_ID, String.format("No match found for uri : %s", uri));
+                Log.w(TAG, String.format("No match found for uri : %s", uri));
                 break;
             }
         }
@@ -131,24 +132,23 @@ public class ContentFinderDataProvider extends ContentProvider {
         int matchValue = sUriMatcher.match(uri);
 
         switch (matchValue) {
-            case TAG:
-                result = ContentFinderContract.TagEntry.CONTENT_TYPE;
+            case KEYWORD:
+                result = ContentFinderContract.KeywordEntry.CONTENT_TYPE;
                 break;
-            case TAG_WITH_NAME:
-                result = ContentFinderContract.TagEntry.CONTENT_ITEM_TYPE;
+            case KEYWORD_WITH_NAME:
+                result = ContentFinderContract.KeywordEntry.CONTENT_ITEM_TYPE;
                 break;
-            case CONTENT:
-                result = ContentFinderContract.ContentEntry.CONTENT_TYPE;
+            case MEDIA_ITEM:
+                result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
-            case CONTENT_WITH_ID:
-                ;
-                result = ContentFinderContract.ContentEntry.CONTENT_ITEM_TYPE;
+            case MEDIA_ITEM_WITH_ID:;
+                result = ContentFinderContract.MediaItemEntry.CONTENT_ITEM_TYPE;
                 break;
-            case CONTENT_WITH_TAG:
-                result = ContentFinderContract.ContentEntry.CONTENT_TYPE;
+            case MEDIA_ITEM_WITH_KEYWORD:
+                result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
-            case CONTENT_WITH_TYPE_AND_TAG:
-                result = ContentFinderContract.ContentEntry.CONTENT_TYPE;
+            case MEDIA_ITEM_WITH_TYPE_AND_KEYWORD:
+                result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
         }
 

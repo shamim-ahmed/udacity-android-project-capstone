@@ -15,20 +15,20 @@ public class ContentFinderDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static final String CREATE_TAG_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.TagEntry.TABLE_NAME + "("
-            + ContentFinderContract.TagEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + ContentFinderContract.TagEntry.COLUMN_TAG_NAME + " TEXT NOT NULL UNIQUE"
+    public static final String CREATE_TAG_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.KeywordEntry.TABLE_NAME + "("
+            + ContentFinderContract.KeywordEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + ContentFinderContract.KeywordEntry.COLUMN_WORD + " TEXT NOT NULL UNIQUE"
             + ")";
 
-    public static final String CREATE_CONTENT_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.ContentEntry.TABLE_NAME + "("
-            + ContentFinderContract.ContentEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + ContentFinderContract.ContentEntry.COLUMN_CONTENT_ID + " INTEGER NOT NULL AUTOINCREMENT, "
-            + ContentFinderContract.ContentEntry.COLUMN_CONTENT_TYPE + " TEXT NOT NULL, "
-            + ContentFinderContract.ContentEntry.COLUMN_TITLE + " TEXT NOT NULL, "
-            + ContentFinderContract.ContentEntry.COLUMN_SUMMARY + " TEXT, "
-            + ContentFinderContract.ContentEntry.COLUMN_URL + " TEXT NOT NULL, "
-            + ContentFinderContract.ContentEntry.COLUMN_PHOTO_URL + " TEXT, "
-            + ContentFinderContract.ContentEntry.COLUMN_THUMBNAIL_URL + " TEXT"
+    public static final String CREATE_CONTENT_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.MediaItemEntry.TABLE_NAME + "("
+            + ContentFinderContract.MediaItemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID + " INTEGER NOT NULL AUTOINCREMENT, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE + " TEXT NOT NULL, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_TITLE + " TEXT NOT NULL, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY + " TEXT, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_URL + " TEXT NOT NULL, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_PHOTO_URL + " TEXT, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL + " TEXT"
             + ")";
 
     @Override

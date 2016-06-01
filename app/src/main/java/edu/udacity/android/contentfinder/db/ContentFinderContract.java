@@ -23,6 +23,7 @@ public class ContentFinderContract {
         public static final String COLUMN_WORD = "word";
 
         public static final String PATH_KEYWORD = "keyword";
+        public static final String PATH_ID = "id";
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_KEYWORD).build();
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + PATH_KEYWORD;
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + PATH_KEYWORD;
@@ -108,10 +109,10 @@ public class ContentFinderContract {
             return segmentList.get(3);
         }
 
-        public static Uri buildUriFromMediaItemId(Long mediaItemId) {
+        public static Uri buildUriFromMediaItemId(String mediaItemId) {
             return BASE_CONTENT_URI.buildUpon()
                     .appendPath(PATH_MEDIA_ITEM)
-                    .appendPath(mediaItemId.toString())
+                    .appendPath(mediaItemId)
                     .build();
         }
 
@@ -122,5 +123,11 @@ public class ContentFinderContract {
                     .appendPath(keyword)
                     .build();
         }
+    }
+
+    public static class MediaItem_Keyword_Entry implements BaseColumns {
+        public static final String TABLE_NAME = "MediaItem_Keyword";
+        public static final String COLUMN_ITEM_ID = "item_id";
+        public static final String COLUMN_KEYWORD = "keyword";
     }
 }

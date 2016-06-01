@@ -15,12 +15,12 @@ public class ContentFinderDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static final String CREATE_TAG_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.KeywordEntry.TABLE_NAME + "("
+    public static final String CREATE_KEYWORD_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.KeywordEntry.TABLE_NAME + "("
             + ContentFinderContract.KeywordEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ContentFinderContract.KeywordEntry.COLUMN_WORD + " TEXT NOT NULL UNIQUE"
             + ")";
 
-    public static final String CREATE_CONTENT_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.MediaItemEntry.TABLE_NAME + "("
+    public static final String CREATE_MEDIA_ITEM_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.MediaItemEntry.TABLE_NAME + "("
             + ContentFinderContract.MediaItemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID + " INTEGER NOT NULL AUTOINCREMENT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE + " TEXT NOT NULL, "
@@ -31,10 +31,18 @@ public class ContentFinderDbHelper extends SQLiteOpenHelper {
             + ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL + " TEXT"
             + ")";
 
+    public static final String CREATE_MEDIA_ITEM_KEYWORD_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.MediaItem_Keyword_Entry.TABLE_NAME + "("
+            + ContentFinderContract.MediaItem_Keyword_Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + ContentFinderContract.MediaItem_Keyword_Entry.COLUMN_ITEM_ID + " TEXT NOT NULL, "
+            + ContentFinderContract.MediaItem_Keyword_Entry.COLUMN_KEYWORD + " TEXT NOT NULL"
+            + ")";
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TAG_TABLE_SQL);
-        db.execSQL(CREATE_CONTENT_TABLE_SQL);
+        db.execSQL(CREATE_KEYWORD_TABLE_SQL);
+        db.execSQL(CREATE_MEDIA_ITEM_TABLE_SQL);
+        db.execSQL(CREATE_MEDIA_ITEM_KEYWORD_TABLE_SQL);
     }
 
     @Override

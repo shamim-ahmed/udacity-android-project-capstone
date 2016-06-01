@@ -107,7 +107,7 @@ public class ContentFinderDataProvider extends ContentProvider {
 
                 break;
             }
-            case MEDIA_ITEM_WITH_TYPE_AND_KEYWORD:
+            case MEDIA_ITEM_WITH_TYPE_AND_KEYWORD: {
                 MediaItemType contentType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(uri);
                 String tagName = ContentFinderContract.MediaItemEntry.getKeywordFromUri(uri);
 
@@ -116,6 +116,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 }
 
                 break;
+            }
             default: {
                 Log.w(TAG, String.format("No match found for uri : %s", uri));
                 break;
@@ -158,16 +159,75 @@ public class ContentFinderDataProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        return null;
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Uri result = null;
+        int matchValue = sUriMatcher.match(uri);
+
+        switch (matchValue) {
+            case KEYWORD: {
+                long _id = database.insert(ContentFinderContract.KeywordEntry.TABLE_NAME, null, values);
+
+                if (_id != -1) {
+                    String word = values.getAsString(ContentFinderContract.KeywordEntry.COLUMN_WORD);
+                    result = ContentFinderContract.KeywordEntry.buildUriFromKeyword(word);
+                }
+
+                break;
+            }
+
+            case MEDIA_ITEM: {
+                long _id = database.insert(ContentFinderContract.MediaItemEntry.TABLE_NAME, null, values);
+
+                if (_id != -1) {
+                    String mediaItemId = values.getAsString(ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID);
+                    result = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(mediaItemId);
+                }
+
+                break;
+            }
+
+            default: {
+                Log.w(TAG, String.format("invalid uri for insert : %s", uri.toString()));
+                break;
+            }
+        }
+
+        return result;
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        int matchType = sUriMatcher.match(uri);
+        String tableName = null;
+        int result = 0;
+
+        switch (matchType) {
+            case KEYWORD: {
+                tableName = ContentFinderContract.KeywordEntry.TABLE_NAME;
+                break;
+            }
+            case MEDIA_ITEM: {
+                tableName = ContentFinderContract.MediaItemEntry.TABLE_NAME;
+                break;
+            }
+            default: {
+                Log.w(TAG, String.format("Invalid URI for deletion: %s", uri.toString()));
+                break;
+            }
+        }
+
+        if (StringUtils.isNotBlank(tableName)) {
+            result = database.delete(tableName, selection, selectionArgs);
+            // TODO delete the entries in the join table
+        }
+
+        return result;
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return 0;
+        Log.w(TAG, "the update method is not implemented");
+        return -1;
     }
 }

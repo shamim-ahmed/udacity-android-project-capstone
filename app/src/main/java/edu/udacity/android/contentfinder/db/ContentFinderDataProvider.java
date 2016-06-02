@@ -43,7 +43,7 @@ public class ContentFinderDataProvider extends ContentProvider {
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private ContentFinderDbHelper dbHelper;
 
-    private static UriMatcher buildUriMatcher() {
+    public static UriMatcher buildUriMatcher() {
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD, KEYWORD);
@@ -61,6 +61,10 @@ public class ContentFinderDataProvider extends ContentProvider {
     public boolean onCreate() {
         dbHelper = new ContentFinderDbHelper(getContext());
         return true;
+    }
+
+    public ContentFinderDbHelper getDbHelper() {
+        return dbHelper;
     }
 
     @Nullable

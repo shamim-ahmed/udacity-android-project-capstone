@@ -108,16 +108,26 @@ public class ContentFinderContract {
             return segmentList.get(3);
         }
 
-        public static Uri buildUriFromMediaItemId(String mediaItemId) {
+        public static Uri buildUriFromMediaItemId(String itemId) {
             return BASE_CONTENT_URI.buildUpon()
                     .appendPath(PATH_MEDIA_ITEM)
-                    .appendPath(mediaItemId)
+                    .appendPath(itemId)
                     .build();
         }
 
-        public static Uri buildUriFromMediaItemTypeAndKeyword(MediaItemType mediaItemType, String keyword) {
+        public static Uri buildUriFromMediaItemType(MediaItemType itemType) {
             return BASE_CONTENT_URI.buildUpon()
-                    .appendPath(mediaItemType.toString())
+                    .appendPath(PATH_MEDIA_ITEM)
+                    .appendPath(PATH_TYPE)
+                    .appendPath(itemType.toString())
+                    .build();
+        }
+
+        public static Uri buildUriFromMediaItemTypeAndKeyword(MediaItemType itemType, String keyword) {
+            return BASE_CONTENT_URI.buildUpon()
+                    .appendPath(PATH_MEDIA_ITEM)
+                    .appendPath(PATH_TYPE)
+                    .appendPath(itemType.toString())
                     .appendPath(KeywordEntry.PATH_KEYWORD)
                     .appendPath(keyword)
                     .build();

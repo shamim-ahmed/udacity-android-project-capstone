@@ -1,6 +1,7 @@
 package edu.udacity.android.contentfinder.db;
 
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.test.ProviderTestCase2;
@@ -11,6 +12,8 @@ import java.util.List;
  * Created by shamim on 6/2/16.
  */
 public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider> {
+
+    private static final UriMatcher sUriMatcher = ContentFinderDataProvider.buildUriMatcher();
 
     public KeywordTestCase() {
         super(ContentFinderDataProvider.class, "edu.udacity.android.contentfinder");
@@ -39,7 +42,7 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         for (ContentValues values : keywordDataList) {
             Uri uri = provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
             assertNotNull("URI is null", uri);
-
+            assertEquals("uri type is different than expected", ContentFinderDataProvider.KEYWORD_WITH_NAME, sUriMatcher.match(uri));
         }
     }
 

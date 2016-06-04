@@ -22,10 +22,10 @@ public class ContentFinderDataProvider extends ContentProvider {
     public static final int KEYWORD = 100;
     public static final int KEYWORD_WITH_NAME = 101;
 
-    private static final int MEDIA_ITEM = 201;
-    private static final int MEDIA_ITEM_WITH_ID = 202;
-    private static final int MEDIA_ITEM_WITH_KEYWORD = 203;
-    private static final int MEDIA_ITEM_WITH_TYPE_AND_KEYWORD = 204;
+    public static final int MEDIA_ITEM = 201;
+    public static final int MEDIA_ITEM_WITH_ID = 202;
+    public static final int MEDIA_ITEM_WITH_KEYWORD = 203;
+    public static final int MEDIA_ITEM_WITH_TYPE_AND_KEYWORD = 204;
 
     private static final String KEYWORD_SELECTION = "word = ?";
     private static final String MEDIA_ITEM_ID_SELECTION = "item_id = ?";

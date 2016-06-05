@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">udacity-android-project-capstone</string>
     <string name="action_settings">Settings</string>
+
+    <string name="item_source_guardian">The Guardian</string>
+    <string name="item_source_youtube">YouTube</string>
+    <string name="item_source_flickr">Flickr</string>
+    <string name="item_source_twitter">Twitter</string>
 </resources>

@@ -8,11 +8,13 @@ import edu.udacity.android.contentfinder.model.MediaItemType;
  * Created by shamim on 5/06/16.
  */
 public class SearchResult {
+    private String itemId;
     private String title;
+    private String description;
     private MediaItemType itemType;
-    private Date publishDate;
     private String webUrl;
     private String source;
+    private Date publishDate;
 
     public MediaItemType getItemType() {
         return itemType;
@@ -52,6 +54,22 @@ public class SearchResult {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

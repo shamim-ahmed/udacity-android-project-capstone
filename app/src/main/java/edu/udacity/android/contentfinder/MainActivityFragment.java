@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import edu.udacity.android.contentfinder.service.GuardianSearchService;
+import edu.udacity.android.contentfinder.service.BingSearchService;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -28,7 +28,7 @@ public class MainActivityFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GuardianSearchService.getInstance().performSearch("us election 2016", getActivity());
+                BingSearchService.getInstance().performSearch("us election 2016", getActivity());
             }
         });
 

@@ -1,7 +1,7 @@
 package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
-import android.os.AsyncTask;
+import android.util.Base64;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -10,25 +10,27 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
+import javax.net.ssl.HttpsURLConnection;
+
+import edu.udacity.android.contentfinder.ContentFinderApplication;
 import edu.udacity.android.contentfinder.util.IOUtils;
 import edu.udacity.android.contentfinder.util.SearchResult;
 
 /**
- * Created by shamim on 5/3/16.
+ * Created by shamim on 6/13/16.
  */
+public abstract class BingSearchTask extends SearchTask {
+    private static final String TAG = BingSearchTask.class.getSimpleName();
 
-public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResult>> {
-    private static final String TAG = SearchTask.class.getSimpleName();
+    private final String apiKey;
 
-    protected final Activity activity;
+    public BingSearchTask(Activity activity) {
+        super(activity);
 
-    // TODO modify the second argument so that it takes a custom activity with a special update method
-    // in that way, we can reuse the update logic
-    public SearchTask(Activity activity) {
-        this.activity = activity;
+        ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
+        apiKey = application.getProperty("news.search.api.key.bing");
     }
 
-    @Override
     protected List<SearchResult> doInBackground(String... params) {
         if (params.length < 1) {
             Log.w(TAG, "No search URL provided");
@@ -43,7 +45,13 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
 
         try {
             URL searchUrl = new URL(urlString);
-            reader = new BufferedReader(new InputStreamReader(searchUrl.openStream()));
+            HttpsURLConnection connection = (HttpsURLConnection) searchUrl.openConnection();
+
+            String keyStr = String.format("%s:%s", apiKey, apiKey);
+            String encodedKeyStr = Base64.encodeToString(keyStr.getBytes(), Base64.NO_WRAP);
+            connection.setRequestProperty("Authorization", String.format("Basic %s", encodedKeyStr));
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -56,11 +64,5 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
         }
 
         return parseResponse(resultBuilder.toString());
-    }
-
-    protected abstract List<SearchResult> parseResponse(String jsonStr);
-
-    @Override
-    protected void onPostExecute(List<SearchResult> resultList) {
     }
 }

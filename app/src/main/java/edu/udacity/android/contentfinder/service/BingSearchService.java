@@ -32,7 +32,7 @@ public class BingSearchService implements SearchService {
         Uri.Builder builder = new Uri.Builder();
         Uri uri = builder.scheme(scheme)
                 .authority(authority)
-                .appendPath("Bing").appendPath("Search").appendPath("News")
+                .appendEncodedPath(path)
                 .appendQueryParameter("Query", String.format("'%s'", keyword))
                 .appendQueryParameter("$format", "json")
                 .appendQueryParameter("$top", "5")

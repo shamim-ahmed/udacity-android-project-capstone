@@ -15,9 +15,6 @@ import edu.udacity.android.contentfinder.task.SearchTask;
 public class BingSearchService implements SearchService {
     private static final BingSearchService INSTANCE = new BingSearchService();
 
-    private static final String API_LINK = "https://api.datamarket.azure.com/Bing/Search/News?Query=%27Hillary2%27&$format=json&$top=5";
-
-
     public static BingSearchService getInstance() {
         return INSTANCE;
     }

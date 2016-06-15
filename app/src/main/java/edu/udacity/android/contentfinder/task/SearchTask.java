@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import edu.udacity.android.contentfinder.util.IOUtils;
 import edu.udacity.android.contentfinder.util.SearchResult;
 
@@ -22,8 +24,6 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
 
     protected final Activity activity;
 
-    // TODO modify the second argument so that it takes a custom activity with a special update method
-    // in that way, we can reuse the update logic
     public SearchTask(Activity activity) {
         this.activity = activity;
     }
@@ -43,7 +43,10 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
 
         try {
             URL searchUrl = new URL(urlString);
-            reader = new BufferedReader(new InputStreamReader(searchUrl.openStream()));
+            HttpsURLConnection connection = (HttpsURLConnection) searchUrl.openConnection();
+            addAuthorizationHeaders(connection);
+
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -60,7 +63,6 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
 
     protected abstract List<SearchResult> parseResponse(String jsonStr);
 
-    @Override
-    protected void onPostExecute(List<SearchResult> resultList) {
+    protected void addAuthorizationHeaders(HttpsURLConnection connection) {
     }
 }

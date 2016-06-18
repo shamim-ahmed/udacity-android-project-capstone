@@ -22,19 +22,22 @@ public class NewsListAdapter extends ArrayAdapter<SearchResult> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View containerView, ViewGroup parent) {
         SearchResult newsItem = getItem(position);
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.news_item, parent, false);
+        if (containerView == null) {
+            containerView = LayoutInflater.from(context).inflate(R.layout.news_item, parent, false);
         }
 
-        TextView titleView = (TextView) convertView.findViewById(R.id.news_title);
-        TextView descriptionView = (TextView) convertView.findViewById(R.id.news_description);
-
+        TextView titleView = (TextView) containerView.findViewById(R.id.news_title);
         titleView.setText(newsItem.getTitle());
+
+        TextView descriptionView = (TextView) containerView.findViewById(R.id.news_description);
         descriptionView.setText(newsItem.getDescription());
 
-        return convertView;
+        TextView sourceView = (TextView) containerView.findViewById(R.id.news_source);
+        sourceView.setText(String.format("Source : %s", newsItem.getSource()));
+
+        return containerView;
     }
 }

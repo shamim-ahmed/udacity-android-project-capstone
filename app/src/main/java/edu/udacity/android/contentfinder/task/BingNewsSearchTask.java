@@ -1,6 +1,7 @@
 package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -39,8 +40,8 @@ public class BingNewsSearchTask extends BingSearchTask {
     private static final String JSON_FIELD_URL = "Url";
     private static final String JSON_FIELD_DATE = "Date";
 
-    public BingNewsSearchTask(Activity activity) {
-        super(activity);
+    public BingNewsSearchTask(Activity activity, Fragment fragment) {
+        super(activity, fragment);
     }
 
     @Override

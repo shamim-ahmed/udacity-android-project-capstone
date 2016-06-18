@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder.service;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 
 import edu.udacity.android.contentfinder.ContentFinderApplication;
 import edu.udacity.android.contentfinder.task.SearchTask;
@@ -13,7 +14,7 @@ import edu.udacity.android.contentfinder.task.YoutubeSearchTask;
 //https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCeBaDHs2Ft4mwuAA1zXYlIwRwjE6yHbjw&q=tulip
 public class YouTubeSearchService implements SearchService {
     @Override
-    public void performSearch(String keyword, Activity activity) {
+    public void performSearch(String keyword, Activity activity, Fragment fragment) {
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("search.api.scheme.youtube");
         String authority = application.getProperty("search.api.scheme.host");
@@ -29,7 +30,7 @@ public class YouTubeSearchService implements SearchService {
                 .appendQueryParameter("q", keyword)
                 .build();
 
-        SearchTask searchTask = new YoutubeSearchTask(activity);
+        SearchTask searchTask = new YoutubeSearchTask(activity, fragment);
         searchTask.execute(searchUri.toString());
     }
 }

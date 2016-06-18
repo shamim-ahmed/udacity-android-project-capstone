@@ -1,6 +1,7 @@
 package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import java.util.List;
@@ -13,8 +14,8 @@ import edu.udacity.android.contentfinder.util.SearchResult;
 public class YoutubeSearchTask extends SearchTask {
     private static final String TAG = YoutubeSearchTask.class.getSimpleName();
 
-    public YoutubeSearchTask(Activity activity) {
-        super(activity);
+    public YoutubeSearchTask(Activity activity, Fragment fragment) {
+        super(activity, fragment);
     }
 
     @Override

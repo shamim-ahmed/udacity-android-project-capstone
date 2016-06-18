@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder.service;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 
 import edu.udacity.android.contentfinder.ContentFinderApplication;
 import edu.udacity.android.contentfinder.model.MediaItemType;
@@ -21,7 +22,7 @@ public class BingSearchService implements SearchService {
     }
 
     @Override
-    public void performSearch(String keyword, Activity activity) {
+    public void performSearch(String keyword, Activity activity, Fragment fragment) {
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("news.search.api.scheme.bing");
         String authority = application.getProperty("news.search.api.host.bing");
@@ -38,7 +39,7 @@ public class BingSearchService implements SearchService {
                 .appendQueryParameter("$top", max)
                 .build();
 
-        SearchTask searchTask = new BingNewsSearchTask(activity);
+        SearchTask searchTask = new BingNewsSearchTask(activity, fragment);
         searchTask.execute(uri.toString());
     }
 

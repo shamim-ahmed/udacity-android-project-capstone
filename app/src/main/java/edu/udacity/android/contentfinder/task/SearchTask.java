@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -23,9 +24,11 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
     private static final String TAG = SearchTask.class.getSimpleName();
 
     protected final Activity activity;
+    protected final Fragment fragment;
 
-    public SearchTask(Activity activity) {
+    public SearchTask(Activity activity, Fragment fragment) {
         this.activity = activity;
+        this.fragment = fragment;
     }
 
     @Override

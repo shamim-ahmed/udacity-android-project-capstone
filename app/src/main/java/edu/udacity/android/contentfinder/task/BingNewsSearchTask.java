@@ -97,7 +97,7 @@ public class BingNewsSearchTask extends BingSearchTask {
     @Override
     protected void onPostExecute(List<SearchResult> resultList) {
         View containerView = fragment.getView();
-        
+
         if (containerView == null) {
             return;
         }

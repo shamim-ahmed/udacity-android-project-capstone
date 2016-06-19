@@ -3,6 +3,7 @@ package edu.udacity.android.contentfinder.task;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -19,7 +20,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import edu.udacity.android.contentfinder.R;
-import edu.udacity.android.contentfinder.adapter.NewsListAdapter;
+import edu.udacity.android.contentfinder.ui.NewsListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.util.SearchResult;
 import edu.udacity.android.contentfinder.util.StringUtils;
@@ -42,17 +43,6 @@ public class BingNewsSearchTask extends BingSearchTask {
 
     public BingNewsSearchTask(Activity activity, Fragment fragment) {
         super(activity, fragment);
-    }
-
-    @Override
-    protected void onPostExecute(List<SearchResult> resultList) {
-        Log.i(TAG, "the search result : " + resultList);
-
-        ListView listView = (ListView) activity.findViewById(R.id.result_list);
-        ArrayAdapter<SearchResult> adapter = new NewsListAdapter(activity);
-        listView.setAdapter(adapter);
-
-        adapter.addAll(resultList);
     }
 
     @Override
@@ -102,6 +92,21 @@ public class BingNewsSearchTask extends BingSearchTask {
         }
 
         return resultList;
+    }
+
+    @Override
+    protected void onPostExecute(List<SearchResult> resultList) {
+        View containerView = fragment.getView();
+        
+        if (containerView == null) {
+            return;
+        }
+
+        ListView listView = (ListView) containerView.findViewById(R.id.news_list);
+        ArrayAdapter<SearchResult> adapter = new NewsListAdapter(activity);
+        listView.setAdapter(adapter);
+
+        adapter.addAll(resultList);
     }
 
     private Date parseDate(String dateStr) {

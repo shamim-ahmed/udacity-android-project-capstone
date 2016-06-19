@@ -11,13 +11,18 @@ import android.view.MenuItem;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.udacity.android.contentfinder.service.BingSearchService;
+import edu.udacity.android.contentfinder.service.BingNewsSearchService;
+import edu.udacity.android.contentfinder.service.BingImageSearchService;
 import edu.udacity.android.contentfinder.ui.NewsSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.PhotoSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.TweetSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.VideoSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.ViewPagerAdapter;
 
+/**
+ * TODO check the example here:
+ * http://www.truiton.com/2015/06/android-tabs-example-fragments-viewpager/
+ */
 public class MainActivity extends AppCompatActivity {
     private static final String NEWS_TAB_TITLE = "News";
     private static final String PHOTOS_TAB_TITLE = "Photos";
@@ -38,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         Fragment newsFragment = fragmentMap.get(NEWS_TAB_TITLE);
-        BingSearchService.getInstance().performSearch("us election 2016", this, newsFragment);
-    }
+        BingNewsSearchService.getInstance().performSearch("us election 2016", this, newsFragment);
 
+        Fragment photosFragment = fragmentMap.get(PHOTOS_TAB_TITLE);
+        BingImageSearchService.getInstance().performSearch("Daisy", this, photosFragment);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

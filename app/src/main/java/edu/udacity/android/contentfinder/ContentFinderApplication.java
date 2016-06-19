@@ -10,6 +10,11 @@ import java.util.Properties;
 /**
  * Created by shamim on 5/1/16.
  */
+
+/**
+ * TODO Implement a global caching mechanism using Guava. Use proguard to reduce size
+ *
+ */
 public class ContentFinderApplication extends Application {
     private static final String TAG = ContentFinderApplication.class.getSimpleName();
     private final Properties configProperties = new Properties();

@@ -1,4 +1,4 @@
-package edu.udacity.android.contentfinder.adapter;
+package edu.udacity.android.contentfinder.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;

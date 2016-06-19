@@ -7,6 +7,12 @@ import edu.udacity.android.contentfinder.model.MediaItemType;
 /**
  * Created by shamim on 5/06/16.
  */
+
+/**
+ * TODO create a hierarchy of classes. Common fields should be at the root class.
+ * Subclasses will add more specific fields
+ */
+
 public class SearchResult {
     private String itemId;
     private String title;

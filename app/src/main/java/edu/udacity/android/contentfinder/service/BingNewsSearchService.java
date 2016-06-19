@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 
 import edu.udacity.android.contentfinder.ContentFinderApplication;
-import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.task.BingNewsSearchTask;
 import edu.udacity.android.contentfinder.task.SearchTask;
 
@@ -14,10 +13,10 @@ import edu.udacity.android.contentfinder.task.SearchTask;
  */
 
 // example url https://content.guardianapis.com/search?api-key=ba8797d1-a1ef-4a5c-902c-ee0278d59bf6&q=hillary
-public class BingSearchService implements SearchService {
-    private static final BingSearchService INSTANCE = new BingSearchService();
+public class BingNewsSearchService implements SearchService {
+    private static final BingNewsSearchService INSTANCE = new BingNewsSearchService();
 
-    public static BingSearchService getInstance() {
+    public static BingNewsSearchService getInstance() {
         return INSTANCE;
     }
 
@@ -43,6 +42,6 @@ public class BingSearchService implements SearchService {
         searchTask.execute(uri.toString());
     }
 
-    private BingSearchService() {
+    private BingNewsSearchService() {
     }
 }

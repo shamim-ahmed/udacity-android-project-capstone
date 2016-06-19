@@ -18,7 +18,7 @@ public abstract class BingSearchTask extends SearchTask {
         super(activity, fragment);
 
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
-        apiKey = application.getProperty("news.search.api.key.bing");
+        apiKey = application.getProperty("search.api.key.bing");
     }
 
     @Override

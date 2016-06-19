@@ -14,7 +14,7 @@
         tools:showIn="@layout/activity_main"
         tools:context="edu.udacity.android.contentfinder.MainActivity">
 
-    <ListView android:id="@+id/news_list"
+    <ListView android:id="@+id/image_list"
               android:layout_height="wrap_content"
               android:layout_width="fill_parent" />
 </RelativeLayout>

@@ -41,14 +41,15 @@ public class SearchResult implements Parcelable {
     public SearchResult() {
     }
 
-    public SearchResult(Parcel source) {
-        Object[] fieldValues = source.readArray(ClassLoader.getSystemClassLoader());
+    public SearchResult(Parcel parcel) {
+        Object[] fieldValues = parcel.readArray(ClassLoader.getSystemClassLoader());
         itemId = (String) fieldValues[0];
         title = (String) fieldValues[1];
         description = (String) fieldValues[2];
         itemType = (MediaItemType) fieldValues[3];
         webUrl = (String) fieldValues[4];
-        publishDate = (Date) fieldValues[5];
+        source = (String) fieldValues[5];
+        publishDate = (Date) fieldValues[6];
     }
 
     public MediaItemType getItemType() {

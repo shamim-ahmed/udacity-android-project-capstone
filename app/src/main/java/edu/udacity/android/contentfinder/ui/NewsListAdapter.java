@@ -29,13 +29,13 @@ public class NewsListAdapter extends ArrayAdapter<SearchResult> {
             containerView = LayoutInflater.from(context).inflate(R.layout.news_item, parent, false);
         }
 
-        TextView titleView = (TextView) containerView.findViewById(R.id.news_title);
+        TextView titleView = (TextView) containerView.findViewById(R.id.news_summary_title);
         titleView.setText(newsItem.getTitle());
 
-        TextView descriptionView = (TextView) containerView.findViewById(R.id.news_description);
+        TextView descriptionView = (TextView) containerView.findViewById(R.id.news_summary_description);
         descriptionView.setText(newsItem.getDescription());
 
-        TextView sourceView = (TextView) containerView.findViewById(R.id.news_source);
+        TextView sourceView = (TextView) containerView.findViewById(R.id.news_summary_source);
         sourceView.setText(String.format("Source : %s", newsItem.getSource()));
 
         return containerView;

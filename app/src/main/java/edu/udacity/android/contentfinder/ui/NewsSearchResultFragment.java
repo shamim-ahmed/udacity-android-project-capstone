@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import edu.udacity.android.contentfinder.NewsDetailActivity;
 import edu.udacity.android.contentfinder.R;
+import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.SearchResult;
 
 /**
@@ -39,7 +40,7 @@ public class NewsSearchResultFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SearchResult selectedResult = (SearchResult) parent.getItemAtPosition(position);
                 Intent intent = new Intent(context, NewsDetailActivity.class);
-                intent.putExtra("selectedResult", selectedResult);
+                intent.putExtra(Constants.SELECTED_NEWS_KEY, selectedResult);
                 context.startActivity(intent);
             }
         });

@@ -12,7 +12,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name="edu.udacity.android.contentfinder.MainActivity"
+                android:name=".MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,6 +20,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".NewsDetailActivity"
+                android:label="@string/title_activity_news_detail"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

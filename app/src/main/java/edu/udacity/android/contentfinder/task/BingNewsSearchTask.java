@@ -1,9 +1,11 @@
 package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import edu.udacity.android.contentfinder.NewsDetailActivity;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.ui.NewsListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItemType;

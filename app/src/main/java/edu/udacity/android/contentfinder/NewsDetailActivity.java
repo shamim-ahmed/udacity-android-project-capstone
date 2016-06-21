@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,6 +28,12 @@ public class NewsDetailActivity extends AppCompatActivity {
             if (resultItem != null) {
                 TextView titleView = (TextView) findViewById(R.id.news_detail_title);
                 titleView.setText(resultItem.getTitle());
+
+                TextView descriptionView = (TextView) findViewById(R.id.news_detail_description);
+                descriptionView.setText(resultItem.getDescription());
+
+                TextView sourceView = (TextView) findViewById(R.id.news_detail_source);
+                sourceView.setText(resultItem.getSource());
             }
         }
 

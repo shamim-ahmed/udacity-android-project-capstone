@@ -18,7 +18,7 @@ import edu.udacity.android.contentfinder.util.SearchResult;
 /**
  * Created by shamim on 6/18/16.
  */
-public class PhotoSearchResultFragment extends Fragment {
+public class ImageSearchResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

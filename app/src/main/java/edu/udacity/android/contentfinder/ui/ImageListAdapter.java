@@ -16,10 +16,10 @@ import edu.udacity.android.contentfinder.util.SearchResult;
 /**
  * Created by shamim on 6/19/16.
  */
-public class PhotoListAdapter extends ArrayAdapter<SearchResult> {
+public class ImageListAdapter extends ArrayAdapter<SearchResult> {
     private final Context context;
 
-    public PhotoListAdapter(Context context) {
+    public ImageListAdapter(Context context) {
         super(context, R.layout.image_item);
         this.context = context;
     }

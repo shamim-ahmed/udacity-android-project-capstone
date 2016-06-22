@@ -15,7 +15,7 @@ import java.util.List;
 
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItemType;
-import edu.udacity.android.contentfinder.ui.PhotoListAdapter;
+import edu.udacity.android.contentfinder.ui.ImageListAdapter;
 import edu.udacity.android.contentfinder.util.SearchResult;
 
 /**
@@ -76,7 +76,7 @@ public class BingImageSearchTask extends BingSearchTask {
         }
 
         ListView imageListView = (ListView) containerView.findViewById(R.id.image_list);
-        ArrayAdapter<SearchResult> adapter = new PhotoListAdapter(activity);
+        ArrayAdapter<SearchResult> adapter = new ImageListAdapter(activity);
         imageListView.setAdapter(adapter);
 
         adapter.addAll(resultList);

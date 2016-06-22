@@ -1,6 +1,5 @@
 package edu.udacity.android.contentfinder;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -8,9 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,11 +14,10 @@ import java.util.Map;
 import edu.udacity.android.contentfinder.service.BingNewsSearchService;
 import edu.udacity.android.contentfinder.service.BingImageSearchService;
 import edu.udacity.android.contentfinder.ui.NewsSearchResultFragment;
-import edu.udacity.android.contentfinder.ui.PhotoSearchResultFragment;
+import edu.udacity.android.contentfinder.ui.ImageSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.TweetSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.VideoSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.ViewPagerAdapter;
-import edu.udacity.android.contentfinder.util.SearchResult;
 
 /**
  * TODO check the example here: http://www.truiton.com/2015/06/android-tabs-example-fragments-viewpager/
@@ -82,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentMap.put(NEWS_TAB_TITLE, newsFragment);
         pagerAdapter.addFragmentWithTitle(newsFragment, NEWS_TAB_TITLE);
 
-        Fragment photosFragment = new PhotoSearchResultFragment();
+        Fragment photosFragment = new ImageSearchResultFragment();
         fragmentMap.put(PHOTOS_TAB_TITLE, photosFragment);
         pagerAdapter.addFragmentWithTitle(photosFragment, PHOTOS_TAB_TITLE);
 

@@ -20,7 +20,7 @@ public class PhotoListAdapter extends ArrayAdapter<SearchResult> {
     private final Context context;
 
     public PhotoListAdapter(Context context) {
-        super(context, R.layout.photo_item);
+        super(context, R.layout.image_item);
         this.context = context;
     }
 
@@ -29,7 +29,7 @@ public class PhotoListAdapter extends ArrayAdapter<SearchResult> {
         SearchResult resultItem = getItem(position);
 
         if (containerView == null) {
-            containerView = LayoutInflater.from(context).inflate(R.layout.photo_item, parent, false);
+            containerView = LayoutInflater.from(context).inflate(R.layout.image_item, parent, false);
         }
 
         ImageView imageView = (ImageView) containerView.findViewById(R.id.photo);

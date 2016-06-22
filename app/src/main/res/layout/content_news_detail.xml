@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:layout_marginBottom="5dp"
+            android:maxLines="100"
             android:layout_below="@+id/news_detail_title"/>
 
     <TextView

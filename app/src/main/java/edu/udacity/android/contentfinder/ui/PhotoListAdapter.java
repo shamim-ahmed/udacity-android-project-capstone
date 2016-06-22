@@ -32,9 +32,9 @@ public class PhotoListAdapter extends ArrayAdapter<SearchResult> {
             containerView = LayoutInflater.from(context).inflate(R.layout.image_item, parent, false);
         }
 
-        ImageView imageView = (ImageView) containerView.findViewById(R.id.photo);
-        TextView titleView = (TextView) containerView.findViewById(R.id.photo_title);
-        TextView sourceView = (TextView) containerView.findViewById(R.id.photo_source);
+        ImageView imageView = (ImageView) containerView.findViewById(R.id.image_binary);
+        TextView titleView = (TextView) containerView.findViewById(R.id.image_title);
+        TextView sourceView = (TextView) containerView.findViewById(R.id.image_source);
 
         // TODO use the right URL here and distinguish between web and bing URL
         Picasso.with(context)

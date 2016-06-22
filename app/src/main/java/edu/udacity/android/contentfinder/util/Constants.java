@@ -5,6 +5,8 @@ package edu.udacity.android.contentfinder.util;
  */
 public class Constants {
     public static final String SELECTED_NEWS_KEY = "selectedNews";
+    public static final String SELECTED_IMAGE_KEY = "selectedImage";
+
     // private constructor to prevent instantiation
     private Constants() {
     }

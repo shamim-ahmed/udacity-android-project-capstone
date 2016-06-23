@@ -6,7 +6,7 @@
               android:layout_height="match_parent">
 
     <ImageView
-            android:id="@+id/image_binary"
+            android:id="@+id/image_summary_binary"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -23,7 +23,7 @@
             android:layout_weight="3"
             android:orientation="vertical">
         <TextView
-                android:id="@+id/image_title"
+                android:id="@+id/image_summary_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -32,7 +32,7 @@
                 android:textColor="#0d47a1"/>
 
         <TextView
-                android:id="@+id/image_source"
+                android:id="@+id/image_summary_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"

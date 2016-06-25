@@ -36,6 +36,8 @@ public class ImageDetailActivity extends AppCompatActivity {
                 Picasso.with(this)
                         .load(resultItem.getWebUrl())
                         .noFade()
+                        .resize(1000, 600)
+                        .centerInside()
                         .into(imageView);
 
                 titleView.setText(resultItem.getTitle());

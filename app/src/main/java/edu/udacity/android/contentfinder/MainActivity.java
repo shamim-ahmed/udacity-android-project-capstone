@@ -15,7 +15,6 @@ import edu.udacity.android.contentfinder.service.BingNewsSearchService;
 import edu.udacity.android.contentfinder.service.BingImageSearchService;
 import edu.udacity.android.contentfinder.ui.NewsSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.ImageSearchResultFragment;
-import edu.udacity.android.contentfinder.ui.TweetSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.VideoSearchResultFragment;
 import edu.udacity.android.contentfinder.ui.ViewPagerAdapter;
 
@@ -84,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
         Fragment videosFragment = new VideoSearchResultFragment();
         fragmentMap.put(VIDEOS_TAB_TITLE, videosFragment);
         pagerAdapter.addFragmentWithTitle(videosFragment, VIDEOS_TAB_TITLE);
-
-        Fragment tweetsFragment = new TweetSearchResultFragment();
-        fragmentMap.put(TWEETS_TAB_TITLE, tweetsFragment);
-        pagerAdapter.addFragmentWithTitle(tweetsFragment, TWEETS_TAB_TITLE);
 
         viewPager.setAdapter(pagerAdapter);
     }

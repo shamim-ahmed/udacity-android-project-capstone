@@ -34,16 +34,16 @@ public class ImageListAdapter extends ArrayAdapter<SearchResult> {
 
         ImageView imageView = (ImageView) containerView.findViewById(R.id.image_summary_binary);
         TextView titleView = (TextView) containerView.findViewById(R.id.image_summary_title);
-        TextView sourceView = (TextView) containerView.findViewById(R.id.image_summary_source);
 
         // TODO use the right URL here and distinguish between web and bing URL
         Picasso.with(context)
                 .load(resultItem.getWebUrl())
                 .noFade()
+                .resize(200, 120)
+                .centerInside()
                 .into(imageView);
 
         titleView.setText(resultItem.getTitle());
-        sourceView.setText(resultItem.getSource());
 
         return containerView;
     }

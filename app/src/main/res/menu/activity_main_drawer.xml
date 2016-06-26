@@ -20,7 +20,7 @@
                 android:title="Youtube Video Search"/>
     </group>
 
-    <item android:title="Preferences">
+    <item android:title="Personalization">
         <menu>
             <item
                     android:id="@+id/nav_add_keyword"

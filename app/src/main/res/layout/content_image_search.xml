@@ -45,6 +45,7 @@
     <ListView
             android:id="@+id/image_list"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"/>
+            android:layout_width="fill_parent"
+            android:layout_below="@id/image_keyword_widgets"/>
 
 </RelativeLayout>

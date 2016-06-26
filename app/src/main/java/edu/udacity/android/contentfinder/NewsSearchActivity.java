@@ -74,7 +74,6 @@ public class NewsSearchActivity extends AppCompatActivity {
         adapter.addAll(application.getKeyWords());
 
         keywordSpinner.setAdapter(adapter);
-        String selectedKeyword = null;
 
         if (adapter.getCount() > 0) {
             keywordSpinner.setSelection(0);

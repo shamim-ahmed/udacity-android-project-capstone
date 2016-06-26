@@ -8,9 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
+import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.service.BingNewsSearchService;
+import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.SearchResult;
 
@@ -44,9 +48,21 @@ public class NewsSearchActivity extends AppCompatActivity {
             }
         });
 
+        Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
+
+        loadKeywords(keywordSpinner);
+
         BingNewsSearchService searchService = BingNewsSearchService.getInstance();
         searchService.performSearch("us election 2016", this);
 
+    }
+
+    private void loadKeywords(Spinner keywordSpinner) {
+        ContentFinderApplication application = (ContentFinderApplication) getApplication();
+        ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);
+        adapter.addAll(application.getKeyWords());
+
+        keywordSpinner.setAdapter(adapter);
     }
 
 }

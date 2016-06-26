@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -48,13 +49,23 @@ public class NewsSearchActivity extends AppCompatActivity {
             }
         });
 
-        Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
-
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.news_keyword_spinner);
         loadKeywords(keywordSpinner);
 
-        BingNewsSearchService searchService = BingNewsSearchService.getInstance();
-        searchService.performSearch("us election 2016", this);
+        Button searchButton = (Button) findViewById(R.id.news_search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
+                if (selectedKeyword != null) {
+                    BingNewsSearchService searchService = BingNewsSearchService.getInstance();
+                    searchService.performSearch(selectedKeyword.getWord(), NewsSearchActivity.this);
+                }
+            }
+        });
+
+        searchButton.performClick();
     }
 
     private void loadKeywords(Spinner keywordSpinner) {
@@ -63,6 +74,10 @@ public class NewsSearchActivity extends AppCompatActivity {
         adapter.addAll(application.getKeyWords());
 
         keywordSpinner.setAdapter(adapter);
-    }
+        String selectedKeyword = null;
 
+        if (adapter.getCount() > 0) {
+            keywordSpinner.setSelection(0);
+        }
+    }
 }

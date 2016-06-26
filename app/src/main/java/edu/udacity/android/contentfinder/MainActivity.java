@@ -13,6 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.ui.KeywordListAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +46,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        loadKeywords();
     }
 
     @Override
@@ -96,5 +103,14 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void loadKeywords() {
+        ContentFinderApplication application = (ContentFinderApplication) getApplication();
+        ListView listView = (ListView) findViewById(R.id.keyword_list);
+        ArrayAdapter<Keyword> adapter = new KeywordListAdapter(this);
+        adapter.addAll(application.getKeyWords());
+
+        listView.setAdapter(adapter);
     }
 }

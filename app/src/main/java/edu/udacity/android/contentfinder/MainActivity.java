@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String NEWS_TAB_TITLE = "News";
     private static final String PHOTOS_TAB_TITLE = "Photos";
     private static final String VIDEOS_TAB_TITLE = "Videos";
-    private static final String TWEETS_TAB_TITLE = "Tweets";
 
     private Map<String, Fragment> fragmentMap = new HashMap<>();
 

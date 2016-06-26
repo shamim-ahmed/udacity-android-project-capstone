@@ -18,10 +18,19 @@
                 android:id="@+id/nav_video_search"
                 android:icon="@mipmap/ic_launcher"
                 android:title="Youtube Video Search"/>
-        <item
-                android:id="@+id/nav_saved_content"
-                android:icon="@mipmap/ic_launcher"
-                android:title="View Saved Content"/>
     </group>
+
+    <item android:title="Preferences">
+        <menu>
+            <item
+                    android:id="@+id/nav_add_keyword"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Add New Keyword"/>
+            <item
+                    android:id="@+id/nav_saved_content"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="View Saved Content"/>
+        </menu>
+    </item>
 
 </menu>

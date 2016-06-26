@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -48,6 +49,15 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         loadKeywords();
+
+        Button addKeywordButton = (Button) findViewById(R.id.add_keyword_button);
+        addKeywordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddKeywordActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

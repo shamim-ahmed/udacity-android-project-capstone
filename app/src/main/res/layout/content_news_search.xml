@@ -23,14 +23,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Keyword"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:layout_marginTop="7dp"/>
 
         <Spinner
                 android:layout_marginLeft="10dp"
                 android:id="@+id/keyword_spinner"
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 style="@style/spinner_style"/>
+
+        <Button
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go"
+                android:layout_marginTop="7dp"/>
     </LinearLayout>
 
     <ListView

@@ -1,55 +1,62 @@
 package edu.udacity.android.contentfinder;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import edu.udacity.android.contentfinder.service.BingNewsSearchService;
-import edu.udacity.android.contentfinder.service.BingImageSearchService;
-import edu.udacity.android.contentfinder.ui.NewsSearchResultFragment;
-import edu.udacity.android.contentfinder.ui.ImageSearchResultFragment;
-import edu.udacity.android.contentfinder.ui.VideoSearchResultFragment;
-import edu.udacity.android.contentfinder.ui.ViewPagerAdapter;
-
-/**
- * TODO check the example here: http://www.truiton.com/2015/06/android-tabs-example-fragments-viewpager/
- */
-public class MainActivity extends AppCompatActivity {
-    private static final String NEWS_TAB_TITLE = "News";
-    private static final String PHOTOS_TAB_TITLE = "Photos";
-    private static final String VIDEOS_TAB_TITLE = "Videos";
-
-    private Map<String, Fragment> fragmentMap = new HashMap<>();
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-        Fragment newsFragment = fragmentMap.get(NEWS_TAB_TITLE);
-        BingNewsSearchService.getInstance().performSearch("us election 2016", this, newsFragment);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
 
-        Fragment photosFragment = fragmentMap.get(PHOTOS_TAB_TITLE);
-        BingImageSearchService.getInstance().performSearch("Daisy", this, photosFragment);
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
     }
 
@@ -68,21 +75,30 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-        Fragment newsFragment = new NewsSearchResultFragment();
-        fragmentMap.put(NEWS_TAB_TITLE, newsFragment);
-        pagerAdapter.addFragmentWithTitle(newsFragment, NEWS_TAB_TITLE);
+        if (id == R.id.nav_camera) {
+            Intent intent = new Intent(this, NewsSearchActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(this, ImageSearchActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_slideshow) {
 
-        Fragment photosFragment = new ImageSearchResultFragment();
-        fragmentMap.put(PHOTOS_TAB_TITLE, photosFragment);
-        pagerAdapter.addFragmentWithTitle(photosFragment, PHOTOS_TAB_TITLE);
+        } else if (id == R.id.nav_manage) {
 
-        Fragment videosFragment = new VideoSearchResultFragment();
-        fragmentMap.put(VIDEOS_TAB_TITLE, videosFragment);
-        pagerAdapter.addFragmentWithTitle(videosFragment, VIDEOS_TAB_TITLE);
+        } else if (id == R.id.nav_share) {
 
-        viewPager.setAdapter(pagerAdapter);
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

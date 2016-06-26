@@ -21,7 +21,7 @@ public class BingNewsSearchService implements SearchService {
     }
 
     @Override
-    public void performSearch(String keyword, Activity activity, Fragment fragment) {
+    public void performSearch(String keyword, Activity activity) {
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("news.search.api.scheme.bing");
         String authority = application.getProperty("news.search.api.host.bing");
@@ -38,7 +38,7 @@ public class BingNewsSearchService implements SearchService {
                 .appendQueryParameter("$top", max)
                 .build();
 
-        SearchTask searchTask = new BingNewsSearchTask(activity, fragment);
+        SearchTask searchTask = new BingNewsSearchTask(activity);
         searchTask.execute(uri.toString());
     }
 

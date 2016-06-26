@@ -24,11 +24,9 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
     private static final String TAG = SearchTask.class.getSimpleName();
 
     protected final Activity activity;
-    protected final Fragment fragment;
 
-    public SearchTask(Activity activity, Fragment fragment) {
+    public SearchTask(Activity activity) {
         this.activity = activity;
-        this.fragment = fragment;
     }
 
     @Override

@@ -1,9 +1,7 @@
 package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -31,8 +29,8 @@ public class BingImageSearchTask extends BingSearchTask {
     private static final String JSON_FIELD_THUMBNAIL = "Thumbnail";
     private static final String JSON_FIELD_MEDIAURL = "MediaUrl";
 
-    public BingImageSearchTask(Activity activity, Fragment fragment) {
-        super(activity, fragment);
+    public BingImageSearchTask(Activity activity) {
+        super(activity);
     }
 
     @Override
@@ -69,13 +67,7 @@ public class BingImageSearchTask extends BingSearchTask {
 
     @Override
     protected void onPostExecute(List<SearchResult> resultList) {
-        View containerView = fragment.getView();
-
-        if (containerView == null) {
-            return;
-        }
-
-        ListView imageListView = (ListView) containerView.findViewById(R.id.image_list);
+        ListView imageListView = (ListView) activity.findViewById(R.id.image_list);
         ArrayAdapter<SearchResult> adapter = new ImageListAdapter(activity);
         imageListView.setAdapter(adapter);
 

@@ -14,8 +14,8 @@ import edu.udacity.android.contentfinder.util.SearchResult;
 public class YoutubeSearchTask extends SearchTask {
     private static final String TAG = YoutubeSearchTask.class.getSimpleName();
 
-    public YoutubeSearchTask(Activity activity, Fragment fragment) {
-        super(activity, fragment);
+    public YoutubeSearchTask(Activity activity) {
+        super(activity);
     }
 
     @Override

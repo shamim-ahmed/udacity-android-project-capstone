@@ -14,8 +14,8 @@ import edu.udacity.android.contentfinder.ContentFinderApplication;
 public abstract class BingSearchTask extends SearchTask {
     private final String apiKey;
 
-    public BingSearchTask(Activity activity, Fragment fragment) {
-        super(activity, fragment);
+    public BingSearchTask(Activity activity) {
+        super(activity);
 
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         apiKey = application.getProperty("search.api.key.bing");

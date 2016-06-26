@@ -21,7 +21,7 @@ public class BingImageSearchService implements SearchService {
     }
 
     @Override
-    public void performSearch(String keyword, Activity activity, Fragment fragment) {
+    public void performSearch(String keyword, Activity activity) {
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("photos.search.api.scheme.bing");
         String authority = application.getProperty("photos.search.api.host.bing");
@@ -38,7 +38,7 @@ public class BingImageSearchService implements SearchService {
                 .appendQueryParameter("$top", max)
                 .build();
 
-        SearchTask searchTask = new BingImageSearchTask(activity, fragment);
+        SearchTask searchTask = new BingImageSearchTask(activity);
         searchTask.execute(uri.toString());
     }
 

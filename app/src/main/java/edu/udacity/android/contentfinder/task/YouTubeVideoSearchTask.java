@@ -21,8 +21,8 @@ import edu.udacity.android.contentfinder.util.StringUtils;
 /**
  * Created by shamim on 5/6/16.
  */
-public class YoutubeSearchTask extends SearchTask {
-    private static final String TAG = YoutubeSearchTask.class.getSimpleName();
+public class YouTubeVideoSearchTask extends SearchTask {
+    private static final String TAG = YouTubeVideoSearchTask.class.getSimpleName();
 
     private static final String JSON_FIELD_ITEMS = "items";
     private static final String JSON_FIELD_SNIPPET = "snippet";
@@ -38,7 +38,7 @@ public class YoutubeSearchTask extends SearchTask {
     private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
 
-    public YoutubeSearchTask(Activity activity) {
+    public YouTubeVideoSearchTask(Activity activity) {
         super(activity);
     }
 

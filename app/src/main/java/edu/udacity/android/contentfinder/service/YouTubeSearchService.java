@@ -27,6 +27,7 @@ public class YouTubeSearchService implements SearchService {
                 .path(path)
                 .appendQueryParameter("key", searchKey)
                 .appendQueryParameter("part", "snippet")
+                .appendQueryParameter("type", "video")
                 .appendQueryParameter("q", keyword)
                 .build();
 

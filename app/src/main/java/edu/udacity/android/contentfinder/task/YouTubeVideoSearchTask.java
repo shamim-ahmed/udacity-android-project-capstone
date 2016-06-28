@@ -35,7 +35,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
     private static final String JSON_FIELD_MEDIUM = "medium";
     private static final String JSON_FIELD_URL = "url";
 
-    private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+    private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
 
     public YouTubeVideoSearchTask(Activity activity) {

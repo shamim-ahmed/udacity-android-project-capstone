@@ -12,11 +12,17 @@ import edu.udacity.android.contentfinder.task.YouTubeVideoSearchTask;
  */
 //https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCeBaDHs2Ft4mwuAA1zXYlIwRwjE6yHbjw&q=tulip
 public class YouTubeVideoSearchService implements SearchService {
+    private static final YouTubeVideoSearchService INSTANCE = new YouTubeVideoSearchService();
+
+    public static YouTubeVideoSearchService getInstance() {
+        return INSTANCE;
+    }
+
     @Override
     public void performSearch(String keyword, Activity activity) {
         ContentFinderApplication application = (ContentFinderApplication) activity.getApplication();
         String scheme = application.getProperty("search.api.scheme.youtube");
-        String authority = application.getProperty("search.api.scheme.host");
+        String authority = application.getProperty("search.api.host.youtube");
         String path = application.getProperty("search.api.path.youtube");
         String searchKey = application.getProperty("search.api.key.youtube");
 
@@ -32,5 +38,9 @@ public class YouTubeVideoSearchService implements SearchService {
 
         SearchTask searchTask = new YouTubeVideoSearchTask(activity);
         searchTask.execute(searchUri.toString());
+    }
+
+    // private constructor to prevent instantiation
+    private YouTubeVideoSearchService() {
     }
 }

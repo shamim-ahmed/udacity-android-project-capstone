@@ -103,4 +103,5 @@
     <string name="title_activity_news_search_result">NewsSearchResultActivity</string>
     <string name="title_activity_image_search">ImageSearchActivity</string>
     <string name="title_activity_add_keyword">AddKeywordActivity</string>
+    <string name="title_activity_you_tube_video_search">YouTubeVideoSearchActivity</string>
 </resources>

@@ -46,6 +46,11 @@
                 android:label="@string/title_activity_add_keyword"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+                android:name=".YouTubeVideoSearchActivity"
+                android:label="@string/title_activity_you_tube_video_search"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

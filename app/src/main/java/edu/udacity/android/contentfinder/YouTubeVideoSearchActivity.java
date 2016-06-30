@@ -35,6 +35,10 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity {
                 }
             }
         });
+
+        if (keywordSpinner.getCount() > 0) {
+            searchButton.performClick();
+        }
     }
 
     private void loadKeywords(Spinner keywordSpinner) {

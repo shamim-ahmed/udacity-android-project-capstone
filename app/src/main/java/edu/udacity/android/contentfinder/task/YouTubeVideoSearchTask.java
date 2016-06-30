@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder.task;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,6 +16,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import edu.udacity.android.contentfinder.R;
+import edu.udacity.android.contentfinder.ui.VideoListAdapter;
 import edu.udacity.android.contentfinder.util.SearchResult;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
@@ -36,7 +39,6 @@ public class YouTubeVideoSearchTask extends SearchTask {
     private static final String JSON_FIELD_URL = "url";
 
     private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-
 
     public YouTubeVideoSearchTask(Activity activity) {
         super(activity);
@@ -94,7 +96,10 @@ public class YouTubeVideoSearchTask extends SearchTask {
 
     @Override
     public void onPostExecute(List<SearchResult> resultList) {
-        Log.i(TAG, "the search result : " + resultList);
-        // TODO update some view associated with the activity
+        ListView videoListView = (ListView) activity.findViewById(R.id.video_list);
+        VideoListAdapter adapter = new VideoListAdapter(activity);
+        adapter.addAll(resultList);
+
+        videoListView.setAdapter(adapter);
     }
 }

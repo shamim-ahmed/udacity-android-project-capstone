@@ -10,7 +10,7 @@
         android:padding="10dp"
         tools:context="edu.udacity.android.contentfinder.ImageDetailActivity">
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -27,6 +27,7 @@
                 android:id="@+id/image_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/image_detail_binary"
                 android:textSize="16sp"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
@@ -36,9 +37,19 @@
                 android:id="@+id/image_detail_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/image_detail_title"
                 android:textSize="14sp"
                 android:textStyle="italic"
                 android:textColor="#2196f3"/>
-    </LinearLayout>
+
+        <Button
+                android:id="@+id/image_favorite_button"
+                android:text="Mark as Favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_detail_source"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+    </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

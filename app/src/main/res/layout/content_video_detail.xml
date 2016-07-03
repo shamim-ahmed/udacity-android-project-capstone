@@ -13,7 +13,7 @@
         tools:showIn="@layout/activity_video_detail"
         tools:context=".YouTubeVideoDetailActivity">
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -30,6 +30,7 @@
                 android:id="@+id/video_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/video_detail_image"
                 android:textSize="16sp"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
@@ -39,6 +40,7 @@
                 android:id="@+id/video_detail_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/video_detail_title"
                 android:textSize="14sp"
                 android:layout_marginBottom="5dp"/>
 
@@ -46,10 +48,20 @@
                 android:id="@+id/video_detail_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/video_detail_description"
                 android:textSize="14sp"
                 android:textStyle="italic"
                 android:textColor="#2196f3"/>
-    </LinearLayout>
+
+        <Button
+                android:id="@+id/video_favorite_button"
+                android:text="Mark as Favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/video_detail_source"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>

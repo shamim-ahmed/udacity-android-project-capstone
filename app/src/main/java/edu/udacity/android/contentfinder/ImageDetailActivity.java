@@ -43,7 +43,6 @@ public class ImageDetailActivity extends AppCompatActivity {
                 titleView.setText(resultItem.getTitle());
                 sourceView.setText(resultItem.getSource());
             }
-
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

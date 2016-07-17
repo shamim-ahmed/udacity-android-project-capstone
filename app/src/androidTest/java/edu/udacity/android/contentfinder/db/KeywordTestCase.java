@@ -42,7 +42,7 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         for (ContentValues values : keywordDataList) {
             Uri uri = provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
             assertNotNull("URI is null", uri);
-            assertEquals("uri type is different than expected", ContentFinderDataProvider.KEYWORD_WITH_NAME, sUriMatcher.match(uri));
+            assertEquals("uri type is different than expected", ContentFinderDataProvider.KEYWORD_WITH_ID, sUriMatcher.match(uri));
         }
     }
 
@@ -54,7 +54,6 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         try {
             database.execSQL("DELETE FROM " + ContentFinderContract.KeywordEntry.TABLE_NAME);
             database.execSQL("DELETE FROM " + ContentFinderContract.MediaItemEntry.TABLE_NAME);
-            database.execSQL("DELETE FROM " + ContentFinderContract.MediaItem_Keyword_Entry.TABLE_NAME);
         } catch (Exception ex) {
             // ignore it
         }

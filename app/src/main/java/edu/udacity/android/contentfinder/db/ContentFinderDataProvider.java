@@ -171,8 +171,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 long _id = database.insert(ContentFinderContract.KeywordEntry.TABLE_NAME, null, values);
 
                 if (_id != -1) {
-                    Long keywordId = values.getAsLong(ContentFinderContract.KeywordEntry._ID);
-                    result = ContentFinderContract.KeywordEntry.buildUriFromKeywordId(keywordId);
+                    result = ContentFinderContract.KeywordEntry.buildUriFromKeywordId(_id);
                 }
 
                 break;

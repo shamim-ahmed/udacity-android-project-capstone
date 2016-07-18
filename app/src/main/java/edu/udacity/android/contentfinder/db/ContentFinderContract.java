@@ -58,7 +58,7 @@ public class ContentFinderContract {
     public static class MediaItemEntry implements BaseColumns {
         public static final String TABLE_NAME = "MediaItem";
         public static final String COLUMN_ITEM_ID = "item_id";
-        public static final String COLUMN_CONTENT_TYPE = "media_type";
+        public static final String COLUMN_CONTENT_TYPE_ID = "media_type_id";
         public static final String COLUMN_TITLE = "title";
         public static final String COLUMN_SUMMARY = "summary";
         public static final String COLUMN_URL = "url";

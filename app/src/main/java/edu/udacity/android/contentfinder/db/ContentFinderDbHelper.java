@@ -23,7 +23,7 @@ public class ContentFinderDbHelper extends SQLiteOpenHelper {
     public static final String CREATE_MEDIA_ITEM_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.MediaItemEntry.TABLE_NAME + "("
             + ContentFinderContract.MediaItemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID + " TEXT NOT NULL UNIQUE, "
-            + ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE + " TEXT NOT NULL, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID + " INTEGER NOT NULL, "
             + ContentFinderContract.MediaItemEntry.COLUMN_TITLE + " TEXT NOT NULL, "
             + ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY + " TEXT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_URL + " TEXT NOT NULL, "

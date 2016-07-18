@@ -149,17 +149,25 @@ public class ContentFinderContract {
             return BASE_CONTENT_URI.buildUpon()
                     .appendPath(PATH_MEDIA_ITEM)
                     .appendPath(PATH_TYPE)
-                    .appendPath(itemType.toString())
+                    .appendPath(itemType.getId().toString())
                     .build();
         }
 
-        public static Uri buildUriFromMediaItemTypeAndKeyword(MediaItemType itemType, Long keywordId) {
+        public static Uri buildUriFromKeywordId(Long keywordId) {
+            return BASE_CONTENT_URI.buildUpon()
+                    .appendPath(PATH_MEDIA_ITEM)
+                    .appendPath(KeywordEntry.PATH_KEYWORD)
+                    .appendPath(keywordId.toString())
+                    .build();
+        }
+
+        public static Uri buildUriFromMediaItemTypeAndKeywordId(MediaItemType itemType, Long keywordId) {
             return BASE_CONTENT_URI.buildUpon()
                     .appendPath(PATH_MEDIA_ITEM)
                     .appendPath(KeywordEntry.PATH_KEYWORD)
                     .appendPath(keywordId.toString())
                     .appendPath(PATH_TYPE)
-                    .appendPath(itemType.toString())
+                    .appendPath(itemType.getId().toString())
                     .build();
         }
     }

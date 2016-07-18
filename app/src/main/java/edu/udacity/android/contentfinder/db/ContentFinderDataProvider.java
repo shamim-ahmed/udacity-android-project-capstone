@@ -24,8 +24,9 @@ public class ContentFinderDataProvider extends ContentProvider {
 
     public static final int MEDIA_ITEM = 201;
     public static final int MEDIA_ITEM_WITH_ID = 202;
-    public static final int MEDIA_ITEM_WITH_KEYWORD_ID = 203;
-    public static final int MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE = 204;
+    public static final int MEDIA_ITEM_WITH_TYPE_ID = 203;
+    public static final int MEDIA_ITEM_WITH_KEYWORD_ID = 204;
+    public static final int MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID = 205;
 
     private static final String KEYWORD_ID_SELECTION = "_id = ?";
     private static final String MEDIA_ITEM_ID_SELECTION = "item_id = ?";
@@ -50,8 +51,9 @@ public class ContentFinderDataProvider extends ContentProvider {
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#", KEYWORD_WITH_ID);
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM, MEDIA_ITEM);
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/#", MEDIA_ITEM_WITH_ID);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/#", MEDIA_ITEM_WITH_TYPE_ID);
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#", MEDIA_ITEM_WITH_KEYWORD_ID);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/*", MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/#", MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID);
 
         return matcher;
     }
@@ -110,7 +112,7 @@ public class ContentFinderDataProvider extends ContentProvider {
 
                 break;
             }
-            case MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE: {
+            case MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID: {
                 MediaItemType contentType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(uri);
                 Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(uri);
 
@@ -151,7 +153,7 @@ public class ContentFinderDataProvider extends ContentProvider {
             case MEDIA_ITEM_WITH_KEYWORD_ID:
                 result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
-            case MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE:
+            case MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID:
                 result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
         }

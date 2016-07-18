@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder.db;
 
 import android.content.ContentValues;
 import android.content.UriMatcher;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.test.ProviderTestCase2;
@@ -43,7 +44,29 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
             Uri uri = provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
             assertNotNull("URI is null", uri);
             assertEquals("uri type is different than expected", ContentFinderDataProvider.KEYWORD_WITH_ID, sUriMatcher.match(uri));
+            Long id = ContentFinderContract.KeywordEntry.getKeywordIdFromUri(uri);
+            assertNotNull("id is null", id);
+
+            // form the uri from the id and compare it with the original URI
+            Uri constructedUri = ContentFinderContract.KeywordEntry.buildUriFromKeywordId(id);
+            assertEquals("constructed uri is different than expected", uri.toString(), constructedUri.toString());
         }
+    }
+
+    public void testKeywordSearch() {
+        List<ContentValues> keywordDataList = TestUtils.createKeywordValues();
+        final int resultSetSize = keywordDataList.size();
+        assertNotNull("list is null", keywordDataList);
+        assertTrue("list size is different than expected", keywordDataList.size() == resultSetSize);
+
+        ContentFinderDataProvider provider = getProvider();
+
+        for (ContentValues values : keywordDataList) {
+            provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
+        }
+
+        Cursor cursor = provider.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, "_id");
+        assertEquals("size of result set different than expected", resultSetSize, cursor.getCount());
     }
 
     private void clearTables() {

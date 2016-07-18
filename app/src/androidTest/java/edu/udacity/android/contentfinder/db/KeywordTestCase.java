@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.test.ProviderTestCase2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,7 +54,7 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         }
     }
 
-    public void testKeywordSearch() {
+    public void testAllKeywordSearch() {
         List<ContentValues> keywordDataList = TestUtils.createKeywordValues();
         final int resultSetSize = keywordDataList.size();
         assertNotNull("list is null", keywordDataList);
@@ -65,8 +66,35 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
             provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
         }
 
+        // search for all keywords
         Cursor cursor = provider.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, "_id");
-        assertEquals("size of result set different than expected", resultSetSize, cursor.getCount());
+        assertNotNull("cursor is null", cursor);
+        assertTrue("cursor is empty", Boolean.TRUE.equals(cursor.moveToFirst()));
+        assertEquals("size of cursor is different than expected", resultSetSize, cursor.getCount());
+        cursor.close();
+    }
+
+    public void testIndividualKeywordSearch() {
+        List<ContentValues> keywordDataList = TestUtils.createKeywordValues();
+        final int resultSetSize = keywordDataList.size();
+        assertNotNull("list is null", keywordDataList);
+        assertTrue("list size is different than expected", keywordDataList.size() == resultSetSize);
+
+        ContentFinderDataProvider provider = getProvider();
+        List<Uri> resultUriList = new ArrayList<>();
+
+        for (ContentValues values : keywordDataList) {
+            Uri uri = provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
+            resultUriList.add(uri);
+        }
+
+        for (Uri uri : resultUriList) {
+            Cursor cursor = provider.query(uri, null, null, null, null);
+            assertNotNull("cursor is null", cursor);
+            assertTrue("cursor is empty", cursor.moveToFirst());
+            assertEquals("cursor size is different than expected", 1, cursor.getCount());
+            cursor.close();
+        }
     }
 
     private void clearTables() {

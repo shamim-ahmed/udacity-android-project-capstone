@@ -7,12 +7,12 @@ import java.util.Map;
  * Created by shamim on 5/4/16.
  */
 public enum MediaItemType {
-    NEWS(1, "news"), PHOTO(2, "photo"), VIDEO(3, "video");
+    NEWS(1L, "news"), PHOTO(2L, "photo"), VIDEO(3L, "video");
 
-    private Integer id;
+    private Long id;
     private String name;
 
-    private static final Map<Integer, MediaItemType> idToTypeMap = new HashMap<>();
+    private static final Map<Long, MediaItemType> idToTypeMap = new HashMap<>();
 
     static {
         for (MediaItemType type : MediaItemType.values()) {
@@ -20,12 +20,12 @@ public enum MediaItemType {
         }
     }
 
-    MediaItemType(Integer id, String name) {
+    MediaItemType(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public enum MediaItemType {
         return name;
     }
 
-    public MediaItemType fromId(Integer id) {
+    public MediaItemType fromId(Long id) {
         return idToTypeMap.get(id);
     }
 

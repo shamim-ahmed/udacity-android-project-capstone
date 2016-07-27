@@ -183,8 +183,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 long _id = database.insert(ContentFinderContract.MediaItemEntry.TABLE_NAME, null, values);
 
                 if (_id != -1) {
-                    Long mediaItemId = values.getAsLong(ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID);
-                    result = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(mediaItemId);
+                    result = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(_id);
                 }
 
                 break;

@@ -20,23 +20,24 @@ public class ContentFinderDataProvider extends ContentProvider {
     private static final String TAG = ContentFinderDataProvider.class.getSimpleName();
 
     public static final int KEYWORD = 100;
-    public static final int KEYWORD_WITH_NAME = 101;
+    public static final int KEYWORD_WITH_ID = 101;
 
     public static final int MEDIA_ITEM = 201;
     public static final int MEDIA_ITEM_WITH_ID = 202;
-    public static final int MEDIA_ITEM_WITH_KEYWORD = 203;
-    public static final int MEDIA_ITEM_WITH_TYPE_AND_KEYWORD = 204;
+    public static final int MEDIA_ITEM_WITH_TYPE_ID = 203;
+    public static final int MEDIA_ITEM_WITH_KEYWORD_ID = 204;
+    public static final int MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID = 205;
 
-    private static final String KEYWORD_SELECTION = "word = ?";
-    private static final String MEDIA_ITEM_ID_SELECTION = "item_id = ?";
-    private static final String MEDIA_ITEM_KEYWORD_SELECTION = "word = ?";
-    private static final String MEDIA_ITEM_TYPE_AND_KEYWORD_SELECTION = "type = ? and keyword = ?";
+    private static final String KEYWORD_ID_SELECTION = "_id = ?";
+    private static final String MEDIA_ID_SELECTION = "_id = ?";
+    private static final String MEDIA_ITEM_KEYWORD_ID_SELECTION = "keyword_id = ?";
+    private static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "type = ? and keyword_id = ?";
 
-    private static final SQLiteQueryBuilder sTagQueryBuilder = new SQLiteQueryBuilder();
+    private static final SQLiteQueryBuilder sKeywordQueryBuilder = new SQLiteQueryBuilder();
     private static final SQLiteQueryBuilder sConentQueryBuilder = new SQLiteQueryBuilder();
 
     static {
-        sTagQueryBuilder.setTables(ContentFinderContract.KeywordEntry.TABLE_NAME);
+        sKeywordQueryBuilder.setTables(ContentFinderContract.KeywordEntry.TABLE_NAME);
         sConentQueryBuilder.setTables(ContentFinderContract.MediaItemEntry.TABLE_NAME);
     }
 
@@ -47,12 +48,12 @@ public class ContentFinderDataProvider extends ContentProvider {
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD, KEYWORD);
-        // TODO figure out if this is correct
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/*", KEYWORD_WITH_NAME);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#", KEYWORD_WITH_ID);
         matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM, MEDIA_ITEM);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/*", MEDIA_ITEM_WITH_ID);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/*", MEDIA_ITEM_WITH_KEYWORD);
-        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/*/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/*", MEDIA_ITEM_WITH_TYPE_AND_KEYWORD);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/#", MEDIA_ITEM_WITH_ID);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/#", MEDIA_ITEM_WITH_TYPE_ID);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#", MEDIA_ITEM_WITH_KEYWORD_ID);
+        matcher.addURI(ContentFinderContract.CONTENT_AUTHORITY, ContentFinderContract.MediaItemEntry.PATH_MEDIA_ITEM + "/" + ContentFinderContract.KeywordEntry.PATH_KEYWORD + "/#/" + ContentFinderContract.MediaItemEntry.PATH_TYPE + "/#", MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID);
 
         return matcher;
     }
@@ -77,14 +78,14 @@ public class ContentFinderDataProvider extends ContentProvider {
 
         switch (matchValue) {
             case KEYWORD: {
-                cursor = sTagQueryBuilder.query(database, projection, selection, selectionArgs, null, null, sortOrder);
+                cursor = sKeywordQueryBuilder.query(database, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             }
-            case KEYWORD_WITH_NAME: {
-                String tagName = ContentFinderContract.KeywordEntry.getKeywordFromUri(uri);
+            case KEYWORD_WITH_ID: {
+                Long keywordId = ContentFinderContract.KeywordEntry.getKeywordIdFromUri(uri);
 
-                if (StringUtils.isNotBlank(tagName)) {
-                    cursor = sTagQueryBuilder.query(database, projection, KEYWORD_SELECTION, new String[]{tagName}, null, null, sortOrder);
+                if (keywordId != null) {
+                    cursor = sKeywordQueryBuilder.query(database, projection, KEYWORD_ID_SELECTION, new String[]{keywordId.toString()}, null, null, sortOrder);
                 }
 
                 break;
@@ -97,26 +98,26 @@ public class ContentFinderDataProvider extends ContentProvider {
                 Long contentId = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
 
                 if (contentId != null) {
-                    cursor = sTagQueryBuilder.query(database, projection, MEDIA_ITEM_ID_SELECTION, new String[]{contentId.toString()}, null, null, sortOrder);
+                    cursor = sConentQueryBuilder.query(database, projection, MEDIA_ID_SELECTION, new String[]{contentId.toString()}, null, null, sortOrder);
                 }
 
                 break;
             }
-            case MEDIA_ITEM_WITH_KEYWORD: {
-                String tagName = ContentFinderContract.MediaItemEntry.getKeywordFromUri(uri);
+            case MEDIA_ITEM_WITH_KEYWORD_ID: {
+                Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(uri);
 
-                if (StringUtils.isNotBlank(tagName)) {
-                    cursor = sTagQueryBuilder.query(database, projection, MEDIA_ITEM_KEYWORD_SELECTION, new String[]{tagName}, null, null, sortOrder);
+                if (keywordId != null) {
+                    cursor = sConentQueryBuilder.query(database, projection, MEDIA_ITEM_KEYWORD_ID_SELECTION, new String[]{keywordId.toString()}, null, null, sortOrder);
                 }
 
                 break;
             }
-            case MEDIA_ITEM_WITH_TYPE_AND_KEYWORD: {
+            case MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID: {
                 MediaItemType contentType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(uri);
-                String tagName = ContentFinderContract.MediaItemEntry.getKeywordFromUri(uri);
+                Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(uri);
 
-                if (contentType != null && StringUtils.isNotBlank(tagName)) {
-                    cursor = sTagQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_SELECTION, new String[]{contentType.toString(), tagName}, null, null, sortOrder);
+                if (contentType != null && keywordId != null) {
+                    cursor = sConentQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION, new String[]{contentType.toString(), keywordId.toString()}, null, null, sortOrder);
                 }
 
                 break;
@@ -140,7 +141,7 @@ public class ContentFinderDataProvider extends ContentProvider {
             case KEYWORD:
                 result = ContentFinderContract.KeywordEntry.CONTENT_TYPE;
                 break;
-            case KEYWORD_WITH_NAME:
+            case KEYWORD_WITH_ID:
                 result = ContentFinderContract.KeywordEntry.CONTENT_ITEM_TYPE;
                 break;
             case MEDIA_ITEM:
@@ -149,10 +150,10 @@ public class ContentFinderDataProvider extends ContentProvider {
             case MEDIA_ITEM_WITH_ID:;
                 result = ContentFinderContract.MediaItemEntry.CONTENT_ITEM_TYPE;
                 break;
-            case MEDIA_ITEM_WITH_KEYWORD:
+            case MEDIA_ITEM_WITH_KEYWORD_ID:
                 result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
-            case MEDIA_ITEM_WITH_TYPE_AND_KEYWORD:
+            case MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID:
                 result = ContentFinderContract.MediaItemEntry.CONTENT_TYPE;
                 break;
         }
@@ -172,8 +173,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 long _id = database.insert(ContentFinderContract.KeywordEntry.TABLE_NAME, null, values);
 
                 if (_id != -1) {
-                    String word = values.getAsString(ContentFinderContract.KeywordEntry.COLUMN_WORD);
-                    result = ContentFinderContract.KeywordEntry.buildUriFromKeyword(word);
+                    result = ContentFinderContract.KeywordEntry.buildUriFromKeywordId(_id);
                 }
 
                 break;
@@ -183,8 +183,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 long _id = database.insert(ContentFinderContract.MediaItemEntry.TABLE_NAME, null, values);
 
                 if (_id != -1) {
-                    String mediaItemId = values.getAsString(ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID);
-                    result = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(mediaItemId);
+                    result = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(_id);
                 }
 
                 break;

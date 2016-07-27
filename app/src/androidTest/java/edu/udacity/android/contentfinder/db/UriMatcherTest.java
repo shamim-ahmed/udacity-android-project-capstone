@@ -4,7 +4,6 @@ import android.content.UriMatcher;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
-import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 
 /**
@@ -14,22 +13,27 @@ public class UriMatcherTest extends AndroidTestCase {
     private static final UriMatcher sUriMatcher = ContentFinderDataProvider.buildUriMatcher();
 
     public void testKeywordUris() {
-        Uri uri1 = ContentFinderContract.KeywordEntry.CONTENT_URI;
-        assertEquals(ContentFinderDataProvider.KEYWORD, sUriMatcher.match(uri1));
+        Uri allKeywordUri = ContentFinderContract.KeywordEntry.CONTENT_URI;
+        assertEquals(ContentFinderDataProvider.KEYWORD, sUriMatcher.match(allKeywordUri));
 
-        Uri uri2 = ContentFinderContract.KeywordEntry.CONTENT_URI.buildUpon().appendPath("android").build();
-        assertEquals(ContentFinderDataProvider.KEYWORD_WITH_NAME, sUriMatcher.match(uri2));
+        Uri individualKeywordUri = ContentFinderContract.KeywordEntry.buildUriFromKeywordId(1L);
+        assertEquals(ContentFinderDataProvider.KEYWORD_WITH_ID, sUriMatcher.match(individualKeywordUri));
     }
 
     public void testMediaItemUris() {
-        Uri uri1 = ContentFinderContract.MediaItemEntry.CONTENT_URI;
-        assertEquals(ContentFinderDataProvider.MEDIA_ITEM, sUriMatcher.match(uri1));
+        Uri allMediaItemUri = ContentFinderContract.MediaItemEntry.CONTENT_URI;
+        assertEquals(ContentFinderDataProvider.MEDIA_ITEM, sUriMatcher.match(allMediaItemUri));
 
-        Uri uri2 = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId("abcdefgh");
-        assertEquals(ContentFinderDataProvider.MEDIA_ITEM_WITH_ID, sUriMatcher.match(uri2));
+        Uri individualMediaItemUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(123L);
+        assertEquals(ContentFinderDataProvider.MEDIA_ITEM_WITH_ID, sUriMatcher.match(individualMediaItemUri));
 
-        Uri uri3 = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemTypeAndKeyword(MediaItemType.VIDEO, "uvwxyz");
-        System.out.println(uri3);
-        assertEquals(ContentFinderDataProvider.MEDIA_ITEM_WITH_TYPE_AND_KEYWORD, sUriMatcher.match(uri3));
+        Uri mediaItemWithTypeUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemType(MediaItemType.PHOTO);
+        assertEquals(ContentFinderDataProvider.MEDIA_ITEM_WITH_TYPE_ID, sUriMatcher.match(mediaItemWithTypeUri));
+
+        Uri mediaItemWithKeywordIdUri = ContentFinderContract.MediaItemEntry.buildUriFromKeywordId(1L);
+        assertEquals(ContentFinderDataProvider.MEDIA_ITEM_WITH_KEYWORD_ID, sUriMatcher.match(mediaItemWithKeywordIdUri));
+
+        Uri mediaItemWithKeywordIdAndTypeIdUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemTypeAndKeywordId(MediaItemType.VIDEO, 123L);
+        assertEquals(ContentFinderDataProvider.MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID, sUriMatcher.match(mediaItemWithKeywordIdAndTypeIdUri));
     }
 }

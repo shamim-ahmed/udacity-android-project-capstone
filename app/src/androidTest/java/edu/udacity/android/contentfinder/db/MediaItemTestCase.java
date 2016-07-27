@@ -56,7 +56,7 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         Cursor cursor = provider.query(ContentFinderContract.MediaItemEntry.CONTENT_URI, null, null, null, null);
         assertNotNull(cursor);
         assertTrue("cursor is null", cursor.moveToFirst());
-        assertEquals("cursor size different than expected", n, cursor.getCount());
+        assertEquals("cursor size is different than expected", n, cursor.getCount());
         cursor.close();
     }
 

@@ -60,6 +60,25 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         cursor.close();
     }
 
+    public void testIndividualMediaSearch() {
+        List<ContentValues> contentValuesList = TestUtils.createMediaItemValues();
+        ContentFinderDataProvider provider = getProvider();
+        List<Uri> resultUriList = new ArrayList<>();
+
+        for (ContentValues values : contentValuesList) {
+            Uri uri = provider.insert(ContentFinderContract.MediaItemEntry.CONTENT_URI, values);
+            resultUriList.add(uri);
+        }
+
+        for (Uri uri : resultUriList) {
+            Cursor cursor = provider.query(uri, null, null, null, null);
+            assertNotNull(cursor);
+            assertTrue("cursor is empty", cursor.moveToFirst());
+            assertEquals("cursor size is different than expected", 1, cursor.getCount());
+            cursor.close();
+        }
+    }
+
     private void clearTables() {
         ContentFinderDataProvider provider = getProvider();
         ContentFinderDbHelper dbHelper = provider.getDbHelper();

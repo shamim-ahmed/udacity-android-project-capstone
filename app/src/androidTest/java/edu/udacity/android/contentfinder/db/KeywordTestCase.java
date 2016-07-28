@@ -39,10 +39,12 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         assertNotNull("list is null", keywordDataList);
         assertTrue("list is empty", keywordDataList.size() > 0);
 
+        List<Uri> resultUriList = new ArrayList<>();
         ContentFinderDataProvider provider = getProvider();
 
         for (ContentValues values : keywordDataList) {
             Uri uri = provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
+            resultUriList.add(uri);
             assertNotNull("URI is null", uri);
             assertEquals("uri type is different than expected", ContentFinderDataProvider.KEYWORD_WITH_ID, sUriMatcher.match(uri));
             Long id = ContentFinderContract.KeywordEntry.getKeywordIdFromUri(uri);
@@ -51,6 +53,12 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
             // form the uri from the id and compare it with the original URI
             Uri constructedUri = ContentFinderContract.KeywordEntry.buildUriFromKeywordId(id);
             assertEquals("constructed uri is different than expected", uri.toString(), constructedUri.toString());
+        }
+
+        // delete all keywords
+        for (Uri uri : resultUriList) {
+            int n = provider.delete(uri, null, null);
+            assertTrue("deletion was not successful", n == 1);
         }
     }
 

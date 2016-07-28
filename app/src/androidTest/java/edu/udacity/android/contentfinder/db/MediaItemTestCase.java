@@ -41,6 +41,12 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
             Uri uri = provider.insert(ContentFinderContract.MediaItemEntry.CONTENT_URI, values);
             assertNotNull("uri is null", uri);
             assertEquals("uri type is different than expected", ContentFinderDataProvider.MEDIA_ITEM_WITH_ID, sUriMatcher.match(uri));
+
+            Long id = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
+            assertNotNull("id is null", id);
+
+            Uri constructedUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(id);
+            assertEquals("constructed uri is different than expected", uri.toString(), constructedUri.toString());
         }
     }
 
@@ -77,6 +83,10 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
             assertEquals("cursor size is different than expected", 1, cursor.getCount());
             cursor.close();
         }
+    }
+
+    public void testMediaWithKeywordSearch() {
+
     }
 
     private void clearTables() {

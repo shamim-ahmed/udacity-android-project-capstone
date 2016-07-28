@@ -36,17 +36,25 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
     public void testMediaInsertAndDelete() {
         List<ContentValues> contentValueList = TestUtils.createMediaItemValues();
         ContentFinderDataProvider provider = getProvider();
+        List<Uri> resultUriList = new ArrayList<>();
 
         for (ContentValues values : contentValueList) {
             Uri uri = provider.insert(ContentFinderContract.MediaItemEntry.CONTENT_URI, values);
             assertNotNull("uri is null", uri);
             assertEquals("uri type is different than expected", ContentFinderDataProvider.MEDIA_ITEM_WITH_ID, sUriMatcher.match(uri));
+            resultUriList.add(uri);
 
             Long id = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
             assertNotNull("id is null", id);
 
             Uri constructedUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemId(id);
             assertEquals("constructed uri is different than expected", uri.toString(), constructedUri.toString());
+        }
+
+        // now delete all the media items
+        for (Uri uri : resultUriList) {
+            int n = provider.delete(uri, null, null);
+            assertTrue("deletion was not successful", n == 1);
         }
     }
 

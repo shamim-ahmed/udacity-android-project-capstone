@@ -203,14 +203,18 @@ public class ContentFinderDataProvider extends ContentProvider {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         int matchType = sUriMatcher.match(uri);
         String tableName = null;
-        int result = 0;
+        Long id = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
+
+        if (id == null) {
+            return -1;
+        }
 
         switch (matchType) {
-            case KEYWORD: {
+            case KEYWORD_WITH_ID: {
                 tableName = ContentFinderContract.KeywordEntry.TABLE_NAME;
                 break;
             }
-            case MEDIA_ITEM: {
+            case MEDIA_ITEM_WITH_ID: {
                 tableName = ContentFinderContract.MediaItemEntry.TABLE_NAME;
                 break;
             }
@@ -220,9 +224,10 @@ public class ContentFinderDataProvider extends ContentProvider {
             }
         }
 
+        int result = -1;
+
         if (StringUtils.isNotBlank(tableName)) {
-            result = database.delete(tableName, selection, selectionArgs);
-            // TODO delete the entries in the join table
+            result = database.delete(tableName, MEDIA_ID_SELECTION, new String[]{id.toString()});
         }
 
         return result;

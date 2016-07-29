@@ -52,7 +52,6 @@ public class ContentFinderContract {
 
             return CONTENT_URI.buildUpon().appendPath(keywordId.toString()).build();
         }
-
     }
 
     public static class MediaItemEntry implements BaseColumns {

@@ -53,7 +53,9 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
 
         // now delete all the media items
         for (Uri uri : resultUriList) {
-            int n = provider.delete(uri, null, null);
+            Long id = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
+            assertNotNull("id is null", id);
+            int n = provider.delete(uri, ContentFinderDataProvider.MEDIA_ID_SELECTION, new String[] {id.toString()});
             assertTrue("deletion was not successful", n == 1);
         }
     }

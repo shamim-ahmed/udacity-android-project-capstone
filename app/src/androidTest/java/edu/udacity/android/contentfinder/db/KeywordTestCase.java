@@ -57,7 +57,9 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
 
         // delete all keywords
         for (Uri uri : resultUriList) {
-            int n = provider.delete(uri, null, null);
+            Long id = ContentFinderContract.KeywordEntry.getKeywordIdFromUri(uri);
+            assertNotNull("id is null", id);
+            int n = provider.delete(uri, ContentFinderDataProvider.KEYWORD_ID_SELECTION, new String[] {id.toString()});
             assertTrue("deletion was not successful", n == 1);
         }
     }

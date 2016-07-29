@@ -28,10 +28,10 @@ public class ContentFinderDataProvider extends ContentProvider {
     public static final int MEDIA_ITEM_WITH_KEYWORD_ID = 204;
     public static final int MEDIA_ITEM_WITH_KEYWORD_ID_AND_TYPE_ID = 205;
 
-    private static final String KEYWORD_ID_SELECTION = "_id = ?";
-    private static final String MEDIA_ID_SELECTION = "_id = ?";
-    private static final String MEDIA_ITEM_KEYWORD_ID_SELECTION = "keyword_id = ?";
-    private static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "type = ? and keyword_id = ?";
+    public static final String KEYWORD_ID_SELECTION = "_id = ?";
+    public static final String MEDIA_ID_SELECTION = "_id = ?";
+    public static final String MEDIA_ITEM_KEYWORD_ID_SELECTION = "keyword_id = ?";
+    public static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "type = ? and keyword_id = ?";
 
     private static final SQLiteQueryBuilder sKeywordQueryBuilder = new SQLiteQueryBuilder();
     private static final SQLiteQueryBuilder sConentQueryBuilder = new SQLiteQueryBuilder();
@@ -203,11 +203,6 @@ public class ContentFinderDataProvider extends ContentProvider {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         int matchType = sUriMatcher.match(uri);
         String tableName = null;
-        Long id = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
-
-        if (id == null) {
-            return -1;
-        }
 
         switch (matchType) {
             case KEYWORD_WITH_ID: {
@@ -227,7 +222,7 @@ public class ContentFinderDataProvider extends ContentProvider {
         int result = -1;
 
         if (StringUtils.isNotBlank(tableName)) {
-            result = database.delete(tableName, MEDIA_ID_SELECTION, new String[]{id.toString()});
+            result = database.delete(tableName, selection, selectionArgs);
         }
 
         return result;

@@ -96,7 +96,24 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
     }
 
     public void testMediaWithKeywordSearch() {
+        ContentFinderDataProvider provider = getProvider();
+        List<ContentValues> keywordContentValueList = TestUtils.createKeywordValues();
 
+        for (ContentValues values : keywordContentValueList) {
+            provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
+        }
+
+        List<ContentValues> mediaContentValueList = TestUtils.createMediaItemValues();
+
+        for (ContentValues values : mediaContentValueList) {
+            provider.insert(ContentFinderContract.MediaItemEntry.CONTENT_URI, values);
+        }
+
+        Uri keywordSearchUri = ContentFinderContract.MediaItemEntry.buildUriFromKeywordId(1L);
+        Cursor cursor = provider.query(keywordSearchUri, null, null, null, null);
+        assertNotNull("cursor is null", cursor);
+        assertTrue("cursor is empty", cursor.moveToFirst());
+        assertEquals("cursor size is different than expected", mediaContentValueList.size(), cursor.getCount());
     }
 
     private void clearTables() {

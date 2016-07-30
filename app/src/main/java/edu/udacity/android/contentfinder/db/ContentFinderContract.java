@@ -115,21 +115,21 @@ public class ContentFinderContract {
         public static Long getKeywordIdFromUri(Uri uri) {
             List<String> segmentList = uri.getPathSegments();
 
-            if (segmentList.size() < 5) {
+            if (segmentList.size() < 3) {
                 return null;
             }
 
+            String mediaItemSegment = segmentList.get(0);
             String keywordSegment = segmentList.get(1);
-            String typeSegment = segmentList.get(3);
 
-            if (!typeSegment.equals(PATH_TYPE) || !keywordSegment.equals(KeywordEntry.PATH_KEYWORD)) {
+            if (!mediaItemSegment.equals(MediaItemEntry.PATH_MEDIA_ITEM) || !keywordSegment.equals(KeywordEntry.PATH_KEYWORD)) {
                 return null;
             }
 
             Long keywordId = null;
 
             try {
-                keywordId = Long.valueOf(segmentList.get(4));
+                keywordId = Long.valueOf(segmentList.get(2));
             } catch (Exception ex) {
                 Log.e(TAG, "error while parsing keyword id");
             }

@@ -32,7 +32,7 @@ public class ContentFinderDataProvider extends ContentProvider {
     public static final String MEDIA_ID_SELECTION = "_id = ?";
     public static final String MEDIA_ITEM_KEYWORD_ID_SELECTION = "keyword_id = ?";
     public static final String MEDIA_ITEM_WITH_TYPE_ID_SELECTION = "media_type_id = ?";
-    public static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "type = ? and keyword_id = ?";
+    public static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "media_type_id = ? and keyword_id = ?";
 
     private static final SQLiteQueryBuilder sKeywordQueryBuilder = new SQLiteQueryBuilder();
     private static final SQLiteQueryBuilder sContentQueryBuilder = new SQLiteQueryBuilder();
@@ -127,7 +127,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(uri);
 
                 if (contentType != null && keywordId != null) {
-                    cursor = sContentQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION, new String[]{contentType.toString(), keywordId.toString()}, null, null, sortOrder);
+                    cursor = sContentQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION, new String[]{contentType.getId().toString(), keywordId.toString()}, null, null, sortOrder);
                 }
 
                 break;

@@ -1,4 +1,4 @@
-package edu.udacity.android.contentfinder.task;
+package edu.udacity.android.contentfinder.task.web;
 
 import android.app.Activity;
 import android.util.Log;

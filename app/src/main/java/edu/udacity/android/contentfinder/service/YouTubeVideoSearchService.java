@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.net.Uri;
 
 import edu.udacity.android.contentfinder.ContentFinderApplication;
-import edu.udacity.android.contentfinder.task.SearchTask;
-import edu.udacity.android.contentfinder.task.YouTubeVideoSearchTask;
+import edu.udacity.android.contentfinder.task.web.SearchTask;
+import edu.udacity.android.contentfinder.task.web.YouTubeVideoSearchTask;
 
 /**
  * Created by shamim on 5/1/16.

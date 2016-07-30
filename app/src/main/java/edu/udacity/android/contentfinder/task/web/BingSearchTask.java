@@ -1,7 +1,6 @@
-package edu.udacity.android.contentfinder.task;
+package edu.udacity.android.contentfinder.task.web;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.util.Base64;
 
 import javax.net.ssl.HttpsURLConnection;

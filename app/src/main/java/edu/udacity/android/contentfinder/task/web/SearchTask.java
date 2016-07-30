@@ -1,8 +1,7 @@
-package edu.udacity.android.contentfinder.task;
+package edu.udacity.android.contentfinder.task.web;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import java.io.BufferedReader;

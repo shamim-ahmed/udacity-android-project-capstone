@@ -2,11 +2,10 @@ package edu.udacity.android.contentfinder.service;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 
 import edu.udacity.android.contentfinder.ContentFinderApplication;
-import edu.udacity.android.contentfinder.task.BingNewsSearchTask;
-import edu.udacity.android.contentfinder.task.SearchTask;
+import edu.udacity.android.contentfinder.task.web.BingNewsSearchTask;
+import edu.udacity.android.contentfinder.task.web.SearchTask;
 
 /**
  * Created by shamim on 5/1/16.

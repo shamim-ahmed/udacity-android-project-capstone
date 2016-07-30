@@ -10,6 +10,8 @@ import android.test.ProviderTestCase2;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.udacity.android.contentfinder.model.MediaItemType;
+
 /**
  * Created by shamim on 6/2/16.
  */
@@ -115,6 +117,28 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         assertTrue("cursor is empty", cursor.moveToFirst());
         assertEquals("cursor size is different than expected", mediaContentValueList.size(), cursor.getCount());
     }
+
+    public void testMediaWithTypeSearch() {
+        ContentFinderDataProvider provider = getProvider();
+        List<ContentValues> keywordContentValueList = TestUtils.createKeywordValues();
+
+        for (ContentValues values : keywordContentValueList) {
+            provider.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
+        }
+
+        List<ContentValues> mediaContentValueList = TestUtils.createMediaItemValues();
+
+        for (ContentValues values : mediaContentValueList) {
+            provider.insert(ContentFinderContract.MediaItemEntry.CONTENT_URI, values);
+        }
+
+        Uri mediaTypeSearchUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemType(MediaItemType.NEWS);
+        Cursor cursor = provider.query(mediaTypeSearchUri, null, null, null, null);
+        assertNotNull("cursor is null", cursor);
+        assertTrue("cursor is empty", cursor.moveToFirst());
+        assertEquals("cursor size is different than expected", mediaContentValueList.size(), cursor.getCount());
+    }
+
 
     private void clearTables() {
         ContentFinderDataProvider provider = getProvider();

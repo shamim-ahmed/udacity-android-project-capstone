@@ -33,7 +33,7 @@ public enum MediaItemType {
         return name;
     }
 
-    public MediaItemType fromId(Long id) {
+    public static MediaItemType fromId(Long id) {
         return idToTypeMap.get(id);
     }
 

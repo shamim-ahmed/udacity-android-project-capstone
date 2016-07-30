@@ -31,14 +31,15 @@ public class ContentFinderDataProvider extends ContentProvider {
     public static final String KEYWORD_ID_SELECTION = "_id = ?";
     public static final String MEDIA_ID_SELECTION = "_id = ?";
     public static final String MEDIA_ITEM_KEYWORD_ID_SELECTION = "keyword_id = ?";
+    public static final String MEDIA_ITEM_WITH_TYPE_ID_SELECTION = "media_type_id = ?";
     public static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "type = ? and keyword_id = ?";
 
     private static final SQLiteQueryBuilder sKeywordQueryBuilder = new SQLiteQueryBuilder();
-    private static final SQLiteQueryBuilder sConentQueryBuilder = new SQLiteQueryBuilder();
+    private static final SQLiteQueryBuilder sContentQueryBuilder = new SQLiteQueryBuilder();
 
     static {
         sKeywordQueryBuilder.setTables(ContentFinderContract.KeywordEntry.TABLE_NAME);
-        sConentQueryBuilder.setTables(ContentFinderContract.MediaItemEntry.TABLE_NAME);
+        sContentQueryBuilder.setTables(ContentFinderContract.MediaItemEntry.TABLE_NAME);
     }
 
     private static final UriMatcher sUriMatcher = buildUriMatcher();
@@ -91,14 +92,14 @@ public class ContentFinderDataProvider extends ContentProvider {
                 break;
             }
             case MEDIA_ITEM: {
-                cursor = sConentQueryBuilder.query(database, projection, selection, selectionArgs, null, null, sortOrder);
+                cursor = sContentQueryBuilder.query(database, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             }
             case MEDIA_ITEM_WITH_ID: {
                 Long contentId = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
 
                 if (contentId != null) {
-                    cursor = sConentQueryBuilder.query(database, projection, MEDIA_ID_SELECTION, new String[]{contentId.toString()}, null, null, sortOrder);
+                    cursor = sContentQueryBuilder.query(database, projection, MEDIA_ID_SELECTION, new String[]{contentId.toString()}, null, null, sortOrder);
                 }
 
                 break;
@@ -107,7 +108,16 @@ public class ContentFinderDataProvider extends ContentProvider {
                 Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(uri);
 
                 if (keywordId != null) {
-                    cursor = sConentQueryBuilder.query(database, projection, MEDIA_ITEM_KEYWORD_ID_SELECTION, new String[]{keywordId.toString()}, null, null, sortOrder);
+                    cursor = sContentQueryBuilder.query(database, projection, MEDIA_ITEM_KEYWORD_ID_SELECTION, new String[]{keywordId.toString()}, null, null, sortOrder);
+                }
+
+                break;
+            }
+            case MEDIA_ITEM_WITH_TYPE_ID: {
+                MediaItemType mediaItemType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(uri);
+
+                if (mediaItemType != null) {
+                    cursor = sContentQueryBuilder.query(database, projection, MEDIA_ITEM_WITH_TYPE_ID_SELECTION, new String[]{mediaItemType.getId().toString()}, null, null, sortOrder);
                 }
 
                 break;
@@ -117,7 +127,7 @@ public class ContentFinderDataProvider extends ContentProvider {
                 Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(uri);
 
                 if (contentType != null && keywordId != null) {
-                    cursor = sConentQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION, new String[]{contentType.toString(), keywordId.toString()}, null, null, sortOrder);
+                    cursor = sContentQueryBuilder.query(database, projection, MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION, new String[]{contentType.toString(), keywordId.toString()}, null, null, sortOrder);
                 }
 
                 break;

@@ -105,7 +105,7 @@ public class ContentFinderContract {
                 return null;
             }
 
-            return MediaItemType.valueOf(segmentList.get(2));
+            return MediaItemType.fromId(Long.valueOf(segmentList.get(2)));
         }
 
         /**

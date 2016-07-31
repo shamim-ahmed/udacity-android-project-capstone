@@ -3,10 +3,13 @@ package edu.udacity.android.contentfinder.task.db;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
+import edu.udacity.android.contentfinder.db.ContentFinderDataProvider;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.util.DbUtils;
 
@@ -26,13 +29,36 @@ public class AddKeywordTask extends AsyncTask<Void, Void, Uri> {
     protected Uri doInBackground(Void... params) {
         ContentResolver contentResolver = activity.getContentResolver();
 
+        if (keywordExists(contentResolver)) {
+            return null;
+        }
+
         ContentValues values = DbUtils.convertKeyword(keyword);
-        Uri uri = contentResolver.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
-        return uri;
+        return contentResolver.insert(ContentFinderContract.KeywordEntry.CONTENT_URI, values);
+    }
+
+    private boolean keywordExists(ContentResolver contentResolver) {
+        boolean result = false;
+        Cursor cursor = contentResolver.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, ContentFinderDataProvider.KEYWORD_WORD_SELECTION, new String[]{keyword.getWord()}, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            result = true;
+        }
+
+        DbUtils.close(cursor);
+        return result;
     }
 
     @Override
     public void onPostExecute(Uri resultUri) {
+        String toastMessage;
 
+        if (resultUri == null) {
+            toastMessage = "The keyword could not be saved";
+        } else {
+            toastMessage = "The keyword was saved successfully";
+        }
+
+        Toast.makeText(activity, toastMessage, Toast.LENGTH_SHORT).show();
     }
 }

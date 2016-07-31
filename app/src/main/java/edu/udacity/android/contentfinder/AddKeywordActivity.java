@@ -5,6 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Date;
+
+import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.task.db.AddKeywordTask;
+import edu.udacity.android.contentfinder.util.StringUtils;
 
 public class AddKeywordActivity extends AppCompatActivity {
 
@@ -19,7 +27,19 @@ public class AddKeywordActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView keywordView = (TextView) findViewById(R.id.new_keyword);
+                String str = keywordView.getText().toString();
+                
+                if (StringUtils.isBlank(str)) {
+                    Toast.makeText(AddKeywordActivity.this, "Please enter a keyword", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                Keyword keyword = new Keyword();
+                keyword.setWord(str);
+                keyword.setCreatedDate(new Date());
+                AddKeywordTask task = new AddKeywordTask(AddKeywordActivity.this, keyword);
+                task.execute();
             }
         });
     }

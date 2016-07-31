@@ -31,19 +31,6 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
 
         final Spinner keywordSpinner = (Spinner) findViewById(R.id.news_keyword_spinner);
 
-        Button searchButton = (Button) findViewById(R.id.news_search_button);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
-
-                if (selectedKeyword != null) {
-                    BingNewsSearchService searchService = BingNewsSearchService.getInstance();
-                    searchService.performSearch(selectedKeyword.getWord(), NewsSearchActivity.this);
-                }
-            }
-        });
-
         ListView newsList = (ListView) findViewById(R.id.news_list);
         newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -55,6 +42,19 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
                 intent.putExtra(Constants.SELECTED_NEWS_KEY, selectedResult);
                 intent.putExtra(Constants.SELECTED_NEWS_KEYWORD, selectedKeyword);
                 startActivity(intent);
+            }
+        });
+
+        Button searchButton = (Button) findViewById(R.id.news_search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
+
+                if (selectedKeyword != null) {
+                    BingNewsSearchService searchService = BingNewsSearchService.getInstance();
+                    searchService.performSearch(selectedKeyword.getWord(), NewsSearchActivity.this);
+                }
             }
         });
 

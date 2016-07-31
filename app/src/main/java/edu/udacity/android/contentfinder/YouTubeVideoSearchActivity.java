@@ -35,8 +35,11 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity implements Key
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SearchResult searchResult = (SearchResult) videoList.getItemAtPosition(position);
+                Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
+
                 Intent intent = new Intent(YouTubeVideoSearchActivity.this, YouTubeVideoDetailActivity.class);
                 intent.putExtra(Constants.SELECTED_VIDEO_KEY, searchResult);
+                intent.putExtra(Constants.SELECTED_NEWS_KEYWORD, selectedKeyword);
                 startActivity(intent);
             }
         });

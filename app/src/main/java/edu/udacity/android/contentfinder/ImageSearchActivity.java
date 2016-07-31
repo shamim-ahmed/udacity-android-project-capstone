@@ -30,19 +30,21 @@ public class ImageSearchActivity extends AppCompatActivity implements KeywordAwa
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ListView newsList = (ListView) findViewById(R.id.image_list);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.image_keyword_spinner);
 
+        ListView newsList = (ListView) findViewById(R.id.image_list);
         newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SearchResult selectedResult = (SearchResult) parent.getItemAtPosition(position);
+                Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
+
                 Intent intent = new Intent(ImageSearchActivity.this, ImageDetailActivity.class);
                 intent.putExtra(Constants.SELECTED_IMAGE_KEY, selectedResult);
+                intent.putExtra(Constants.SELECTED_NEWS_KEYWORD, selectedKeyword);
                 startActivity(intent);
             }
         });
-
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.image_keyword_spinner);
 
         final Button searchButton = (Button) findViewById(R.id.image_search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {

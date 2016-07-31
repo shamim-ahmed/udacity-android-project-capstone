@@ -23,6 +23,9 @@ public class AddKeywordActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // display the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Button addButton = (Button) findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

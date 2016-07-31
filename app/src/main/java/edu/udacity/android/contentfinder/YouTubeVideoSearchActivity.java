@@ -28,6 +28,9 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity implements Key
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // display the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final Spinner keywordSpinner = (Spinner) findViewById(R.id.video_keyword_spinner);
 
         final ListView videoList = (ListView) findViewById(R.id.video_list);

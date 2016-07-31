@@ -29,6 +29,9 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // display the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final Spinner keywordSpinner = (Spinner) findViewById(R.id.news_keyword_spinner);
 
         ListView newsList = (ListView) findViewById(R.id.news_list);

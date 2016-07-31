@@ -21,6 +21,10 @@ public class NewsDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // display the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {

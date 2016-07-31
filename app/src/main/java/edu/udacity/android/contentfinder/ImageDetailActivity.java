@@ -23,6 +23,9 @@ public class ImageDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // display the back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         TextView titleView = (TextView) findViewById(R.id.image_detail_title);
         TextView sourceView = (TextView) findViewById(R.id.image_detail_source);
         ImageView imageView = (ImageView) findViewById(R.id.image_detail_binary);

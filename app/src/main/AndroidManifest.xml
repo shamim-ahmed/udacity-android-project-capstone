@@ -16,51 +16,56 @@
                 android:name=".db.ContentFinderDataProvider"
                 android:exported="true"
                 android:grantUriPermissions="true"/>
-
-        <activity
-                android:name=".NewsDetailActivity"
-                android:label="@string/title_activity_news_detail"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:name=".ImageDetailActivity"
-                android:label="@string/title_activity_image_detail"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity
                 android:name=".MainActivity"
                 android:label="@string/title_activity_main"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
+                android:name=".AddKeywordActivity"
+                android:label="@string/title_activity_add_keyword"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
                 android:name=".NewsSearchActivity"
                 android:label="@string/title_activity_news_search_result"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+                android:name=".NewsDetailActivity"
+                android:label="@string/title_activity_news_detail"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".NewsSearchActivity">
         </activity>
         <activity
                 android:name=".ImageSearchActivity"
                 android:label="@string/title_activity_image_search"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".MainActivity">
         </activity>
         <activity
-                android:name=".AddKeywordActivity"
-                android:label="@string/title_activity_add_keyword"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:name=".ImageDetailActivity"
+                android:label="@string/title_activity_image_detail"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".ImageSearchActivity">
         </activity>
         <activity
                 android:name=".YouTubeVideoSearchActivity"
                 android:label="@string/title_activity_you_tube_video_search"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".MainActivity">
         </activity>
         <activity
                 android:name=".YouTubeVideoDetailActivity"
                 android:label="@string/title_activity_video_detail"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".YouTubeVideoSearchActivity">
         </activity>
     </application>
 

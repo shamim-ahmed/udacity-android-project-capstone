@@ -71,7 +71,7 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         }
 
         final int n = contentValuesList.size();
-        Cursor cursor = provider.query(ContentFinderContract.MediaItemEntry.CONTENT_URI, null, null, null, null);
+        Cursor cursor = provider.query(ContentFinderContract.MediaItemEntry.CONTENT_URI, null, null, null, ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID);
         assertNotNull(cursor);
         assertTrue("cursor is null", cursor.moveToFirst());
         assertEquals("cursor size is different than expected", n, cursor.getCount());
@@ -89,7 +89,9 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         }
 
         for (Uri uri : resultUriList) {
-            Cursor cursor = provider.query(uri, null, null, null, null);
+            Long mediaItemId = ContentFinderContract.MediaItemEntry.getMediaItemIdFromUri(uri);
+            assertNotNull(mediaItemId);
+            Cursor cursor = provider.query(uri, null, ContentFinderDataProvider.MEDIA_ID_SELECTION, new String[] {mediaItemId.toString()}, ContentFinderContract.MediaItemEntry._ID);
             assertNotNull(cursor);
             assertTrue("cursor is empty", cursor.moveToFirst());
             assertEquals("cursor size is different than expected", 1, cursor.getCount());
@@ -112,7 +114,9 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         }
 
         Uri keywordSearchUri = ContentFinderContract.MediaItemEntry.buildUriFromKeywordId(1L);
-        Cursor cursor = provider.query(keywordSearchUri, null, null, null, null);
+        Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(keywordSearchUri);
+        assertNotNull(keywordId);
+        Cursor cursor = provider.query(keywordSearchUri, null, ContentFinderDataProvider.MEDIA_ITEM_KEYWORD_ID_SELECTION, new String[] {keywordId.toString()}, ContentFinderContract.KeywordEntry._ID);
         assertNotNull("cursor is null", cursor);
         assertTrue("cursor is empty", cursor.moveToFirst());
         assertEquals("cursor size is different than expected", mediaContentValueList.size(), cursor.getCount());
@@ -133,7 +137,9 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         }
 
         Uri mediaTypeSearchUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemType(MediaItemType.NEWS);
-        Cursor cursor = provider.query(mediaTypeSearchUri, null, null, null, null);
+        MediaItemType mediaItemType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(mediaTypeSearchUri);
+        assertNotNull(mediaItemType);
+        Cursor cursor = provider.query(mediaTypeSearchUri, null, ContentFinderDataProvider.MEDIA_ITEM_WITH_TYPE_ID_SELECTION, new String[] {mediaItemType.getId().toString()}, null);
         assertNotNull("cursor is null", cursor);
         assertTrue("cursor is empty", cursor.moveToFirst());
         assertEquals("cursor size is different than expected", mediaContentValueList.size(), cursor.getCount());
@@ -154,7 +160,12 @@ public class MediaItemTestCase extends ProviderTestCase2<ContentFinderDataProvid
         }
 
         Uri mediaTypeAndKeywordUri = ContentFinderContract.MediaItemEntry.buildUriFromMediaItemTypeAndKeywordId(MediaItemType.NEWS, 1L);
-        Cursor cursor = provider.query(mediaTypeAndKeywordUri, null, null, null, null);
+        MediaItemType mediaItemType = ContentFinderContract.MediaItemEntry.getMediaItemTypeFromUri(mediaTypeAndKeywordUri);
+        Long keywordId = ContentFinderContract.MediaItemEntry.getKeywordIdFromUri(mediaTypeAndKeywordUri);
+        assertNotNull(mediaItemType);
+        assertNotNull(keywordId);
+        Cursor cursor = provider.query(mediaTypeAndKeywordUri, null, ContentFinderDataProvider.MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION,
+                new String[] {mediaItemType.getId().toString(), keywordId.toString()}, null);
         assertNotNull("cursor is null", cursor);
         assertTrue("cursor is empty", cursor.moveToFirst());
         assertEquals("cursor size is different than expected", mediaContentValueList.size(), cursor.getCount());

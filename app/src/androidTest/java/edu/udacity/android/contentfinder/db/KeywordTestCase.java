@@ -77,7 +77,7 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         }
 
         // search for all keywords
-        Cursor cursor = provider.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, "_id");
+        Cursor cursor = provider.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, ContentFinderContract.KeywordEntry._ID);
         assertNotNull("cursor is null", cursor);
         assertTrue("cursor is empty", Boolean.TRUE.equals(cursor.moveToFirst()));
         assertEquals("size of cursor is different than expected", resultSetSize, cursor.getCount());
@@ -99,7 +99,9 @@ public class KeywordTestCase extends ProviderTestCase2<ContentFinderDataProvider
         }
 
         for (Uri uri : resultUriList) {
-            Cursor cursor = provider.query(uri, null, null, null, null);
+            Long keywordId = ContentFinderContract.KeywordEntry.getKeywordIdFromUri(uri);
+            assertNotNull("keywordId is null", keywordId);
+            Cursor cursor = provider.query(uri, null, ContentFinderDataProvider.KEYWORD_ID_SELECTION, new String[] {keywordId.toString()}, ContentFinderContract.KeywordEntry._ID);
             assertNotNull("cursor is null", cursor);
             assertTrue("cursor is empty", cursor.moveToFirst());
             assertEquals("cursor size is different than expected", 1, cursor.getCount());

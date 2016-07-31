@@ -17,7 +17,8 @@ public class ContentFinderDbHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_KEYWORD_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.KeywordEntry.TABLE_NAME + "("
             + ContentFinderContract.KeywordEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + ContentFinderContract.KeywordEntry.COLUMN_WORD + " TEXT NOT NULL UNIQUE"
+            + ContentFinderContract.KeywordEntry.COLUMN_WORD + " TEXT NOT NULL UNIQUE, "
+            + ContentFinderContract.KeywordEntry.COLUMN_CREATED_DATE + " TEXT"
             + ")";
 
     public static final String CREATE_MEDIA_ITEM_TABLE_SQL = "CREATE TABLE " + ContentFinderContract.MediaItemEntry.TABLE_NAME + "("

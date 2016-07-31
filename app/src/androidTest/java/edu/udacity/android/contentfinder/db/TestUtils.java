@@ -3,9 +3,11 @@ package edu.udacity.android.contentfinder.db;
 import android.content.ContentValues;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.MediaItemType;
+import edu.udacity.android.contentfinder.util.DateUtils;
 
 /**
  * Created by shamim on 6/2/16.
@@ -17,6 +19,7 @@ public class TestUtils {
 
         ContentValues keywordValues1 = new ContentValues();
         keywordValues1.put(ContentFinderContract.KeywordEntry.COLUMN_WORD, "android");
+        keywordValues1.put(ContentFinderContract.KeywordEntry.COLUMN_CREATED_DATE, DateUtils.formatDate(new Date()));
         resultList.add(keywordValues1);
 
         ContentValues keywordValues2 = new ContentValues();

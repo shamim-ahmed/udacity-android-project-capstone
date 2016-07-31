@@ -21,6 +21,7 @@ public class ContentFinderContract {
     public static class KeywordEntry implements BaseColumns {
         public static final String TABLE_NAME = "Keyword";
         public static final String COLUMN_WORD = "word";
+        public static final String COLUMN_CREATED_DATE = "created_date";
 
         public static final String PATH_KEYWORD = "keyword";
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_KEYWORD).build();

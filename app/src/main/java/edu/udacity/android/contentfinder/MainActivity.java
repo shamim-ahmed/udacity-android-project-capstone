@@ -54,6 +54,14 @@ public class MainActivity extends AppCompatActivity
         searchKeywordTask.execute();
     }
 
+
+    public void onRestart() {
+        super.onRestart();
+
+        SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
+        searchKeywordTask.execute();
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

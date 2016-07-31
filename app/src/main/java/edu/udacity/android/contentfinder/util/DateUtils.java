@@ -20,6 +20,23 @@ public class DateUtils {
         return dateFormat.format(date);
     }
 
+    public static Date parseDate(String dateStr) {
+        if (StringUtils.isBlank(dateStr)) {
+            return null;
+        }
+
+        Date result = null;
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_STR, Locale.US);
+
+        try {
+            result = dateFormat.parse(dateStr);
+        } catch (Exception ex) {
+            // ignore it
+        }
+
+        return result;
+    }
+
     private DateUtils() {
     }
 }

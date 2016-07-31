@@ -2,8 +2,6 @@ package edu.udacity.android.contentfinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,11 +15,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.List;
+
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordListAdapter;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, KeywordAware {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        loadKeywords();
-
         Button addKeywordButton = (Button) findViewById(R.id.add_keyword_button);
         addKeywordButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +49,9 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+        SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
+        searchKeywordTask.execute();
     }
 
     @Override
@@ -111,12 +113,11 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void loadKeywords() {
-        ContentFinderApplication application = (ContentFinderApplication) getApplication();
+    @Override
+    public void loadKeywords(List<Keyword> keywordList) {
         ListView listView = (ListView) findViewById(R.id.keyword_list);
         ArrayAdapter<Keyword> adapter = new KeywordListAdapter(this);
-        adapter.addAll(application.getKeyWords());
-
+        adapter.addAll(keywordList);
         listView.setAdapter(adapter);
     }
 }

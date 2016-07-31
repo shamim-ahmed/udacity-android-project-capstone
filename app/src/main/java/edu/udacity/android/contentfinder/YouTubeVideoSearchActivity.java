@@ -10,13 +10,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.util.List;
+
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.service.YouTubeVideoSearchService;
+import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.SearchResult;
 
-public class YouTubeVideoSearchActivity extends AppCompatActivity {
+public class YouTubeVideoSearchActivity extends AppCompatActivity implements KeywordAware {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,6 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         final Spinner keywordSpinner = (Spinner) findViewById(R.id.video_keyword_spinner);
-        loadKeywords(keywordSpinner);
 
         final ListView videoList = (ListView) findViewById(R.id.video_list);
         videoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,20 +54,25 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity {
             }
         });
 
-        if (keywordSpinner.getCount() > 0) {
-            searchButton.performClick();
-        }
+        SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
+        searchKeywordTask.execute();
     }
 
-    private void loadKeywords(Spinner keywordSpinner) {
-        ContentFinderApplication application = (ContentFinderApplication) getApplication();
+    @Override
+    public void loadKeywords(List<Keyword> keywordList) {
         KeywordSpinnerAdapter adapter = new KeywordSpinnerAdapter(this);
-        adapter.addAll(application.getKeyWords());
+        adapter.addAll(keywordList);
 
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.video_keyword_spinner);
         keywordSpinner.setAdapter(adapter);
 
         if (keywordSpinner.getCount() > 0) {
             keywordSpinner.setSelection(0);
+        }
+
+        Button searchButton = (Button) findViewById(R.id.video_search_button);
+        if (keywordSpinner.getCount() > 0) {
+            searchButton.performClick();
         }
     }
 }

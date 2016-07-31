@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -35,10 +36,13 @@ public class KeywordListAdapter extends ArrayAdapter<Keyword> {
         TextView createdDateView = (TextView) containerView.findViewById(R.id.created_date);
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String dateStr = dateFormat.format(keyword.getCreatedDate());
+        Date createdDate = keyword.getCreatedDate();
 
-        wordView.setText(keyword.getWord());
-        createdDateView.setText(String.format("Created on : %s", dateStr));
+        if (createdDate != null) {
+            String dateStr = dateFormat.format(createdDate);
+            wordView.setText(keyword.getWord());
+            createdDateView.setText(String.format("Created on : %s", dateStr));
+        }
 
         return containerView;
     }

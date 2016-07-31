@@ -29,18 +29,6 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ListView newsList = (ListView) findViewById(R.id.news_list);
-
-        newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SearchResult selectedResult = (SearchResult) parent.getItemAtPosition(position);
-                Intent intent = new Intent(NewsSearchActivity.this, NewsDetailActivity.class);
-                intent.putExtra(Constants.SELECTED_NEWS_KEY, selectedResult);
-                startActivity(intent);
-            }
-        });
-
         final Spinner keywordSpinner = (Spinner) findViewById(R.id.news_keyword_spinner);
 
         Button searchButton = (Button) findViewById(R.id.news_search_button);
@@ -53,6 +41,20 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
                     BingNewsSearchService searchService = BingNewsSearchService.getInstance();
                     searchService.performSearch(selectedKeyword.getWord(), NewsSearchActivity.this);
                 }
+            }
+        });
+
+        ListView newsList = (ListView) findViewById(R.id.news_list);
+        newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SearchResult selectedResult = (SearchResult) parent.getItemAtPosition(position);
+                Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
+
+                Intent intent = new Intent(NewsSearchActivity.this, NewsDetailActivity.class);
+                intent.putExtra(Constants.SELECTED_NEWS_KEY, selectedResult);
+                intent.putExtra(Constants.SELECTED_NEWS_KEYWORD, selectedKeyword);
+                startActivity(intent);
             }
         });
 

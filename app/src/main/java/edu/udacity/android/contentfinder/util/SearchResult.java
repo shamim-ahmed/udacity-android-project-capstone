@@ -120,15 +120,7 @@ public class SearchResult implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        Object[] fields = new Object[7];
-        fields[0] = itemId;
-        fields[1] = title;
-        fields[2] = description;
-        fields[3] = itemType;
-        fields[4] = webUrl;
-        fields[5] = source;
-        fields[6] = publishDate;
-
+        Object[] fields = {itemId, title, description, itemType, webUrl, source, publishDate};
         dest.writeArray(fields);
     }
 }

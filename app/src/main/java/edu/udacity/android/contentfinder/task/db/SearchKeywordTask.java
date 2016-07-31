@@ -3,7 +3,6 @@ package edu.udacity.android.contentfinder.task.db;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
 
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public class SearchKeywordTask extends AsyncTask<Void, Void, List<Keyword>> {
     @Override
     protected List<Keyword> doInBackground(Void... params) {
         ContentResolver contentResolver = activity.getContentResolver();
-        Cursor cursor = contentResolver.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, null);
+        Cursor cursor = contentResolver.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, ContentFinderContract.KeywordEntry._ID + " DESC");
 
         if (cursor == null) {
             return Collections.emptyList();

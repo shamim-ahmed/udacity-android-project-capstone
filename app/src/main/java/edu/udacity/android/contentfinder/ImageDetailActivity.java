@@ -1,5 +1,6 @@
 package edu.udacity.android.contentfinder;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -50,10 +51,14 @@ public class ImageDetailActivity extends AppCompatActivity {
 
         mediaItem.setKeywordId(keyword.getId());
 
+        Resources resources = getResources();
+        int width = (int) resources.getDimension(R.dimen.media_detail_image_width);
+        int height = (int) resources.getDimension(R.dimen.media_detail_image_height);
+
         Picasso.with(this)
                 .load(mediaItem.getWebUrl())
                 .noFade()
-                .resize(1000, 600)
+                .resize(width, height)
                 .centerInside()
                 .into(imageView);
 

@@ -9,7 +9,11 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
 
-    <!-- image list dimensions -->
+    <!-- media list dimensions -->
     <dimen name="media_list_thumb_width">200</dimen>
     <dimen name="media_list_thumb_height">120</dimen>
+
+    <!-- media detail dimensions  -->
+    <dimen name="media_detail_image_width">1000</dimen>
+    <dimen name="media_detail_image_height">600</dimen>
 </resources>

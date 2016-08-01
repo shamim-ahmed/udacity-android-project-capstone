@@ -6,11 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
@@ -38,26 +40,39 @@ public class YouTubeVideoDetailActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        if (bundle != null) {
-            MediaItem resultItem = (MediaItem) bundle.get(Constants.SELECTED_VIDEO_KEY);
-
-            if (resultItem != null) {
-                ImageView imageView = (ImageView) findViewById(R.id.video_detail_image);
-                TextView videoTitle = (TextView) findViewById(R.id.video_detail_title);
-                TextView videoDescription = (TextView) findViewById(R.id.video_detail_description);
-                TextView videoSource = (TextView) findViewById(R.id.video_detail_source);
-
-                Picasso.with(this)
-                        .load(resultItem.getWebUrl())
-                        .noFade()
-                        .resize(1000, 600)
-                        .centerInside()
-                        .into(imageView);
-
-                videoTitle.setText(resultItem.getTitle());
-                videoDescription.setText(resultItem.getSummary());
-                videoSource.setText(AppUtils.getSource(resultItem.getWebUrl()));
-            }
+        if (bundle == null) {
+            return;
         }
+
+        final MediaItem mediaItem = (MediaItem) bundle.get(Constants.SELECTED_VIDEO_KEY);
+
+        if (mediaItem == null) {
+            return;
+        }
+
+        ImageView imageView = (ImageView) findViewById(R.id.video_detail_image);
+        TextView videoTitle = (TextView) findViewById(R.id.video_detail_title);
+        TextView videoDescription = (TextView) findViewById(R.id.video_detail_description);
+        TextView videoSource = (TextView) findViewById(R.id.video_detail_source);
+
+        Picasso.with(this)
+                .load(mediaItem.getWebUrl())
+                .noFade()
+                .resize(1000, 600)
+                .centerInside()
+                .into(imageView);
+
+        videoTitle.setText(mediaItem.getTitle());
+        videoDescription.setText(mediaItem.getSummary());
+        videoSource.setText(AppUtils.getSource(mediaItem.getWebUrl()));
+
+        Button saveButton = (Button) findViewById(R.id.video_favorite_button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SaveMediaItemTask saveMediaItemTask = new SaveMediaItemTask(YouTubeVideoDetailActivity.this, mediaItem);
+                saveMediaItemTask.execute();
+            }
+        });
     }
 }

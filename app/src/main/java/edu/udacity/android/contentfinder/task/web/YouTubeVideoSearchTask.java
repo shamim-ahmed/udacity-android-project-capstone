@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Locale;
 
 import edu.udacity.android.contentfinder.R;
+import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.ui.VideoListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.StringUtils;
@@ -84,6 +85,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
                 result.setSummary(description);
                 result.setPublishDate(publishDate);
                 result.setWebUrl(thumbnailUri);
+                result.setContentType(MediaItemType.VIDEO);
 
                 resultList.add(result);
             }

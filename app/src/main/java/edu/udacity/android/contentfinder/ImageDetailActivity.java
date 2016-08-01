@@ -41,17 +41,19 @@ public class ImageDetailActivity extends AppCompatActivity {
 
         final MediaItem mediaItem = (MediaItem) bundle.get(Constants.SELECTED_IMAGE_KEY);
 
-        if (mediaItem != null) {
-            Picasso.with(this)
-                    .load(mediaItem.getWebUrl())
-                    .noFade()
-                    .resize(1000, 600)
-                    .centerInside()
-                    .into(imageView);
-
-            titleView.setText(mediaItem.getTitle());
-            sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
+        if (mediaItem == null) {
+            return;
         }
+
+        Picasso.with(this)
+                .load(mediaItem.getWebUrl())
+                .noFade()
+                .resize(1000, 600)
+                .centerInside()
+                .into(imageView);
+
+        titleView.setText(mediaItem.getTitle());
+        sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
         final Button saveButton = (Button) findViewById(R.id.image_favorite_button);
         saveButton.setOnClickListener(new View.OnClickListener() {

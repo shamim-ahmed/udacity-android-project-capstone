@@ -6,11 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
@@ -33,21 +35,32 @@ public class ImageDetailActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        if (bundle != null) {
-            MediaItem resultItem = (MediaItem) bundle.get(Constants.SELECTED_IMAGE_KEY);
-
-            if (resultItem != null) {
-                Picasso.with(this)
-                        .load(resultItem.getWebUrl())
-                        .noFade()
-                        .resize(1000, 600)
-                        .centerInside()
-                        .into(imageView);
-
-                titleView.setText(resultItem.getTitle());
-                sourceView.setText(AppUtils.getSource(resultItem.getWebUrl()));
-            }
+        if (bundle == null) {
+            return;
         }
+
+        final MediaItem mediaItem = (MediaItem) bundle.get(Constants.SELECTED_IMAGE_KEY);
+
+        if (mediaItem != null) {
+            Picasso.with(this)
+                    .load(mediaItem.getWebUrl())
+                    .noFade()
+                    .resize(1000, 600)
+                    .centerInside()
+                    .into(imageView);
+
+            titleView.setText(mediaItem.getTitle());
+            sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
+        }
+
+        final Button saveButton = (Button) findViewById(R.id.image_favorite_button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SaveMediaItemTask saveMediaItemTask = new SaveMediaItemTask(ImageDetailActivity.this, mediaItem);
+                saveMediaItemTask.execute();
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -14,11 +14,11 @@ import edu.udacity.android.contentfinder.model.MediaItem;
 /**
  * Created by shamim on 7/31/16.
  */
-public class AddMediaItemTask extends AsyncTask<Void, Void, Uri> {
+public class SaveMediaItemTask extends AsyncTask<Void, Void, Uri> {
     private final Activity activity;
     private final MediaItem mediaItem;
 
-    public AddMediaItemTask(Activity activity, MediaItem mediaItem) {
+    public SaveMediaItemTask(Activity activity, MediaItem mediaItem) {
         this.activity = activity;
         this.mediaItem = mediaItem;
     }

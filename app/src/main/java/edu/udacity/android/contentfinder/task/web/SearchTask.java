@@ -13,13 +13,13 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 
 import edu.udacity.android.contentfinder.util.IOUtils;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 /**
  * Created by shamim on 5/3/16.
  */
 
-public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResult>> {
+public abstract class SearchTask extends AsyncTask<String, Void, List<MediaItem>> {
     private static final String TAG = SearchTask.class.getSimpleName();
 
     protected final Activity activity;
@@ -29,7 +29,7 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
     }
 
     @Override
-    protected List<SearchResult> doInBackground(String... params) {
+    protected List<MediaItem> doInBackground(String... params) {
         if (params.length < 1) {
             Log.w(TAG, "No search URL provided");
             return null;
@@ -61,7 +61,7 @@ public abstract class SearchTask extends AsyncTask<String, Void, List<SearchResu
         return parseResponse(resultBuilder.toString());
     }
 
-    protected abstract List<SearchResult> parseResponse(String jsonStr);
+    protected abstract List<MediaItem> parseResponse(String jsonStr);
 
     protected void addAuthorizationHeaders(HttpsURLConnection connection) {
     }

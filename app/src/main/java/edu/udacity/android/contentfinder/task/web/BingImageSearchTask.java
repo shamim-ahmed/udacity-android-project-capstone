@@ -14,7 +14,7 @@ import java.util.List;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.ui.ImageListAdapter;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 /**
  * Created by shamim on 6/18/16.
@@ -34,8 +34,8 @@ public class BingImageSearchTask extends BingSearchTask {
     }
 
     @Override
-    protected List<SearchResult> parseResponse(String jsonStr) {
-        List<SearchResult> resultList = new ArrayList<>();
+    protected List<MediaItem> parseResponse(String jsonStr) {
+        List<MediaItem> resultList = new ArrayList<>();
 
         try {
             JSONObject resultObject = new JSONObject(jsonStr);
@@ -49,13 +49,12 @@ public class BingImageSearchTask extends BingSearchTask {
                 JSONObject thumbnailObject = photoObject.getJSONObject(JSON_FIELD_THUMBNAIL);
                 String mediaUrl = thumbnailObject.getString(JSON_FIELD_MEDIAURL);
 
-                SearchResult result = new SearchResult();
+                MediaItem result = new MediaItem();
                 result.setItemId(id);
                 result.setTitle(title);
-                result.setItemType(MediaItemType.PHOTO);
+                result.setContentType(MediaItemType.PHOTO);
                 result.setWebUrl(mediaUrl);
                 // TODO  find photo source by parsing web URL
-                result.setSource("bing.com");
                 resultList.add(result);
             }
         } catch (Exception ex) {
@@ -66,9 +65,9 @@ public class BingImageSearchTask extends BingSearchTask {
     }
 
     @Override
-    protected void onPostExecute(List<SearchResult> resultList) {
+    protected void onPostExecute(List<MediaItem> resultList) {
         ListView imageListView = (ListView) activity.findViewById(R.id.image_list);
-        ArrayAdapter<SearchResult> adapter = new ImageListAdapter(activity);
+        ArrayAdapter<MediaItem> adapter = new ImageListAdapter(activity);
         imageListView.setAdapter(adapter);
 
         adapter.addAll(resultList);

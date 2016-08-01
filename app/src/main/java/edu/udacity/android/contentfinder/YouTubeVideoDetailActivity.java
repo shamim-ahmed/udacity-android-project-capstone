@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 public class YouTubeVideoDetailActivity extends AppCompatActivity {
 
@@ -38,7 +39,7 @@ public class YouTubeVideoDetailActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
-            SearchResult resultItem = (SearchResult) bundle.get(Constants.SELECTED_VIDEO_KEY);
+            MediaItem resultItem = (MediaItem) bundle.get(Constants.SELECTED_VIDEO_KEY);
 
             if (resultItem != null) {
                 ImageView imageView = (ImageView) findViewById(R.id.video_detail_image);
@@ -54,8 +55,8 @@ public class YouTubeVideoDetailActivity extends AppCompatActivity {
                         .into(imageView);
 
                 videoTitle.setText(resultItem.getTitle());
-                videoDescription.setText(resultItem.getDescription());
-                videoSource.setText(resultItem.getSource());
+                videoDescription.setText(resultItem.getSummary());
+                videoSource.setText(AppUtils.getSource(resultItem.getWebUrl()));
             }
         }
     }

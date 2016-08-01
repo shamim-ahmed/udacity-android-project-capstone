@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import edu.udacity.android.contentfinder.R;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 /**
  * Created by shamim on 6/19/16.
  */
-public class ImageListAdapter extends ArrayAdapter<SearchResult> {
+public class ImageListAdapter extends ArrayAdapter<MediaItem> {
     private final Context context;
 
     public ImageListAdapter(Context context) {
@@ -26,7 +26,7 @@ public class ImageListAdapter extends ArrayAdapter<SearchResult> {
 
     @Override
     public View getView(int position, View containerView, ViewGroup parent) {
-        SearchResult resultItem = getItem(position);
+        MediaItem resultItem = getItem(position);
 
         if (containerView == null) {
             containerView = LayoutInflater.from(context).inflate(R.layout.image_item, parent, false);

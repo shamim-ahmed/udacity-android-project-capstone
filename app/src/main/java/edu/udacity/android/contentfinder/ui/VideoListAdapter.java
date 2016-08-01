@@ -11,19 +11,19 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import edu.udacity.android.contentfinder.R;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 /**
  * Created by shamim on 6/28/16.
  */
-public class VideoListAdapter extends ArrayAdapter<SearchResult> {
+public class VideoListAdapter extends ArrayAdapter<MediaItem> {
     public VideoListAdapter(Context context) {
         super(context, R.layout.video_item);
     }
 
     @Override
     public View getView(int position, View containerView, ViewGroup parent) {
-        SearchResult result = getItem(position);
+        MediaItem result = getItem(position);
         Context context = getContext();
 
         if (containerView == null) {

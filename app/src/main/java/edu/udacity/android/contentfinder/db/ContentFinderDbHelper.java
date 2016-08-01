@@ -28,8 +28,8 @@ public class ContentFinderDbHelper extends SQLiteOpenHelper {
             + ContentFinderContract.MediaItemEntry.COLUMN_TITLE + " TEXT NOT NULL, "
             + ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY + " TEXT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_URL + " TEXT NOT NULL, "
-            + ContentFinderContract.MediaItemEntry.COLUMN_PHOTO_URL + " TEXT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL + " TEXT, "
+            + ContentFinderContract.MediaItemEntry.COLUMN_PUBLISH_DATE + " TEXT, "
             + ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID + " INTEGER"
             + ")";
 

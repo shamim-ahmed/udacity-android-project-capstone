@@ -17,7 +17,7 @@ import edu.udacity.android.contentfinder.service.YouTubeVideoSearchService;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 public class YouTubeVideoSearchActivity extends AppCompatActivity implements KeywordAware {
 
@@ -37,7 +37,7 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity implements Key
         videoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SearchResult searchResult = (SearchResult) videoList.getItemAtPosition(position);
+                MediaItem searchResult = (MediaItem) videoList.getItemAtPosition(position);
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 Intent intent = new Intent(YouTubeVideoSearchActivity.this, YouTubeVideoDetailActivity.class);

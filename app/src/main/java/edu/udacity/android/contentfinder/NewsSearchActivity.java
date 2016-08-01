@@ -18,7 +18,7 @@ import edu.udacity.android.contentfinder.service.BingNewsSearchService;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 public class NewsSearchActivity extends AppCompatActivity implements KeywordAware {
 
@@ -38,7 +38,7 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
         newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SearchResult selectedResult = (SearchResult) parent.getItemAtPosition(position);
+                MediaItem selectedResult = (MediaItem) parent.getItemAtPosition(position);
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 Intent intent = new Intent(NewsSearchActivity.this, NewsDetailActivity.class);

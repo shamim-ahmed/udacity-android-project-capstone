@@ -6,12 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
@@ -28,17 +28,17 @@ public class NewsDetailActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
-            SearchResult resultItem = (SearchResult) bundle.get(Constants.SELECTED_NEWS_KEY);
+            MediaItem resultItem = (MediaItem) bundle.get(Constants.SELECTED_NEWS_KEY);
 
             if (resultItem != null) {
                 TextView titleView = (TextView) findViewById(R.id.news_detail_title);
                 titleView.setText(resultItem.getTitle());
 
                 TextView descriptionView = (TextView) findViewById(R.id.news_detail_description);
-                descriptionView.setText(resultItem.getDescription());
+                descriptionView.setText(resultItem.getSummary());
 
                 TextView sourceView = (TextView) findViewById(R.id.news_detail_source);
-                sourceView.setText(String.format("Source : %s", resultItem.getSource()));
+                sourceView.setText(String.format("Source : %s", AppUtils.getSource(resultItem.getWebUrl())));
 
                 TextView webUrlView = (TextView) findViewById(R.id.news_detail_web_url);
                 webUrlView.setText(Html.fromHtml(String.format("Read the full article <a href=\"%s\">here</a>", resultItem.getWebUrl())));

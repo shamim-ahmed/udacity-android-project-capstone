@@ -18,7 +18,7 @@ import java.util.Locale;
 
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.ui.VideoListAdapter;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
 /**
@@ -45,12 +45,12 @@ public class YouTubeVideoSearchTask extends SearchTask {
     }
 
     @Override
-    protected List<SearchResult> parseResponse(String jsonStr) {
+    protected List<MediaItem> parseResponse(String jsonStr) {
         if (StringUtils.isBlank(jsonStr)) {
             return Collections.emptyList();
         }
 
-        List<SearchResult> resultList = new ArrayList<>();
+        List<MediaItem> resultList = new ArrayList<>();
 
         try {
             JSONObject resultObject = new JSONObject(jsonStr);
@@ -78,12 +78,11 @@ public class YouTubeVideoSearchTask extends SearchTask {
                 JSONObject mediumObject = thumbNailObject.getJSONObject(JSON_FIELD_MEDIUM);
                 String thumbnailUri = mediumObject.getString(JSON_FIELD_URL);
 
-                SearchResult result = new SearchResult();
+                MediaItem result = new MediaItem();
                 result.setItemId(videoId);
                 result.setTitle(title);
-                result.setDescription(description);
+                result.setSummary(description);
                 result.setPublishDate(publishDate);
-                result.setSource("youtube.com");
                 result.setWebUrl(thumbnailUri);
 
                 resultList.add(result);
@@ -96,7 +95,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
     }
 
     @Override
-    public void onPostExecute(List<SearchResult> resultList) {
+    public void onPostExecute(List<MediaItem> resultList) {
         ListView videoListView = (ListView) activity.findViewById(R.id.video_list);
         VideoListAdapter adapter = new VideoListAdapter(activity);
         adapter.addAll(resultList);

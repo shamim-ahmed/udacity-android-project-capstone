@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.model.MediaItem;
 
 /**
  * Created by shamim on 7/31/16.
@@ -14,6 +15,20 @@ public class DbUtils {
         ContentValues values = new ContentValues();
         values.put(ContentFinderContract.KeywordEntry.COLUMN_WORD, keyword.getWord());
         values.put(ContentFinderContract.KeywordEntry.COLUMN_CREATED_DATE, DateUtils.formatDate(keyword.getCreatedDate()));
+        return values;
+    }
+
+    public static ContentValues convertMediaItem(MediaItem mediaItem) {
+        ContentValues values = new ContentValues();
+        values.put(ContentFinderContract.MediaItemEntry._ID, mediaItem.getId());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID, mediaItem.getItemId());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID, mediaItem.getContentType().getId());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_TITLE, mediaItem.getTitle());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_URL, mediaItem.getWebUrl());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID, mediaItem.getKeywordId());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY, mediaItem.getSummary());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL, mediaItem.getThumbnailUrl());
+
         return values;
     }
 

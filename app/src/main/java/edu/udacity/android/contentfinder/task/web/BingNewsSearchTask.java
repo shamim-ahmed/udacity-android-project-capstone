@@ -20,7 +20,7 @@ import java.util.TimeZone;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.ui.NewsListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItemType;
-import edu.udacity.android.contentfinder.util.SearchResult;
+import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
 /**
@@ -44,8 +44,8 @@ public class BingNewsSearchTask extends BingSearchTask {
     }
 
     @Override
-    protected List<SearchResult> parseResponse(String jsonStr) {
-        List<SearchResult> resultList = new ArrayList<>();
+    protected List<MediaItem> parseResponse(String jsonStr) {
+        List<MediaItem> resultList = new ArrayList<>();
 
         if (StringUtils.isNotBlank(jsonStr)) {
             try {
@@ -73,14 +73,13 @@ public class BingNewsSearchTask extends BingSearchTask {
                     String webUrl = item.getString(JSON_FIELD_URL);
                     Date publishDate = parseDate(item.getString(JSON_FIELD_DATE));
 
-                    SearchResult result = new SearchResult();
+                    MediaItem result = new MediaItem();
                     result.setItemId(itemId);
                     result.setTitle(title);
-                    result.setDescription(description);
-                    result.setSource(source);
+                    result.setSummary(description);
                     result.setWebUrl(webUrl);
                     result.setPublishDate(publishDate);
-                    result.setItemType(MediaItemType.NEWS);
+                    result.setContentType(MediaItemType.NEWS);
                     resultList.add(result);
                 }
 
@@ -93,9 +92,9 @@ public class BingNewsSearchTask extends BingSearchTask {
     }
 
     @Override
-    protected void onPostExecute(List<SearchResult> resultList) {
+    protected void onPostExecute(List<MediaItem> resultList) {
         ListView listView = (ListView) activity.findViewById(R.id.news_list);
-        ArrayAdapter<SearchResult> adapter = new NewsListAdapter(activity);
+        ArrayAdapter<MediaItem> adapter = new NewsListAdapter(activity);
         listView.setAdapter(adapter);
 
         adapter.addAll(resultList);

@@ -1,6 +1,7 @@
 package edu.udacity.android.contentfinder.ui;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,15 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
             containerView = LayoutInflater.from(context).inflate(R.layout.video_item, parent, false);
         }
 
+        // TODO investigate thumbnail resize issue
+        Resources resources = context.getResources();
+        int width = (int) resources.getDimension(R.dimen.media_list_thumb_width);
+        int height = (int) resources.getDimension(R.dimen.media_list_thumb_height);
         ImageView thumbnailView = (ImageView) containerView.findViewById(R.id.video_summary_thumbnail);
         Picasso.with(context)
                 .load(result.getWebUrl())
                 .noFade()
-                .resize(200, 120)
+                .resize(width, height)
                 .centerInside()
                 .into(thumbnailView);
 

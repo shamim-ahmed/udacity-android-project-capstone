@@ -10,6 +10,6 @@
     <dimen name="nav_header_height">160dp</dimen>
 
     <!-- image list dimensions -->
-    <dimen name="image_list_width">200</dimen>
-    <dimen name="image_list_height">120</dimen>
+    <dimen name="media_list_thumb_width">200</dimen>
+    <dimen name="media_list_thumb_height">120</dimen>
 </resources>

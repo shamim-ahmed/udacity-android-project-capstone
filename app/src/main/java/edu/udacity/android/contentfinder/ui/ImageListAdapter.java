@@ -1,7 +1,5 @@
 package edu.udacity.android.contentfinder.ui;
 
-import android.app.Activity;
-import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
@@ -41,8 +39,8 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
         // TODO use the right URL here and distinguish between web and bing URL
         // TODO investigate why image sizes vary
         Resources resources = context.getResources();
-        int width = (int) resources.getDimension(R.dimen.image_list_width);
-        int height = (int) resources.getDimension(R.dimen.image_list_height);
+        int width = (int) resources.getDimension(R.dimen.media_list_thumb_width);
+        int height = (int) resources.getDimension(R.dimen.media_list_thumb_height);
 
         Picasso.with(context)
                 .load(resultItem.getWebUrl())

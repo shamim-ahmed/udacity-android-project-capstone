@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -34,10 +35,13 @@ public class NewsDetailActivity extends AppCompatActivity {
         }
 
         final MediaItem mediaItem = (MediaItem) bundle.get(Constants.SELECTED_NEWS_KEY);
+        final Keyword keyword = (Keyword) bundle.get(Constants.SELECTED_NEWS_KEYWORD);
 
-        if (mediaItem == null) {
+        if (mediaItem == null || keyword == null) {
             return;
         }
+
+        mediaItem.setKeywordId(keyword.getId());
 
         TextView titleView = (TextView) findViewById(R.id.news_detail_title);
         titleView.setText(mediaItem.getTitle());

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -40,10 +41,13 @@ public class ImageDetailActivity extends AppCompatActivity {
         }
 
         final MediaItem mediaItem = (MediaItem) bundle.get(Constants.SELECTED_IMAGE_KEY);
+        final Keyword keyword = (Keyword) bundle.get(Constants.SELECTED_IMAGE_KEYWORD);
 
-        if (mediaItem == null) {
+        if (mediaItem == null || keyword == null) {
             return;
         }
+
+        mediaItem.setKeywordId(keyword.getId());
 
         Picasso.with(this)
                 .load(mediaItem.getWebUrl())

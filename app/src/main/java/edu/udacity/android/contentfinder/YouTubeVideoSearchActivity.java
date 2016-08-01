@@ -42,7 +42,7 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity implements Key
 
                 Intent intent = new Intent(YouTubeVideoSearchActivity.this, YouTubeVideoDetailActivity.class);
                 intent.putExtra(Constants.SELECTED_VIDEO_KEY, searchResult);
-                intent.putExtra(Constants.SELECTED_NEWS_KEYWORD, selectedKeyword);
+                intent.putExtra(Constants.SELECTED_VIDEO_KEYWORD, selectedKeyword);
                 startActivity(intent);
             }
         });

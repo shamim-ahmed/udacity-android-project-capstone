@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -59,7 +60,7 @@ public class ImageDetailActivity extends AppCompatActivity {
         titleView.setText(mediaItem.getTitle());
         sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
-        final Button saveButton = (Button) findViewById(R.id.image_favorite_button);
+        final Button saveButton = (Button) findViewById(R.id.favorite_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +68,10 @@ public class ImageDetailActivity extends AppCompatActivity {
                 saveMediaItemTask.execute();
             }
         });
+
+        // disable the save button if the media is already saved
+        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
+        mediaExistsTask.execute();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

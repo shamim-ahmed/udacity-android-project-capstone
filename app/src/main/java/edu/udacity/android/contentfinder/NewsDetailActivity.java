@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -56,7 +57,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         webUrlView.setText(Html.fromHtml(String.format("Read the full article <a href=\"%s\">here</a>", mediaItem.getWebUrl())));
 
 
-        Button saveNewsButton = (Button) findViewById(R.id.news_favorite_button);
+        Button saveNewsButton = (Button) findViewById(R.id.favorite_button);
         saveNewsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +65,10 @@ public class NewsDetailActivity extends AppCompatActivity {
                 saveMediaItemTask.execute();
             }
         });
+
+        // disable the save button if the media is already saved
+        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
+        mediaExistsTask.execute();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

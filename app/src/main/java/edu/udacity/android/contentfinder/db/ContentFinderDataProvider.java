@@ -31,6 +31,7 @@ public class ContentFinderDataProvider extends ContentProvider {
     public static final String KEYWORD_ID_SELECTION = "_id = ?";
     public static final String KEYWORD_WORD_SELECTION = "word = ?";
     public static final String MEDIA_ID_SELECTION = "_id = ?";
+    public static final String MEDIA_ITEM_ID_SELECTION = "item_id = ?";
     public static final String MEDIA_ITEM_KEYWORD_ID_SELECTION = "keyword_id = ?";
     public static final String MEDIA_ITEM_WITH_TYPE_ID_SELECTION = "media_type_id = ?";
     public static final String MEDIA_ITEM_TYPE_AND_KEYWORD_ID_SELECTION = "media_type_id = ? and keyword_id = ?";

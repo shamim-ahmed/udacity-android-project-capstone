@@ -51,7 +51,7 @@
             android:layout_below="@+id/news_detail_description"/>
 
     <Button
-            android:id="@+id/news_favorite_button"
+            android:id="@+id/favorite_button"
             android:text="Mark as Favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

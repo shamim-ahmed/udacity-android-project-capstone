@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -29,15 +30,6 @@ public class YouTubeVideoDetailActivity extends AppCompatActivity {
 
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         Bundle bundle = getIntent().getExtras();
 
@@ -70,12 +62,25 @@ public class YouTubeVideoDetailActivity extends AppCompatActivity {
         videoDescription.setText(mediaItem.getSummary());
         videoSource.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
-        Button saveButton = (Button) findViewById(R.id.video_favorite_button);
+        Button saveButton = (Button) findViewById(R.id.favorite_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SaveMediaItemTask saveMediaItemTask = new SaveMediaItemTask(YouTubeVideoDetailActivity.this, mediaItem);
                 saveMediaItemTask.execute();
+            }
+        });
+
+        // disable the save button if the media is already saved
+        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
+        mediaExistsTask.execute();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }

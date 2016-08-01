@@ -34,7 +34,7 @@ public class AddKeywordActivity extends AppCompatActivity {
                 String str = keywordView.getText().toString();
                 
                 if (StringUtils.isBlank(str)) {
-                    Toast.makeText(AddKeywordActivity.this, "Please enter a keyword", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddKeywordActivity.this, getString(R.string.add_keyword_input_missing), Toast.LENGTH_SHORT).show();
                     return;
                 }
 

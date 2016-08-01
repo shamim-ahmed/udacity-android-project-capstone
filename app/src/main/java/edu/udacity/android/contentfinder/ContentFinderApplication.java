@@ -28,7 +28,7 @@ public class ContentFinderApplication extends Application {
         try {
             configProperties.load(context.getResources().openRawResource(R.raw.config));
         } catch (IOException ex) {
-            Log.e(TAG, "error while loading configuration properties");
+            Log.e(TAG, "Error while loading configuration properties");
         }
     }
 

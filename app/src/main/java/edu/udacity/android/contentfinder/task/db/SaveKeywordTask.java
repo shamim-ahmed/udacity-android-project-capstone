@@ -16,11 +16,11 @@ import edu.udacity.android.contentfinder.util.DbUtils;
 /**
  * Created by shamim on 7/30/16.
  */
-public class AddKeywordTask extends AsyncTask<Void, Void, Uri> {
+public class SaveKeywordTask extends AsyncTask<Void, Void, Uri> {
     private final Activity activity;
     private final Keyword keyword;
 
-    public AddKeywordTask(Activity activity, Keyword keyword) {
+    public SaveKeywordTask(Activity activity, Keyword keyword) {
         this.activity = activity;
         this.keyword = keyword;
     }

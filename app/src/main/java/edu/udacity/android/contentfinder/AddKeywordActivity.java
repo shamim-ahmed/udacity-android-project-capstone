@@ -11,7 +11,7 @@ import android.widget.Toast;
 import java.util.Date;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.task.db.AddKeywordTask;
+import edu.udacity.android.contentfinder.task.db.SaveKeywordTask;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
 public class AddKeywordActivity extends AppCompatActivity {
@@ -41,7 +41,7 @@ public class AddKeywordActivity extends AppCompatActivity {
                 Keyword keyword = new Keyword();
                 keyword.setWord(str);
                 keyword.setCreatedDate(new Date());
-                AddKeywordTask task = new AddKeywordTask(AddKeywordActivity.this, keyword);
+                SaveKeywordTask task = new SaveKeywordTask(AddKeywordActivity.this, keyword);
                 task.execute();
             }
         });

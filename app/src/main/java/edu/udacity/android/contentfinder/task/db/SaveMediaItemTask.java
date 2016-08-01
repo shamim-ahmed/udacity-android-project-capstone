@@ -5,8 +5,10 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.widget.Button;
 import android.widget.Toast;
 
+import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.util.DbUtils;
 import edu.udacity.android.contentfinder.model.MediaItem;
@@ -39,6 +41,9 @@ public class SaveMediaItemTask extends AsyncTask<Void, Void, Uri> {
             toastMessage = "The media item could not be saved";
         } else {
             toastMessage = "The media item was saved successfully";
+
+            Button saveButton = (Button) activity.findViewById(R.id.favorite_button);
+            saveButton.setEnabled(false);
         }
 
         Toast.makeText(activity, toastMessage, Toast.LENGTH_SHORT).show();

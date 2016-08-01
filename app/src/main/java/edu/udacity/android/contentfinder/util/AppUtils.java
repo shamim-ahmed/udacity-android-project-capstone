@@ -10,6 +10,10 @@ public class AppUtils {
     private static final String TAG = AppUtils.class.getSimpleName();
 
     public static String getSource(String urlStr) {
+        if (StringUtils.isBlank(urlStr)) {
+            return null;
+        }
+
         String source = null;
 
         try {

@@ -77,15 +77,17 @@ public class YouTubeVideoSearchTask extends SearchTask {
 
                 JSONObject thumbNailObject = snippetObject.getJSONObject(JSON_FIELD_THUMBNAILS);
                 JSONObject mediumObject = thumbNailObject.getJSONObject(JSON_FIELD_MEDIUM);
-                String thumbnailUri = mediumObject.getString(JSON_FIELD_URL);
+                String thumbnailUrl = mediumObject.getString(JSON_FIELD_URL);
 
                 MediaItem result = new MediaItem();
                 result.setItemId(videoId);
+                result.setContentType(MediaItemType.VIDEO);
                 result.setTitle(title);
                 result.setSummary(description);
+                result.setWebUrl(thumbnailUrl);
+                result.setThumbnailUrl(thumbnailUrl);
+                result.setSource("youtube.com");
                 result.setPublishDate(publishDate);
-                result.setWebUrl(thumbnailUri);
-                result.setContentType(MediaItemType.VIDEO);
 
                 resultList.add(result);
             }

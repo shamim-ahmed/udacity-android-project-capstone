@@ -15,6 +15,7 @@ import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.ui.ImageListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItem;
+import edu.udacity.android.contentfinder.util.AppUtils;
 
 /**
  * Created by shamim on 6/18/16.
@@ -44,17 +45,17 @@ public class BingImageSearchTask extends BingSearchTask {
 
             for (int i = 0, n = resultArray.length(); i < n; i++) {
                 JSONObject photoObject = resultArray.getJSONObject(i);
-                String id = photoObject.getString(JSON_FIELD_ID);
+                String itemId = photoObject.getString(JSON_FIELD_ID);
                 String title = photoObject.getString(JSON_FIELD_TITLE);
                 JSONObject thumbnailObject = photoObject.getJSONObject(JSON_FIELD_THUMBNAIL);
                 String mediaUrl = thumbnailObject.getString(JSON_FIELD_MEDIAURL);
 
                 MediaItem result = new MediaItem();
-                result.setItemId(id);
-                result.setTitle(title);
+                result.setItemId(itemId);
                 result.setContentType(MediaItemType.PHOTO);
+                result.setTitle(title);
                 result.setWebUrl(mediaUrl);
-                // TODO  find photo source by parsing web URL
+                result.setSource(AppUtils.getSource(mediaUrl));
                 resultList.add(result);
             }
         } catch (Exception ex) {

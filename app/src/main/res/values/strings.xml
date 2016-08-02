@@ -20,9 +20,6 @@
     <string name="title_activity_you_tube_video_search">YouTiube Video Search Result</string>
     <string name="title_activity_video_detail">Video Details</string>
 
-    <!-- add keyword activity -->
-    <string name="add_keyword_input_missing">Please enter a keyword</string>
-
     <!-- news detail activity -->
     <string name="content_source">Source : %1$s</string>
     <string name="news_detail_full_article">Read the full article</string>
@@ -33,6 +30,9 @@
     <!-- add keyword -->
     <string name="save_keyword_success">The keyword was saved successfully</string>
     <string name="save_keyword_error">The keyword could not be saved</string>
+    <string name="add_keyword_input_missing">Please enter a keyword</string>
+    <string name="add_keyword_input_label">Keyword</string>
+    <string name="add_keyword_button_label">Add Keyword</string>
 
     <!-- add media -->
     <string name="save_media_success">The media item was saved successfully</string>

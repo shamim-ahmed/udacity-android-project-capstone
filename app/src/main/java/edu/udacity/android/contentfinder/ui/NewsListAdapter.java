@@ -15,15 +15,14 @@ import edu.udacity.android.contentfinder.model.MediaItem;
  * Created by shamim on 6/17/16.
  */
 public class NewsListAdapter extends ArrayAdapter<MediaItem> {
-    private final Context context;
 
     public NewsListAdapter(Context context) {
         super(context, R.layout.news_item);
-        this.context = context;
     }
 
     @Override
     public View getView(int position, View containerView, ViewGroup parent) {
+        Context context = getContext();
         MediaItem newsItem = getItem(position);
 
         if (containerView == null) {
@@ -37,7 +36,7 @@ public class NewsListAdapter extends ArrayAdapter<MediaItem> {
         descriptionView.setText(newsItem.getSummary());
 
         TextView sourceView = (TextView) containerView.findViewById(R.id.news_summary_source);
-        sourceView.setText(String.format("Source : %s", AppUtils.getSource(newsItem.getWebUrl())));
+        sourceView.setText(context.getString(R.string.content_source, AppUtils.getSource(newsItem.getWebUrl())));
 
         return containerView;
     }

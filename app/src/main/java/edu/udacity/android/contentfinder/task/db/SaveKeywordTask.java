@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.db.ContentFinderDataProvider;
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -54,9 +55,9 @@ public class SaveKeywordTask extends AsyncTask<Void, Void, Uri> {
         String toastMessage;
 
         if (resultUri == null) {
-            toastMessage = "The keyword could not be saved";
+            toastMessage = activity.getString(R.string.save_keyword_error);
         } else {
-            toastMessage = "The keyword was saved successfully";
+            toastMessage = activity.getString(R.string.save_keyword_success);
         }
 
         Toast.makeText(activity, toastMessage, Toast.LENGTH_SHORT).show();

@@ -24,6 +24,17 @@
     <string name="add_keyword_input_missing">Please enter a keyword</string>
 
     <!-- news detail activity -->
-    <string name="media_detail_source">Source : %1$s</string>
+    <string name="content_source">Source : %1$s</string>
     <string name="news_detail_full_article">Read the full article</string>
+
+    <!-- keyword list -->
+    <string name="keyword_created_on">Created on: %1$s</string>
+
+    <!-- add keyword -->
+    <string name="save_keyword_success">The keyword was saved successfully</string>
+    <string name="save_keyword_error">The keyword could not be saved</string>
+
+    <!-- add media -->
+    <string name="save_media_success">The media item was saved successfully</string>
+    <string name="save_media_error">The media item could not be saved</string>
 </resources>

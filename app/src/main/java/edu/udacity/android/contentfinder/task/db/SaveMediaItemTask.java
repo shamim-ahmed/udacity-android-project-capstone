@@ -38,9 +38,9 @@ public class SaveMediaItemTask extends AsyncTask<Void, Void, Uri> {
         String toastMessage;
 
         if (resultUri == null) {
-            toastMessage = "The media item could not be saved";
+            toastMessage = activity.getString(R.string.save_media_error);
         } else {
-            toastMessage = "The media item was saved successfully";
+            toastMessage = activity.getString(R.string.save_media_success);
 
             Button saveButton = (Button) activity.findViewById(R.id.favorite_button);
             saveButton.setEnabled(false);

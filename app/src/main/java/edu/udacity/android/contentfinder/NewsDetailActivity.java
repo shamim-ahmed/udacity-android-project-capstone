@@ -51,11 +51,10 @@ public class NewsDetailActivity extends AppCompatActivity {
         descriptionView.setText(mediaItem.getSummary());
 
         TextView sourceView = (TextView) findViewById(R.id.news_detail_source);
-        sourceView.setText(String.format("Source : %s", AppUtils.getSource(mediaItem.getWebUrl())));
+        sourceView.setText(getString(R.string.media_detail_source, AppUtils.getSource(mediaItem.getWebUrl())));
 
         TextView webUrlView = (TextView) findViewById(R.id.news_detail_web_url);
-        webUrlView.setText(Html.fromHtml(String.format("Read the full article <a href=\"%s\">here</a>", mediaItem.getWebUrl())));
-
+        webUrlView.setText(Html.fromHtml(String.format("%s %s", getString(R.string.news_detail_full_article), String.format("<a href=\"%s\">here</a>", mediaItem.getWebUrl()))));
 
         Button saveNewsButton = (Button) findViewById(R.id.favorite_button);
         saveNewsButton.setOnClickListener(new View.OnClickListener() {

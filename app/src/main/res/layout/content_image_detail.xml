@@ -7,7 +7,7 @@
         tools:showIn="@layout/activity_image_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:padding="@dimen/detail_scroll_view_padding"
         tools:context="edu.udacity.android.contentfinder.ImageDetailActivity">
 
     <RelativeLayout
@@ -21,35 +21,35 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="@dimen/image_detail_binary_margin_bottom"/>
 
         <TextView
                 android:id="@+id/image_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_detail_binary"
-                android:textSize="16sp"
-                android:layout_marginBottom="5dp"
+                android:textSize="@dimen/image_detail_title_text_size"
+                android:layout_marginBottom="@dimen/image_detail_title_margin_bottom"
                 android:textStyle="bold"
-                android:textColor="#0d47a1"/>
+                android:textColor="@color/image_detail_title_text_color"/>
 
         <TextView
                 android:id="@+id/image_detail_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_detail_title"
-                android:textSize="14sp"
+                android:textSize="@dimen/image_detail_source_text_size"
                 android:textStyle="italic"
-                android:textColor="#2196f3"/>
+                android:textColor="@color/image_detail_source_text_color"/>
 
         <Button
                 android:id="@+id/favorite_button"
-                android:text="Mark as Favorite"
+                android:text="@string/favorite_button_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_detail_source"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="@dimen/image_detail_margin_top"/>
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

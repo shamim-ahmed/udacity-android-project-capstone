@@ -24,4 +24,13 @@
     <dimen name="add_keyword_textField_margin_left">10dp</dimen>
     <dimen name="add_keyword_textField_text_size">20sp</dimen>
     <dimen name="add_keyword_textField_padding">5dp</dimen>
+
+    <!-- image detail -->
+    <dimen name="image_detail_title_text_size">16sp</dimen>
+    <dimen name="image_detail_title_margin_bottom">5dp</dimen>
+    <dimen name="image_detail_source_text_size">14sp</dimen>
+    <dimen name="image_detail_margin_top">10dp</dimen>
+    <dimen name="image_detail_binary_margin_bottom">10dp</dimen>
+
+    <dimen name="detail_scroll_view_padding">10dp</dimen>
 </resources>

@@ -50,10 +50,6 @@
             android:layout_below="@id/news_keyword_widgets"
             android:layout_marginTop="10dp"/>
 
-    <include
-            layout="@layout/ad_view"
-            android:layout_below="@id/news_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <include layout="@layout/ad_view"/>
 
 </RelativeLayout>

@@ -1,6 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        udacityConfig {
+            keyAlias 'edu.udacity.android'
+            keyPassword 'udacity'
+            storeFile file('keystore/udacity.jks')
+            storePassword 'udacity'
+        }
+    }
+
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
@@ -10,12 +19,25 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        signingConfig signingConfigs.udacityConfig
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
+        free {
+            applicationId "edu.udacity.gradle.builditbigger.free"
+        }
+        paid {
+            applicationId "edu.udacity.gradle.builditbigger.paid"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
     }
 }
 

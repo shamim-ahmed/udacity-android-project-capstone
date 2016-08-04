@@ -17,7 +17,7 @@
     <string name="title_activity_news_search_result">News Search Result</string>
     <string name="title_activity_image_search">Image Search Result</string>
     <string name="title_activity_add_keyword">Add New Keyword</string>
-    <string name="title_activity_you_tube_video_search">YouTiube Video Search Result</string>
+    <string name="title_activity_you_tube_video_search">YouTube Video Search Result</string>
     <string name="title_activity_video_detail">Video Details</string>
 
     <!-- news detail activity -->

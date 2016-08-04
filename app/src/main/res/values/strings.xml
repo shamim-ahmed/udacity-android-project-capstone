@@ -40,4 +40,8 @@
 
     <string name="favorite_button_label">Mark as Favorite</string>
     <string name="search_button_label">Go</string>
+
+    <!-- ad functionality -->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="device_id" translatable="false">D55E75550E2CA393D1269880F1D4D4FC</string>
 </resources>

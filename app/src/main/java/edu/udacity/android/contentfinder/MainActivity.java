@@ -1,5 +1,8 @@
 package edu.udacity.android.contentfinder;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +55,16 @@ public class MainActivity extends AppCompatActivity
 
         SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
         searchKeywordTask.execute();
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+
+        if (BuildConfig.FLAVOR.equals("paid")) {
+            adView.setVisibility(View.GONE);
+        } else {
+            String deviceId = getString(R.string.device_id);
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice(deviceId).build();
+            adView.loadAd(adRequest);
+        }
     }
 
 

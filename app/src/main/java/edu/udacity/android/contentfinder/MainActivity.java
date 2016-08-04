@@ -1,11 +1,7 @@
 package edu.udacity.android.contentfinder;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,7 +20,7 @@ import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordListAdapter;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AbstractActivity
         implements NavigationView.OnNavigationItemSelectedListener, KeywordAware {
 
     @Override
@@ -55,6 +51,8 @@ public class MainActivity extends AppCompatActivity
 
         SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
         searchKeywordTask.execute();
+
+        loadAdvertisement();
     }
 
 

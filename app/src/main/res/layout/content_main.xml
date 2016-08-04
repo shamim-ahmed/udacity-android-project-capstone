@@ -27,4 +27,6 @@
             android:layout_below="@id/keyword_list"
             android:layout_centerHorizontal="true"/>
 
+    <include layout="@layout/ad_view"/>
+
 </RelativeLayout>

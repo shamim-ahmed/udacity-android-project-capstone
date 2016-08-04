@@ -14,14 +14,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by shamim on 5/1/16.
  */
-
-/**
- *
- */
 public class ContentFinderApplication extends Application {
     private static final String TAG = ContentFinderApplication.class.getSimpleName();
+    private static final int CACHE_TIMEOUT = 5;
+
     private final Properties configProperties = new Properties();
-    private final Map<String, String> searchResultCache = ExpiringMap.builder().expiration(2, TimeUnit.MINUTES).build();
+    private final Map<String, String> searchResultCache = ExpiringMap.builder().expiration(CACHE_TIMEOUT, TimeUnit.MINUTES).build();
 
     public String findInCache(String key) {
         return searchResultCache.get(key);

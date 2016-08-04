@@ -38,4 +38,14 @@
     <dimen name="keyword_spinner_marginLeft">10dp</dimen>
     <dimen name="keyword_spinner_width">175dp</dimen>
     <dimen name="search_button_margin_top">7dp</dimen>
+
+    <dimen name="news_detail_title_textSize">16sp</dimen>
+    <dimen name="news_detail_title_marginBottom">5dp</dimen>
+    <dimen name="news_detail_source_textSize">14sp</dimen>
+    <dimen name="news_detail_description_textSize">14sp</dimen>
+    <dimen name="news_detail_description_marginBottom">5dp</dimen>
+    <dimen name="news_detail_link_textSize">14sp</dimen>
+
+    <dimen name="favorite_button_marginTop">10dp</dimen>
+
 </resources>

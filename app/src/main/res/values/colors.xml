@@ -8,4 +8,9 @@
     <!-- image detail -->
     <color name="image_detail_title_text_color">#0d47a1</color>
     <color name="image_detail_source_text_color">#2196f3</color>
+
+    <!-- news detail -->
+    <color name="news_detail_title_textColor">#0d47a1</color>
+    <color name="news_detail_source_textColor">#2196f3</color>
+    <color name="news_detail_link_textColor">#2196f3</color>
 </resources>

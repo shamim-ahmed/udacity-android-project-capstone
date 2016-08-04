@@ -49,4 +49,10 @@
             android:text="@string/add_keyword_button_label"
             android:layout_below="@id/keyword_input_fields"
             android:layout_centerHorizontal="true"/>
+
+    <include
+            layout="@layout/ad_view"
+            android:layout_below="@id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 </RelativeLayout>

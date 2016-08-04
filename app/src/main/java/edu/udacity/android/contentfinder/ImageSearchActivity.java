@@ -21,7 +21,7 @@ import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class ImageSearchActivity extends AppCompatActivity implements KeywordAware {
+public class ImageSearchActivity extends AbstractActivity implements KeywordAware {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,8 @@ public class ImageSearchActivity extends AppCompatActivity implements KeywordAwa
 
         SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
         searchKeywordTask.execute();
+
+        loadAdvertisement();
     }
 
     @Override

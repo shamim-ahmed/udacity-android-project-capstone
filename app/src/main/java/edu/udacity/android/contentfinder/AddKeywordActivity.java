@@ -14,7 +14,7 @@ import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.SaveKeywordTask;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
-public class AddKeywordActivity extends AppCompatActivity {
+public class AddKeywordActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,5 +45,7 @@ public class AddKeywordActivity extends AppCompatActivity {
                 task.execute();
             }
         });
+
+        loadAdvertisement();
     }
 }

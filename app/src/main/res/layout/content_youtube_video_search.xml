@@ -40,8 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Go"
-                android:layout_marginTop="7dp"
-                />
+                android:layout_marginTop="7dp"/>
     </LinearLayout>
 
     <ListView
@@ -49,7 +48,11 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_below="@id/video_keyword_widgets"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="10dp"/>
 
-            />
+    <include
+            layout="@layout/ad_view"
+            android:layout_below="@id/video_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 </RelativeLayout>

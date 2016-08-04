@@ -19,7 +19,7 @@ import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class YouTubeVideoDetailActivity extends AppCompatActivity {
+public class YouTubeVideoDetailActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,5 +83,7 @@ public class YouTubeVideoDetailActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        loadAdvertisement();
     }
 }

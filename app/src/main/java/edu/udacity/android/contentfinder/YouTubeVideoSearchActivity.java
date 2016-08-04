@@ -19,7 +19,7 @@ import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class YouTubeVideoSearchActivity extends AppCompatActivity implements KeywordAware {
+public class YouTubeVideoSearchActivity extends AbstractActivity implements KeywordAware {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,8 @@ public class YouTubeVideoSearchActivity extends AppCompatActivity implements Key
 
         SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
         searchKeywordTask.execute();
+
+        loadAdvertisement();
     }
 
     @Override

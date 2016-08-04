@@ -20,7 +20,7 @@ import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class NewsSearchActivity extends AppCompatActivity implements KeywordAware {
+public class NewsSearchActivity extends AbstractActivity implements KeywordAware {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,8 @@ public class NewsSearchActivity extends AppCompatActivity implements KeywordAwar
 
         SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
         searchKeywordTask.execute();
+
+        loadAdvertisement();
     }
 
     @Override

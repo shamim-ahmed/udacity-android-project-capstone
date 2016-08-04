@@ -20,7 +20,7 @@ import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class ImageDetailActivity extends AppCompatActivity {
+public class ImageDetailActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,5 +86,7 @@ public class ImageDetailActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        loadAdvertisement();
     }
 }

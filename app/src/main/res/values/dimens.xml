@@ -32,7 +32,7 @@
     <dimen name="image_detail_title_marginBottom">5dp</dimen>
     <dimen name="image_detail_source_textSize">14sp</dimen>
     <dimen name="image_detail_marginTop">10dp</dimen>
-    <dimen name="image_detail_binary_marginBottom">10dp</dimen>
+    <dimen name="image_detail_bi10dpnary_marginBottom">10dp</dimen>
 
     <dimen name="detail_scroll_view_padding">10dp</dimen>
     <dimen name="keyword_label_textSize">20sp</dimen>
@@ -49,5 +49,15 @@
     <dimen name="news_detail_link_textSize">14sp</dimen>
 
     <dimen name="favorite_button_marginTop">10dp</dimen>
+
+    <dimen name="video_item_marginRight">10dp</dimen>
+    <dimen name="video_item_marginTop">5dp</dimen>
+    <dimen name="video_item_marginBottom">5dp</dimen>
+
+    <dimen name="video_item_textSize">16sp</dimen>
+    <dimen name="video_item_layout_margin">5dp</dimen>
+
+    <dimen name="spinner_textSize">16sp</dimen>
+    <dimen name="spinner_padding">5dp</dimen>
 
 </resources>

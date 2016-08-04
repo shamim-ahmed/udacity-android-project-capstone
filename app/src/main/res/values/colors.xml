@@ -14,4 +14,6 @@
     <color name="news_detail_title_textColor">#0d47a1</color>
     <color name="news_detail_source_textColor">#2196f3</color>
     <color name="news_detail_link_textColor">#2196f3</color>
+
+    <color name="video_item_text_color">#0d47a1</color>
 </resources>

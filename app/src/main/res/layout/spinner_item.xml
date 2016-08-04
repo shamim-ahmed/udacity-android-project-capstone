@@ -5,5 +5,5 @@
         android:id="@+id/spinner_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="5dp"/>
+        android:textSize="@dimen/spinner_textSize"
+        android:padding="@dimen/spinner_padding"/>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -22,9 +23,9 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keyword"
-                android:textSize="20sp"
-                android:layout_marginTop="7dp"
+                android:text="@string/add_keyword_input_label"
+                android:textSize="@dimen/keyword_label_textSize"
+                android:layout_marginTop="@dimen/keyword_label_marginTop"
                 android:textStyle="bold"/>
 
         <Spinner

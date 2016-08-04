@@ -25,17 +25,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_keyword_input_label"
-                android:textSize="@dimen/add_keyword_label_font_size"
+                android:textSize="@dimen/add_keyword_label_fontSize"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/add_keyword_label_margin_left"
-                android:layout_marginStart="@dimen/add_keyword_label_margin_left"/>
+                android:layout_marginLeft="@dimen/add_keyword_label_marginLeft"
+                android:layout_marginStart="@dimen/add_keyword_label_marginLeft"/>
 
         <EditText
                 android:id="@+id/new_keyword"
                 android:layout_width="@dimen/add_keyword_textField_width"
-                android:layout_marginLeft="@dimen/add_keyword_textField_margin_left"
-                android:layout_marginStart="@dimen/add_keyword_textField_margin_left"
-                android:textSize="@dimen/add_keyword_textField_text_size"
+                android:layout_marginLeft="@dimen/add_keyword_textField_marginLeft"
+                android:layout_marginStart="@dimen/add_keyword_textField_marginLeft"
+                android:textSize="@dimen/add_keyword_textField_textSize"
                 android:padding="@dimen/add_keyword_textField_padding"
                 android:layout_height="wrap_content"
                 android:inputType="text"

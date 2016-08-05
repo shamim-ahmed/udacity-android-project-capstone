@@ -42,6 +42,14 @@
     <string name="favorite_button_label">Mark as Favorite</string>
     <string name="search_button_label">Go</string>
 
+    <string name="nav_drawer_home">Home</string>
+    <string name="nav_drawer_news_search">News Search</string>
+    <string name="nav_drawer_image_search">Image Search</string>
+    <string name="nav_drawer_video_search">Youtube Video Search</string>
+    <string name="nav_drawer_subtitle_personalization">Personalization</string>
+    <string name="nav_drawer_add_new_keyword">Add New Keyword</string>
+    <string name="nav_drawer_view_saved_content">View Saved Content</string>
+
     <!-- ad functionality -->
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="device_id" translatable="false">D55E75550E2CA393D1269880F1D4D4FC</string>

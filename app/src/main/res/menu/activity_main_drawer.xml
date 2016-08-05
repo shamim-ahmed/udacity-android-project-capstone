@@ -6,31 +6,31 @@
         <item
                 android:id="@+id/nav_home"
                 android:icon="@mipmap/ic_launcher"
-                android:title="Home"/>
+                android:title="@string/nav_drawer_home"/>
         <item
                 android:id="@+id/nav_news_search"
                 android:icon="@mipmap/ic_launcher"
-                android:title="News Search"/>
+                android:title="@string/nav_drawer_news_search"/>
         <item
                 android:id="@+id/nav_image_search"
                 android:icon="@mipmap/ic_launcher"
-                android:title="Image Search"/>
+                android:title="@string/nav_drawer_image_search"/>
         <item
                 android:id="@+id/nav_video_search"
                 android:icon="@mipmap/ic_launcher"
-                android:title="Youtube Video Search"/>
+                android:title="@string/nav_drawer_video_search"/>
     </group>
 
-    <item android:title="Personalization">
+    <item android:title="@string/nav_drawer_subtitle_personalization">
         <menu>
             <item
                     android:id="@+id/nav_add_keyword"
                     android:icon="@mipmap/ic_launcher"
-                    android:title="Add New Keyword"/>
+                    android:title="@string/nav_drawer_add_new_keyword"/>
             <item
                     android:id="@+id/nav_saved_content"
                     android:icon="@mipmap/ic_launcher"
-                    android:title="View Saved Content"/>
+                    android:title="@string/nav_drawer_view_saved_content"/>
         </menu>
     </item>
 

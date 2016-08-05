@@ -8,7 +8,7 @@
         tools:showIn="@layout/activity_image_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/detail_scroll_view_padding"
+        android:padding="@dimen/detail_scrollView_padding"
         tools:context="edu.udacity.android.contentfinder.ImageDetailActivity">
 
     <RelativeLayout
@@ -22,15 +22,15 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="@dimen/image_detail_binary_marginBottom"/>
+                android:layout_marginBottom="@dimen/imageDetail_binary_marginBottom"/>
 
         <TextView
                 android:id="@+id/image_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_detail_binary"
-                android:textSize="@dimen/image_detail_title_textSize"
-                android:layout_marginBottom="@dimen/image_detail_title_marginBottom"
+                android:textSize="@dimen/imageDetail_title_textSize"
+                android:layout_marginBottom="@dimen/imageDetail_title_marginBottom"
                 android:textStyle="bold"
                 android:textColor="@color/imageDetail_title_textColor"/>
 
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_detail_title"
-                android:textSize="@dimen/image_detail_source_textSize"
+                android:textSize="@dimen/imageDetail_source_textSize"
                 android:textStyle="italic"
                 android:textColor="@color/imageDetail_source_textColor"/>
 
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_detail_source"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/image_detail_marginTop"/>
+                android:layout_marginTop="@dimen/imageDetail_marginTop"/>
 
         <include
                 layout="@layout/ad_view"

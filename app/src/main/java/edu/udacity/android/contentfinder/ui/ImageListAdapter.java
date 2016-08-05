@@ -39,8 +39,8 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
         // TODO use the right URL here and distinguish between web and bing URL
         // TODO investigate why image sizes vary
         Resources resources = context.getResources();
-        int width = (int) resources.getDimension(R.dimen.media_list_thumb_width);
-        int height = (int) resources.getDimension(R.dimen.media_list_thumb_height);
+        int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
+        int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
 
         Picasso.with(context)
                 .load(resultItem.getWebUrl())

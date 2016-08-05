@@ -33,8 +33,8 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
 
         // TODO investigate thumbnail resize issue
         Resources resources = context.getResources();
-        int width = (int) resources.getDimension(R.dimen.media_list_thumb_width);
-        int height = (int) resources.getDimension(R.dimen.media_list_thumb_height);
+        int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
+        int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
         ImageView thumbnailView = (ImageView) containerView.findViewById(R.id.video_summary_thumbnail);
         Picasso.with(context)
                 .load(result.getWebUrl())

@@ -12,50 +12,50 @@
     <dimen name="nav_header_height">160dp</dimen>
 
     <!-- media list dimensions -->
-    <dimen name="media_list_thumb_width">100dp</dimen>
-    <dimen name="media_list_thumb_height">60dp</dimen>
+    <dimen name="mediaList_thumb_width">100dp</dimen>
+    <dimen name="mediaList_thumb_height">60dp</dimen>
 
     <!-- media detail dimensions  -->
-    <dimen name="media_detail_image_width">500dp</dimen>
-    <dimen name="media_detail_image_height">300dp</dimen>
+    <dimen name="mediaDetail_image_width">500dp</dimen>
+    <dimen name="mediaDetail_image_height">300dp</dimen>
 
     <!-- add keyword -->
-    <dimen name="add_keyword_label_fontSize">18sp</dimen>
-    <dimen name="add_keyword_label_marginLeft">25dp</dimen>
-    <dimen name="add_keyword_textField_width">200dp</dimen>
-    <dimen name="add_keyword_textField_marginLeft">10dp</dimen>
-    <dimen name="add_keyword_textField_textSize">20sp</dimen>
-    <dimen name="add_keyword_textField_padding">5dp</dimen>
+    <dimen name="addKeyword_label_fontSize">18sp</dimen>
+    <dimen name="addKeyword_label_marginLeft">25dp</dimen>
+    <dimen name="addKeyword_textField_width">200dp</dimen>
+    <dimen name="addKeyword_textField_marginLeft">10dp</dimen>
+    <dimen name="addKeyword_textField_textSize">20sp</dimen>
+    <dimen name="addKeyword_textField_padding">5dp</dimen>
 
     <!-- image detail -->
-    <dimen name="image_detail_title_textSize">16sp</dimen>
-    <dimen name="image_detail_title_marginBottom">5dp</dimen>
-    <dimen name="image_detail_source_textSize">14sp</dimen>
-    <dimen name="image_detail_marginTop">10dp</dimen>
-    <dimen name="image_detail_binary_marginBottom">10dp</dimen>
+    <dimen name="imageDetail_title_textSize">16sp</dimen>
+    <dimen name="imageDetail_title_marginBottom">5dp</dimen>
+    <dimen name="imageDetail_source_textSize">14sp</dimen>
+    <dimen name="imageDetail_marginTop">10dp</dimen>
+    <dimen name="imageDetail_binary_marginBottom">10dp</dimen>
 
-    <dimen name="detail_scroll_view_padding">10dp</dimen>
+    <dimen name="detail_scrollView_padding">10dp</dimen>
     <dimen name="keyword_label_textSize">20sp</dimen>
     <dimen name="keyword_label_marginTop">7dp</dimen>
     <dimen name="keyword_spinner_marginLeft">10dp</dimen>
     <dimen name="keyword_spinner_width">175dp</dimen>
-    <dimen name="search_button_marginTop">7dp</dimen>
+    <dimen name="searchButton_marginTop">7dp</dimen>
 
-    <dimen name="news_detail_title_textSize">16sp</dimen>
-    <dimen name="news_detail_title_marginBottom">5dp</dimen>
-    <dimen name="news_detail_source_textSize">14sp</dimen>
-    <dimen name="news_detail_description_textSize">14sp</dimen>
-    <dimen name="news_detail_description_marginBottom">5dp</dimen>
-    <dimen name="news_detail_link_textSize">14sp</dimen>
+    <dimen name="newsDetail_title_textSize">16sp</dimen>
+    <dimen name="newsDetail_title_marginBottom">5dp</dimen>
+    <dimen name="newsDetail_source_textSize">14sp</dimen>
+    <dimen name="newsDetail_description_textSize">14sp</dimen>
+    <dimen name="newsDetail_description_marginBottom">5dp</dimen>
+    <dimen name="newsDetail_link_textSize">14sp</dimen>
 
-    <dimen name="favorite_button_marginTop">10dp</dimen>
+    <dimen name="favoriteButton_marginTop">10dp</dimen>
 
-    <dimen name="video_item_marginRight">10dp</dimen>
-    <dimen name="video_item_marginTop">5dp</dimen>
-    <dimen name="video_item_marginBottom">5dp</dimen>
+    <dimen name="videoItem_marginRight">10dp</dimen>
+    <dimen name="videoItem_marginTop">5dp</dimen>
+    <dimen name="videoItem_marginBottom">5dp</dimen>
 
-    <dimen name="video_item_textSize">16sp</dimen>
-    <dimen name="video_item_layout_margin">5dp</dimen>
+    <dimen name="videoItem_textSize">16sp</dimen>
+    <dimen name="videoItem_layout_margin">5dp</dimen>
 
     <dimen name="spinner_textSize">16sp</dimen>
     <dimen name="spinner_padding">5dp</dimen>

@@ -49,8 +49,8 @@ public class ImageDetailActivity extends AbstractActivity {
         mediaItem.setKeywordId(keyword.getId());
 
         Resources resources = getResources();
-        int width = (int) resources.getDimension(R.dimen.media_detail_image_width);
-        int height = (int) resources.getDimension(R.dimen.media_detail_image_height);
+        int width = (int) resources.getDimension(R.dimen.mediaDetail_image_width);
+        int height = (int) resources.getDimension(R.dimen.mediaDetail_image_height);
 
         Picasso.with(this)
                 .load(mediaItem.getWebUrl())

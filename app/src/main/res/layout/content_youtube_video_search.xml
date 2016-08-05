@@ -23,15 +23,15 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Keyword"
-                android:textSize="20sp"
-                android:layout_marginTop="7dp"
+                android:text="@string/add_keyword_input_label"
+                android:textSize="@dimen/keyword_label_textSize"
+                android:layout_marginTop="@dimen/keyword_label_marginTop"
                 android:textStyle="bold"/>
 
         <Spinner
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/keyword_spinner_marginLeft"
                 android:id="@+id/video_keyword_spinner"
-                android:layout_width="175dp"
+                android:layout_width="@dimen/keyword_spinner_width"
                 android:layout_height="wrap_content"
                 style="@style/spinner_style"/>
 
@@ -39,8 +39,8 @@
                 android:id="@+id/video_search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Go"
-                android:layout_marginTop="7dp"/>
+                android:text="@string/search_button_label"
+                android:layout_marginTop="@dimen/searchButton_marginTop"/>
     </LinearLayout>
 
     <ListView

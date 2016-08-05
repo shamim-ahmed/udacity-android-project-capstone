@@ -8,15 +8,16 @@
 
     <!-- image detail -->
     <color name="imageDetail_title_textColor">#0d47a1</color>
-    <color name="imageDetail_source_textColor">#2196f3</color>
+    <color name="source_textColor">#2196f3</color>
 
     <!-- news detail -->
     <color name="newsDetail_title_textColor">#0d47a1</color>
-    <color name="newsDetail_source_textColor">#2196f3</color>
     <color name="newsDetail_link_textColor">#2196f3</color>
 
     <color name="videoItem_textColor">#0d47a1</color>
     <color name="newsItem_title_textColor">#0d47a1</color>
 
     <color name="newsItem_summary_source_textColor">#2196f3</color>
+
+    <color name="videoDetail_textColor">#0d47a1</color>
 </resources>

@@ -29,9 +29,9 @@
                 android:textStyle="bold"/>
 
         <Spinner
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="@dimen/keyword_spinner_marginLeft"
                 android:id="@+id/news_keyword_spinner"
-                android:layout_width="175dp"
+                android:layout_width="@dimen/keyword_spinner_width"
                 android:layout_height="wrap_content"
                 style="@style/spinner_style"/>
 
@@ -39,8 +39,8 @@
                 android:id="@+id/news_search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Go"
-                android:layout_marginTop="7dp"/>
+                android:text="@string/search_button_label"
+                android:layout_marginTop="@dimen/search_button_marginTop"/>
     </LinearLayout>
 
     <ListView
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_below="@id/news_keyword_widgets"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/newsList_layout_marginTop"/>
 
     <include layout="@layout/ad_view"/>
 

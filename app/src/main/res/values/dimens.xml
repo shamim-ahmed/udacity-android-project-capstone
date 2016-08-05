@@ -74,4 +74,15 @@
     <dimen name="videoDetail_margin_bottom">5dp</dimen>
     <dimen name="videoDetail_description_textSize">14sp</dimen>
     <dimen name="videoDetail_description_marginBottom">5dp</dimen>
+
+    <dimen name="imageItem_binary_marginRight">10dp</dimen>
+    <dimen name="imageItem_binary_marginTop">5dp</dimen>
+    <dimen name="imageItem_binary_marginBottom">5dp</dimen>
+    <dimen name="imageItem_summary_textSize">16sp</dimen>
+    <dimen name="imageItem_layout_margin">5dp</dimen>
+
+    <dimen name="keywordItem_padding">15dp</dimen>
+    <dimen name="keywordItem_textSize">20sp</dimen>
+    <dimen name="keywordItem_marginBottom">5dp</dimen>
+    <dimen name="keywordItem_createdDate_textSize">16sp</dimen>
 </resources>

@@ -4,24 +4,24 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:paddingTop="5dp"
-              android:paddingBottom="5dp">
+              android:paddingTop="@dimen/newsItem_paddingTop"
+              android:paddingBottom="@dimen/newsItem_paddingBottom">
 
     <TextView
             android:id="@+id/news_summary_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="5dp"
+            android:textSize="@dimen/newsItem_textSize"
+            android:layout_marginBottom="@dimen/newsItem_title_marginBottom"
             android:textStyle="bold"
-            android:textColor="#0d47a1"/>
+            android:textColor="@color/newsItem_title_textColor"/>
 
     <TextView
             android:id="@+id/news_summary_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:layout_marginBottom="5dp"
+            android:textSize="@dimen/newsItem_summary_textSize"
+            android:layout_marginBottom="@dimen/newsItem_summary_marginBottom"
             android:maxLines="4"
             android:ellipsize="end"/>
 
@@ -29,8 +29,8 @@
             android:id="@+id/news_summary_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/newsItem_summary_source_textSize"
             android:textStyle="italic"
-            android:textColor="#2196f3"/>
+            android:textColor="@color/newsItem_summary_source_textColor"/>
 
 </LinearLayout>

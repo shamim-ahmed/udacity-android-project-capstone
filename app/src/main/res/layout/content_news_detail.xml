@@ -21,7 +21,7 @@
             android:textSize="@dimen/news_detail_title_textSize"
             android:layout_marginBottom="@dimen/news_detail_title_marginBottom"
             android:textStyle="bold"
-            android:textColor="@color/news_detail_title_textColor"/>
+            android:textColor="@color/newsDetail_title_textColor"/>
 
     <TextView
             android:id="@+id/news_detail_source"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/news_detail_source_textSize"
             android:textStyle="italic"
-            android:textColor="@color/news_detail_source_textColor"
+            android:textColor="@color/newsDetail_source_textColor"
             android:layout_below="@+id/news_detail_title"/>
 
     <TextView
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/news_detail_link_textSize"
             android:textStyle="italic"
-            android:textColor="@color/news_detail_link_textColor"
+            android:textColor="@color/newsDetail_link_textColor"
             android:layout_below="@+id/news_detail_description"/>
 
     <Button

@@ -7,13 +7,16 @@
     <color name="gray">#d3d3d3</color>
 
     <!-- image detail -->
-    <color name="image_detail_title_text_color">#0d47a1</color>
-    <color name="image_detail_source_text_color">#2196f3</color>
+    <color name="imageDetail_title_textColor">#0d47a1</color>
+    <color name="imageDetail_source_textColor">#2196f3</color>
 
     <!-- news detail -->
-    <color name="news_detail_title_textColor">#0d47a1</color>
-    <color name="news_detail_source_textColor">#2196f3</color>
-    <color name="news_detail_link_textColor">#2196f3</color>
+    <color name="newsDetail_title_textColor">#0d47a1</color>
+    <color name="newsDetail_source_textColor">#2196f3</color>
+    <color name="newsDetail_link_textColor">#2196f3</color>
 
-    <color name="video_item_text_color">#0d47a1</color>
+    <color name="videoItem_textColor">#0d47a1</color>
+    <color name="newsItem_title_textColor">#0d47a1</color>
+
+    <color name="newsItem_summary_source_textColor">#2196f3</color>
 </resources>

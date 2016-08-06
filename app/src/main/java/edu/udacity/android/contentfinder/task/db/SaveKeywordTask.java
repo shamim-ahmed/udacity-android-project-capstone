@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import edu.udacity.android.contentfinder.R;
@@ -58,6 +59,10 @@ public class SaveKeywordTask extends AsyncTask<Void, Void, Uri> {
             toastMessage = activity.getString(R.string.save_keyword_error);
         } else {
             toastMessage = activity.getString(R.string.save_keyword_success);
+
+            // clear the text field
+            EditText editText = (EditText) activity.findViewById(R.id.new_keyword);
+            editText.setText("");
         }
 
         Toast.makeText(activity, toastMessage, Toast.LENGTH_SHORT).show();

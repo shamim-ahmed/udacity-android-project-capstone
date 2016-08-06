@@ -1,5 +1,8 @@
 package edu.udacity.android.contentfinder;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
@@ -20,6 +23,17 @@ public class ContentFinderApplication extends Application {
 
     private final Properties configProperties = new Properties();
     private final Map<String, String> searchResultCache = ExpiringMap.builder().expiration(CACHE_TIMEOUT, TimeUnit.MINUTES).build();
+
+    private Tracker defaultTracker;
+
+    public synchronized Tracker getDefaultTracker() {
+        if (defaultTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            defaultTracker = analytics.newTracker(R.xml.global_tracker);
+        }
+
+        return defaultTracker;
+    }
 
     public String findInCache(String key) {
         return searchResultCache.get(key);

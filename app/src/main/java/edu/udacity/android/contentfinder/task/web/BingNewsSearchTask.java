@@ -32,7 +32,6 @@ public class BingNewsSearchTask extends BingSearchTask {
     private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     private static final String JSON_ROOT_FIELD = "d";
     private static final String JSON_FIELD_RESULTS = "results";
-    private static final String JSON_FIELD_ID = "ID";
     private static final String JSON_FIELD_TITLE = "Title";
     private static final String JSON_FIELD_DESCRIPTION = "Description";
     private static final String JSON_FIELD_SOURCE = "Source";
@@ -66,7 +65,6 @@ public class BingNewsSearchTask extends BingSearchTask {
 
                 for (int i = 0; i < n; i++) {
                     JSONObject item = jsonArray.getJSONObject(i);
-                    String itemId = item.getString(JSON_FIELD_ID);
                     String title = item.getString(JSON_FIELD_TITLE);
                     String description = item.getString(JSON_FIELD_DESCRIPTION);
                     String source = item.getString(JSON_FIELD_SOURCE);
@@ -74,7 +72,7 @@ public class BingNewsSearchTask extends BingSearchTask {
                     Date publishDate = parseDate(item.getString(JSON_FIELD_DATE));
 
                     MediaItem result = new MediaItem();
-                    result.setItemId(itemId);
+                    result.setItemId(webUrl);
                     result.setContentType(MediaItemType.NEWS);
                     result.setTitle(title);
                     result.setSummary(description);

@@ -25,10 +25,9 @@ public class BingImageSearchTask extends BingSearchTask {
 
     private static final String SEARCH_RESULT_ROOT = "d";
     private static final String JSON_FIELD_RESULTS = "results";
-    private static final String JSON_FIELD_ID = "ID";
     private static final String JSON_FIELD_TITLE = "Title";
     private static final String JSON_FIELD_THUMBNAIL = "Thumbnail";
-    private static final String JSON_FIELD_MEDIAURL = "MediaUrl";
+    private static final String JSON_FIELD_MEDIA_URL = "MediaUrl";
 
     public BingImageSearchTask(Activity activity) {
         super(activity);
@@ -45,16 +44,16 @@ public class BingImageSearchTask extends BingSearchTask {
 
             for (int i = 0, n = resultArray.length(); i < n; i++) {
                 JSONObject photoObject = resultArray.getJSONObject(i);
-                String itemId = photoObject.getString(JSON_FIELD_ID);
                 String title = photoObject.getString(JSON_FIELD_TITLE);
+                String mediaUrl = photoObject.getString(JSON_FIELD_MEDIA_URL);
                 JSONObject thumbnailObject = photoObject.getJSONObject(JSON_FIELD_THUMBNAIL);
-                String mediaUrl = thumbnailObject.getString(JSON_FIELD_MEDIAURL);
+                String thumbnailUrl = thumbnailObject.getString(JSON_FIELD_MEDIA_URL);
 
                 MediaItem result = new MediaItem();
-                result.setItemId(itemId);
+                result.setItemId(mediaUrl);
                 result.setContentType(MediaItemType.PHOTO);
                 result.setTitle(title);
-                result.setWebUrl(mediaUrl);
+                result.setWebUrl(thumbnailUrl);
                 result.setSource(AppUtils.getSource(mediaUrl));
                 resultList.add(result);
             }

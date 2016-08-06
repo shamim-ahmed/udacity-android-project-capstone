@@ -30,10 +30,10 @@ android {
     }
     productFlavors {
         free {
-            applicationId "edu.udacity.gradle.builditbigger.free"
+            applicationId "edu.udacity.android.contentfinder.free"
         }
         paid {
-            applicationId "edu.udacity.gradle.builditbigger.paid"
+            applicationId "edu.udacity.android.contentfinder.paid"
         }
     }
     packagingOptions {
@@ -46,10 +46,18 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
-    compile 'com.google.android.gms:play-services:7.8.0'
-    compile 'com.google.android.gms:play-services-ads:7.8.0'
+    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.google.android.gms:play-services:8.1.0'
+    compile 'com.google.android.gms:play-services-ads:8.1.0'
+
+    // [START gms_compile]
+    compile 'com.google.android.gms:play-services-analytics:8.1.0'
+    // [END gms_compile]
 
     // third party libraries
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'net.jodah:expiringmap:0.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
+

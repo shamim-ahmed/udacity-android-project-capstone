@@ -114,7 +114,8 @@ public class MainActivity extends AbstractActivity
             Intent intent = new Intent(this, AddKeywordActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_saved_content) {
-
+            Intent intent = new Intent(this, FavoriteContentActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

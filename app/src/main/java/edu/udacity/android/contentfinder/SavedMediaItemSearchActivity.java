@@ -30,8 +30,6 @@ public class SavedMediaItemSearchActivity extends AbstractSearchActivity impleme
         // display the back button
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
-
         ListView savedMediaItemListView = (ListView) findViewById(R.id.saved_mediaItem_list);
         savedMediaItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -40,7 +38,9 @@ public class SavedMediaItemSearchActivity extends AbstractSearchActivity impleme
             }
         });
 
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
         final Button searchButton = (Button) findViewById(R.id.search_button);
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

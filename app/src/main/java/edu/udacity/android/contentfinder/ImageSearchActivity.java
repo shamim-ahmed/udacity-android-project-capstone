@@ -32,7 +32,7 @@ public class ImageSearchActivity extends AbstractActivity implements KeywordAwar
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.image_keyword_spinner);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
 
         ListView newsList = (ListView) findViewById(R.id.image_list);
         newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,7 +48,7 @@ public class ImageSearchActivity extends AbstractActivity implements KeywordAwar
             }
         });
 
-        final Button searchButton = (Button) findViewById(R.id.image_search_button);
+        final Button searchButton = (Button) findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class ImageSearchActivity extends AbstractActivity implements KeywordAwar
 
     @Override
     public void loadKeywords(List<Keyword> keywordList) {
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.image_keyword_spinner);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
         ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);
         adapter.addAll(keywordList);
 
@@ -79,7 +79,7 @@ public class ImageSearchActivity extends AbstractActivity implements KeywordAwar
             keywordSpinner.setSelection(0);
         }
 
-        final Button searchButton = (Button) findViewById(R.id.image_search_button);
+        final Button searchButton = (Button) findViewById(R.id.search_button);
         searchButton.performClick();
     }
 }

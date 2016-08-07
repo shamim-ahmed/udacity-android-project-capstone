@@ -30,7 +30,7 @@ public class YouTubeVideoSearchActivity extends AbstractActivity implements Keyw
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.video_keyword_spinner);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
 
         final ListView videoList = (ListView) findViewById(R.id.video_list);
         videoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -46,7 +46,7 @@ public class YouTubeVideoSearchActivity extends AbstractActivity implements Keyw
             }
         });
 
-        Button searchButton = (Button) findViewById(R.id.video_search_button);
+        Button searchButton = (Button) findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,14 +70,14 @@ public class YouTubeVideoSearchActivity extends AbstractActivity implements Keyw
         KeywordSpinnerAdapter adapter = new KeywordSpinnerAdapter(this);
         adapter.addAll(keywordList);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.video_keyword_spinner);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
         keywordSpinner.setAdapter(adapter);
 
         if (keywordSpinner.getCount() > 0) {
             keywordSpinner.setSelection(0);
         }
 
-        Button searchButton = (Button) findViewById(R.id.video_search_button);
+        Button searchButton = (Button) findViewById(R.id.search_button);
         if (keywordSpinner.getCount() > 0) {
             searchButton.performClick();
         }

@@ -31,7 +31,7 @@ public class NewsSearchActivity extends AbstractActivity implements KeywordAware
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.news_keyword_spinner);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
 
         ListView newsList = (ListView) findViewById(R.id.news_list);
         newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,7 +47,7 @@ public class NewsSearchActivity extends AbstractActivity implements KeywordAware
             }
         });
 
-        Button searchButton = (Button) findViewById(R.id.news_search_button);
+        Button searchButton = (Button) findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,14 +71,14 @@ public class NewsSearchActivity extends AbstractActivity implements KeywordAware
         ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);
         adapter.addAll(keywordList);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.news_keyword_spinner);
+        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
         keywordSpinner.setAdapter(adapter);
 
         if (adapter.getCount() > 0) {
             keywordSpinner.setSelection(0);
         }
 
-        Button searchButton = (Button) findViewById(R.id.news_search_button);
+        Button searchButton = (Button) findViewById(R.id.search_button);
         searchButton.performClick();
     }
 }

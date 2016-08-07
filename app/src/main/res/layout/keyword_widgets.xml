@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_keyword_input_label"
+            android:textSize="@dimen/keyword_label_textSize"
+            android:layout_marginTop="@dimen/keyword_label_marginTop"
+            android:textStyle="bold"/>
+
+    <Spinner
+            android:layout_marginLeft="@dimen/keyword_spinner_marginLeft"
+            android:id="@+id/keyword_spinner"
+            android:layout_width="@dimen/keyword_spinner_width"
+            android:layout_height="wrap_content"
+            style="@style/spinner_style"/>
+
+    <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_button_label"
+            android:layout_marginTop="@dimen/searchButton_marginTop"/>
+</LinearLayout>

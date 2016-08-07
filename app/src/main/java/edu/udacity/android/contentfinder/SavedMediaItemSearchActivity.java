@@ -5,9 +5,10 @@ import android.os.Bundle;
 /**
  * Created by shamim on 8/7/16.
  */
-public class FavoriteContentActivity extends AbstractActivity {
+public class SavedMediaItemSearchActivity extends AbstractActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_saved_mediaitem_search);
     }
 }

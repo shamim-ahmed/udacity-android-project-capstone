@@ -114,7 +114,7 @@ public class MainActivity extends AbstractActivity
             Intent intent = new Intent(this, AddKeywordActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_saved_content) {
-            Intent intent = new Intent(this, FavoriteContentActivity.class);
+            Intent intent = new Intent(this, SavedMediaItemSearchActivity.class);
             startActivity(intent);
         }
 

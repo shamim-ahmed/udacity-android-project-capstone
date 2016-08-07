@@ -69,7 +69,7 @@
                 android:parentActivityName=".YouTubeVideoSearchActivity">
         </activity>
         <activity
-                android:name=".FavoriteContentActivity"
+                android:name=".SavedMediaItemSearchActivity"
                 android:label="@string/title_activity_view_favorite_content"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:parentActivityName=".MainActivity">

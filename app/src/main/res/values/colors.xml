@@ -22,4 +22,5 @@
     <color name="videoDetail_textColor">#0d47a1</color>
 
     <color name="imageItem_textColor">#0d47a1</color>
+    <color name="saved_mediaItem_textColor">#0d47a1</color>
 </resources>

@@ -83,6 +83,12 @@
     <dimen name="imageItem_summary_textSize">16sp</dimen>
     <dimen name="imageItem_layout_margin">5dp</dimen>
 
+    <dimen name="saved_mediaItem_binary_marginRight">10dp</dimen>
+    <dimen name="saved_mediaItem_binary_marginTop">5dp</dimen>
+    <dimen name="saved_mediaItem_binary_marginBottom">5dp</dimen>
+    <dimen name="saved_mediaItem_summary_textSize">16sp</dimen>
+    <dimen name="saved_mediaItem_layout_margin">5dp</dimen>
+
     <dimen name="keywordItem_padding">15dp</dimen>
     <dimen name="keywordItem_textSize">20sp</dimen>
     <dimen name="keywordItem_marginBottom">5dp</dimen>

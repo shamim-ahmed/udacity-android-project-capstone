@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/saved_mediaItem_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/saved_mediaItem_binary_marginRight"
+            android:layout_marginTop="@dimen/saved_mediaItem_binary_marginTop"
+            android:layout_marginBottom="@dimen/saved_mediaItem_binary_marginBottom"
+            android:layout_weight="1"/>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+        <TextView
+                android:id="@+id/saved_mediaITem_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/saved_mediaItem_summary_textSize"
+                android:layout_margin="@dimen/saved_mediaItem_layout_margin"
+                android:textStyle="bold"
+                android:textColor="@color/saved_mediaItem_textColor"/>
+
+        <TextView
+                android:id="@+id/saved_mediaITem_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/saved_mediaItem_summary_textSize"
+                android:layout_margin="@dimen/saved_mediaItem_layout_margin"
+                android:textStyle="bold"
+                android:textColor="@color/saved_mediaItem_textColor"/>
+    </LinearLayout>
+
+
+</LinearLayout>

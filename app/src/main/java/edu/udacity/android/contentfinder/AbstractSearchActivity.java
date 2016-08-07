@@ -7,12 +7,13 @@ import android.widget.Spinner;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 
 /**
  * Created by shamim on 8/7/16.
  */
-public class AbstractSearchActivity extends AbstractActivity {
+public abstract class AbstractSearchActivity extends AbstractActivity {
 
     public void loadKeywords(List<Keyword> keywordList) {
         ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);

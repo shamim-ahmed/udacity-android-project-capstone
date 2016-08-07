@@ -17,8 +17,7 @@
     <LinearLayout
             android:id="@+id/video_keyword_widgets"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
         <include layout="@layout/keyword_widgets"/>
     </LinearLayout>
@@ -28,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_below="@id/video_keyword_widgets"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/videoList_layout_marginTop"/>
 
     <include layout="@layout/ad_view"/>
 </RelativeLayout>

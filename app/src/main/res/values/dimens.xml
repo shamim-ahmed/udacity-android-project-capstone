@@ -70,6 +70,8 @@
     <dimen name="newsItem_summary_source_textSize">14sp</dimen>
 
     <dimen name="newsList_layout_marginTop">10dp</dimen>
+    <dimen name="savedMediaList_layout_marginTop">10dp</dimen>
+    <dimen name="videoList_layout_marginTop">10dp</dimen>
 
     <dimen name="videoDetail_margin_bottom">5dp</dimen>
     <dimen name="videoDetail_description_textSize">14sp</dimen>

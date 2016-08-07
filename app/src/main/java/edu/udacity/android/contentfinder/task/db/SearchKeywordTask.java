@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import edu.udacity.android.contentfinder.KeywordAware;
+import edu.udacity.android.contentfinder.AbstractSearchActivity;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.util.DateUtils;
@@ -48,7 +48,7 @@ public class SearchKeywordTask extends AsyncTask<Void, Void, List<Keyword>> {
 
     @Override
     public void onPostExecute(List<Keyword> resultList) {
-        ((KeywordAware) activity).loadKeywords(resultList);
+        ((AbstractSearchActivity) activity).loadKeywords(resultList);
     }
 
     private Keyword readKeyword(Cursor cursor) {

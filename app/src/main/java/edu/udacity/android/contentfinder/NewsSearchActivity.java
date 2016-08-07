@@ -5,21 +5,17 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.util.List;
-
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.service.BingNewsSearchService;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
-import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class NewsSearchActivity extends AbstractActivity implements KeywordAware {
+public class NewsSearchActivity extends AbstractSearchActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,21 +60,5 @@ public class NewsSearchActivity extends AbstractActivity implements KeywordAware
         searchKeywordTask.execute();
 
         loadAdvertisement();
-    }
-
-    @Override
-    public void loadKeywords(List<Keyword> keywordList) {
-        ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);
-        adapter.addAll(keywordList);
-
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
-        keywordSpinner.setAdapter(adapter);
-
-        if (adapter.getCount() > 0) {
-            keywordSpinner.setSelection(0);
-        }
-
-        Button searchButton = (Button) findViewById(R.id.search_button);
-        searchButton.performClick();
     }
 }

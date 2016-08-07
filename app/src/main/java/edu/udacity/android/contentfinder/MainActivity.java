@@ -20,8 +20,8 @@ import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordListAdapter;
 
-public class MainActivity extends AbstractActivity
-        implements NavigationView.OnNavigationItemSelectedListener, KeywordAware {
+public class MainActivity extends AbstractSearchActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

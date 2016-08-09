@@ -93,4 +93,12 @@
     <dimen name="keywordItem_textSize">20sp</dimen>
     <dimen name="keywordItem_marginBottom">5dp</dimen>
     <dimen name="keywordItem_createdDate_textSize">16sp</dimen>
+
+    <!-- widget related values -->
+    <dimen name="widget_header_height">36dp</dimen>
+    <dimen name="widget_keyword_list_default_width">250dp</dimen>
+    <dimen name="widget_keyword_list_default_height">110dp</dimen>
+    <dimen name="widget_keyword_list_min_resize_width">40dp</dimen>
+    <dimen name="widget_keyword_list_min_resize_height">40dp</dimen>
+
 </resources>

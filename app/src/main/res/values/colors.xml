@@ -23,4 +23,7 @@
 
     <color name="imageItem_textColor">#0d47a1</color>
     <color name="saved_mediaItem_textColor">#0d47a1</color>
+
+    <color name="primary">#03A9F4</color>
+    <color name="primary_light">#B3E5FC</color>
 </resources>

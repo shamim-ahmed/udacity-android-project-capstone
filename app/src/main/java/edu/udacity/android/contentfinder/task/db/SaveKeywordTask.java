@@ -3,6 +3,7 @@ package edu.udacity.android.contentfinder.task.db;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.db.ContentFinderDataProvider;
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.DbUtils;
 
 /**
@@ -66,5 +68,9 @@ public class SaveKeywordTask extends AsyncTask<Void, Void, Uri> {
         }
 
         Toast.makeText(activity, toastMessage, Toast.LENGTH_SHORT).show();
+
+        // broadcast the update to the widgets
+        Intent dataUpdatedIntent = new Intent(Constants.ACTION_DATA_UPDATED).setPackage(activity.getPackageName());
+        activity.getApplicationContext().sendBroadcast(dataUpdatedIntent);
     }
 }

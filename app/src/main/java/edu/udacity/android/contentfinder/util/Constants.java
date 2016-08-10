@@ -13,6 +13,8 @@ public class Constants {
     public static final String ACTION_DATA_UPDATED = "edu.udacity.android.contentfinder.DATA_UPDATED";
     public static final String SELECTED_INDEX_ATTRIBUTE = "selected_index";
 
+    public static final String KEYWORD_ARRAY = "keyword_list";
+
 
     // private constructor to prevent instantiation
     private Constants() {

@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,14 +15,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.KeywordListAdapter;
+import edu.udacity.android.contentfinder.util.Constants;
 
 public class MainActivity extends AbstractSearchActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +54,20 @@ public class MainActivity extends AbstractSearchActivity
             }
         });
 
-        SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
-        searchKeywordTask.execute();
+        Keyword[] keywords = null;
+
+        if (savedInstanceState != null) {
+            keywords = (Keyword[]) savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
+        }
+
+        if (keywords == null || keywords.length == 0) {
+            Log.i(TAG, "Loading keywords from database...");
+            SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
+            searchKeywordTask.execute();
+        } else {
+            Log.i(TAG, "Restoring keywords from bundle...");
+            loadKeywords(Arrays.asList(keywords));
+        }
 
         loadAdvertisement();
     }
@@ -129,5 +146,21 @@ public class MainActivity extends AbstractSearchActivity
         ArrayAdapter<Keyword> adapter = new KeywordListAdapter(this);
         adapter.addAll(keywordList);
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        ListView listView = (ListView) findViewById(R.id.keyword_list);
+        ArrayAdapter<Keyword> adapter = (ArrayAdapter<Keyword>) listView.getAdapter();
+        List<Keyword> keywordList = new ArrayList<>();
+        final int n = adapter.getCount();
+
+        for (int i = 0; i < n; i++) {
+            keywordList.add(adapter.getItem(i));
+        }
+
+        outState.putParcelableArray(Constants.KEYWORD_ARRAY, keywordList.toArray(new Keyword[n]));
     }
 }

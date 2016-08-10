@@ -154,13 +154,13 @@ public class MainActivity extends AbstractSearchActivity
 
         ListView listView = (ListView) findViewById(R.id.keyword_list);
         ArrayAdapter<Keyword> adapter = (ArrayAdapter<Keyword>) listView.getAdapter();
-        List<Keyword> keywordList = new ArrayList<>();
         final int n = adapter.getCount();
+        Keyword[] keywordArray = new Keyword[n];
 
         for (int i = 0; i < n; i++) {
-            keywordList.add(adapter.getItem(i));
+            keywordArray[i] = adapter.getItem(i);
         }
 
-        outState.putParcelableArray(Constants.KEYWORD_ARRAY, keywordList.toArray(new Keyword[n]));
+        outState.putParcelableArray(Constants.KEYWORD_ARRAY, keywordArray);
     }
 }

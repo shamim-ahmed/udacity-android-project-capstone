@@ -1,4 +1,4 @@
-package edu.udacity.android.contentfinder.service;
+package edu.udacity.android.contentfinder.provider;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -10,11 +10,10 @@ import edu.udacity.android.contentfinder.task.web.YouTubeVideoSearchTask;
 /**
  * Created by shamim on 5/1/16.
  */
-//https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCeBaDHs2Ft4mwuAA1zXYlIwRwjE6yHbjw&q=tulip
-public class YouTubeVideoSearchService implements SearchService {
-    private static final YouTubeVideoSearchService INSTANCE = new YouTubeVideoSearchService();
+public class YouTubeVideoSearchServiceProvider implements SearchServiceProvider {
+    private static final YouTubeVideoSearchServiceProvider INSTANCE = new YouTubeVideoSearchServiceProvider();
 
-    public static YouTubeVideoSearchService getInstance() {
+    public static YouTubeVideoSearchServiceProvider getInstance() {
         return INSTANCE;
     }
 
@@ -41,6 +40,6 @@ public class YouTubeVideoSearchService implements SearchService {
     }
 
     // private constructor to prevent instantiation
-    private YouTubeVideoSearchService() {
+    private YouTubeVideoSearchServiceProvider() {
     }
 }

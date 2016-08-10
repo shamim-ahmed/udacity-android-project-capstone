@@ -1,4 +1,4 @@
-package edu.udacity.android.contentfinder.service;
+package edu.udacity.android.contentfinder.provider;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -11,11 +11,10 @@ import edu.udacity.android.contentfinder.task.web.SearchTask;
  * Created by shamim on 5/1/16.
  */
 
-// example url https://content.guardianapis.com/search?api-key=ba8797d1-a1ef-4a5c-902c-ee0278d59bf6&q=hillary
-public class BingImageSearchService implements SearchService {
-    private static final BingImageSearchService INSTANCE = new BingImageSearchService();
+public class BingImageSearchServiceProvider implements SearchServiceProvider {
+    private static final BingImageSearchServiceProvider INSTANCE = new BingImageSearchServiceProvider();
 
-    public static BingImageSearchService getInstance() {
+    public static BingImageSearchServiceProvider getInstance() {
         return INSTANCE;
     }
 
@@ -41,6 +40,6 @@ public class BingImageSearchService implements SearchService {
         searchTask.execute(uri.toString());
     }
 
-    private BingImageSearchService() {
+    private BingImageSearchServiceProvider() {
     }
 }

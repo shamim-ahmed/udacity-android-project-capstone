@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.service.YouTubeVideoSearchService;
+import edu.udacity.android.contentfinder.provider.YouTubeVideoSearchServiceProvider;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
@@ -50,7 +50,7 @@ public class YouTubeVideoSearchActivity extends AbstractSearchActivity {
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 if (selectedKeyword != null) {
-                    YouTubeVideoSearchService searchService = YouTubeVideoSearchService.getInstance();
+                    YouTubeVideoSearchServiceProvider searchService = YouTubeVideoSearchServiceProvider.getInstance();
                     searchService.performSearch(selectedKeyword.getWord(), YouTubeVideoSearchActivity.this);
                 }
             }

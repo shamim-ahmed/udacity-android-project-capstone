@@ -1,11 +1,10 @@
-package edu.udacity.android.contentfinder.service;
+package edu.udacity.android.contentfinder.provider;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 
 /**
  * Created by shamim on 5/4/16.
  */
-public interface SearchService {
+public interface SearchServiceProvider {
     void performSearch(String keyword, Activity activity);
 }

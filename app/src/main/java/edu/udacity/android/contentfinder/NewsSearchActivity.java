@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.service.BingNewsSearchService;
+import edu.udacity.android.contentfinder.provider.BingNewsSearchServiceProvider;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
@@ -50,7 +50,7 @@ public class NewsSearchActivity extends AbstractSearchActivity {
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 if (selectedKeyword != null) {
-                    BingNewsSearchService searchService = BingNewsSearchService.getInstance();
+                    BingNewsSearchServiceProvider searchService = BingNewsSearchServiceProvider.getInstance();
                     searchService.performSearch(selectedKeyword.getWord(), NewsSearchActivity.this);
                 }
             }

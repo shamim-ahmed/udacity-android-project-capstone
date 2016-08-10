@@ -13,7 +13,7 @@
 
     <!-- media list dimensions -->
     <dimen name="mediaList_thumb_width">100dp</dimen>
-    <dimen name="mediaList_thumb_height">60dp</dimen>
+    <dimen name="mediaList_thumb_height">100dp</dimen>
 
     <!-- media detail dimensions  -->
     <dimen name="mediaDetail_image_width">500dp</dimen>
@@ -81,6 +81,7 @@
     <dimen name="imageItem_binary_marginTop">5dp</dimen>
     <dimen name="imageItem_binary_marginBottom">5dp</dimen>
     <dimen name="imageItem_summary_textSize">16sp</dimen>
+    <dimen name="imageItem_url_textSize">12sp</dimen>
     <dimen name="imageItem_layout_margin">5dp</dimen>
 
     <dimen name="saved_mediaItem_binary_marginRight">10dp</dimen>

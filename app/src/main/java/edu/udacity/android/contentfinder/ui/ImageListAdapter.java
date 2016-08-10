@@ -35,9 +35,8 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
 
         ImageView imageView = (ImageView) containerView.findViewById(R.id.image_summary_binary);
         TextView titleView = (TextView) containerView.findViewById(R.id.image_summary_title);
+        TextView urlView = (TextView) containerView.findViewById(R.id.image_summary_url);
 
-        // TODO use the right URL here and distinguish between web and bing URL
-        // TODO investigate why image sizes vary
         Resources resources = context.getResources();
         int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
         int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
@@ -46,10 +45,11 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
                 .load(resultItem.getWebUrl())
                 .noFade()
                 .resize(width, height)
-                .centerInside()
+                .centerCrop()
                 .into(imageView);
 
         titleView.setText(resultItem.getTitle());
+        urlView.setText(resultItem.getWebUrl());
 
         return containerView;
     }

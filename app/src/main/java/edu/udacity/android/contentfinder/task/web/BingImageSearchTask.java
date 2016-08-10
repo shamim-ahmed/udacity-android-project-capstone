@@ -48,13 +48,14 @@ public class BingImageSearchTask extends BingSearchTask {
                 String mediaUrl = photoObject.getString(JSON_FIELD_MEDIA_URL);
                 JSONObject thumbnailObject = photoObject.getJSONObject(JSON_FIELD_THUMBNAIL);
                 String thumbnailUrl = thumbnailObject.getString(JSON_FIELD_MEDIA_URL);
+                String source = AppUtils.getSource(mediaUrl);
 
                 MediaItem result = new MediaItem();
                 result.setItemId(mediaUrl);
                 result.setContentType(MediaItemType.PHOTO);
                 result.setTitle(title);
                 result.setWebUrl(thumbnailUrl);
-                result.setSource(AppUtils.getSource(mediaUrl));
+                result.setSource(source);
                 resultList.add(result);
             }
         } catch (Exception ex) {

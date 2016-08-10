@@ -42,7 +42,7 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
         int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
 
         Picasso.with(context)
-                .load(resultItem.getWebUrl())
+                .load(resultItem.getThumbnailUrl())
                 .noFade()
                 .resize(width, height)
                 .centerCrop()

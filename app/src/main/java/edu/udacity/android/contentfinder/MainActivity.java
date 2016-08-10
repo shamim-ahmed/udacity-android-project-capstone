@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,7 +17,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -54,19 +54,25 @@ public class MainActivity extends AbstractSearchActivity
             }
         });
 
-        Keyword[] keywords = null;
+        Parcelable[] keywords = null;
 
         if (savedInstanceState != null) {
-            keywords = (Keyword[]) savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
+            keywords = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
         }
 
-        if (keywords == null || keywords.length == 0) {
+        if (keywords != null && keywords.length > 0) {
+            Log.i(TAG, "Restoring keywords from bundle...");
+            List<Keyword> keywordList = new ArrayList<>();
+
+            for (Parcelable p : keywords) {
+                keywordList.add((Keyword) p);
+            }
+
+            loadKeywords(keywordList);
+        } else {
             Log.i(TAG, "Loading keywords from database...");
             SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
             searchKeywordTask.execute();
-        } else {
-            Log.i(TAG, "Restoring keywords from bundle...");
-            loadKeywords(Arrays.asList(keywords));
         }
 
         loadAdvertisement();

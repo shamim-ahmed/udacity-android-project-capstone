@@ -13,7 +13,8 @@
             android:layout_marginEnd="@dimen/videoItem_marginRight"
             android:layout_marginTop="@dimen/videoItem_marginTop"
             android:layout_marginBottom="@dimen/videoItem_marginBottom"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/videoList_thumbnail_contentDescription"/>
 
     <TextView
             android:id="@+id/video_summary_title"

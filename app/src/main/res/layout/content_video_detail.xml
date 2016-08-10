@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:contentDescription="@string/videoDetail_preview_contentDescription"/>
 
         <TextView
                 android:id="@+id/video_detail_title"

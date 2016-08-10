@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:src="@android:drawable/sym_def_app_icon"
-            android:id="@+id/imageView"/>
+            android:id="@+id/imageView"
+            android:contentDescription="@string/navHeader_icon_contentDescription"/>
 
     <TextView
             android:layout_width="match_parent"

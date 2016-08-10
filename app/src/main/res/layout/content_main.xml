@@ -21,7 +21,7 @@
 
     <Button
             android:id="@+id/add_keyword_button"
-            android:text="Add new keyword"
+            android:text="@string/content_main_add_new_keyword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/keyword_list"

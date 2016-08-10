@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="@dimen/imageDetail_binary_marginBottom"/>
+                android:layout_marginBottom="@dimen/imageDetail_binary_marginBottom"
+                android:contentDescription="@string/imageDetail_contentDescription"/>
 
         <TextView
                 android:id="@+id/image_detail_title"

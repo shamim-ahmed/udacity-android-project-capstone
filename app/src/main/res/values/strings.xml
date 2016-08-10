@@ -57,4 +57,13 @@
 
     <string name="empty_keyword_list">Content Finder: Keywords</string>
     <string name="keyword_list_widget_title">Content Finder: Keyword List</string>
+
+    <string name="content_main_add_new_keyword">Add New Keyword</string>
+
+    <string name="imageDetail_contentDescription">Image Detail</string>
+    <string name="videoDetail_preview_contentDescription">Video Preview</string>
+    <string name="imageList_thumbnail_contentDescription">Image Thumbnail</string>
+    <string name="videoList_thumbnail_contentDescription">Video Thumbnail</string>
+    <string name="navHeader_icon_contentDescription">App Icon</string>
+    <string name="savedMediaItem_icon_contentDescription">Icon for Saved Media Item</string>
 </resources>

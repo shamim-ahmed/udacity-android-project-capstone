@@ -15,9 +15,7 @@ public class Constants {
 
     public static final String KEYWORD_ARRAY = "keyword_array";
     public static final String SELECTED_KEYWORD_INDEX = "keyword_index";
-    public static final String IMAGE_ARRAY = "image_array";
-    public static final String VIDEO_ARRAY = "video_array";
-    public static final String NEWS_ARRAY = "news_array";
+    public static final String MEDIA_ITEM_ARRAY = "media_item_array";
 
     // private constructor to prevent instantiation
     private Constants() {

@@ -5,17 +5,18 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.provider.YouTubeVideoSearchServiceProvider;
-import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
+import edu.udacity.android.contentfinder.ui.VideoListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class YouTubeVideoSearchActivity extends AbstractSearchActivity {
+public class YouTubeVideoSearchActivity extends AbstractMediaItemSearchActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,9 @@ public class YouTubeVideoSearchActivity extends AbstractSearchActivity {
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
+        final Spinner keywordSpinner = getKeywordSpinner();
 
-        final ListView videoList = (ListView) findViewById(R.id.video_list);
+        final ListView videoList = getMediaItemListView();
         videoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,9 +57,22 @@ public class YouTubeVideoSearchActivity extends AbstractSearchActivity {
             }
         });
 
-        SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
-        searchKeywordTask.execute();
-
+        loadApplicationData(savedInstanceState);
         loadAdvertisement();
+    }
+
+    @Override
+    protected Spinner getKeywordSpinner() {
+        return (Spinner) findViewById(R.id.keyword_spinner);
+    }
+
+    @Override
+    protected ListView getMediaItemListView() {
+        return (ListView) findViewById(R.id.video_list);
+    }
+
+    @Override
+    protected ArrayAdapter<MediaItem> createMediaItemListAdapter() {
+        return new VideoListAdapter(this);
     }
 }

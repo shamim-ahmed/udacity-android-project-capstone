@@ -2,9 +2,7 @@ package edu.udacity.android.contentfinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,19 +10,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.provider.BingImageSearchServiceProvider;
 import edu.udacity.android.contentfinder.provider.SearchServiceProvider;
-import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.ui.ImageListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class ImageSearchActivity extends AbstractSearchActivity {
-    private static final String TAG = ImageSearchActivity.class.getSimpleName();
+public class ImageSearchActivity extends AbstractMediaItemSearchActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +29,9 @@ public class ImageSearchActivity extends AbstractSearchActivity {
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
+        final Spinner keywordSpinner = getKeywordSpinner();
 
-        ListView imageListView = (ListView) findViewById(R.id.image_list);
+        ListView imageListView = getMediaItemListView();
         imageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -65,74 +58,22 @@ public class ImageSearchActivity extends AbstractSearchActivity {
             }
         });
 
-        Parcelable[] keywordArray = null;
-        Parcelable[] mediaItemArray = null;
-        int selectedKeywordIndex = Spinner.INVALID_POSITION;
-
-        if (savedInstanceState != null) {
-            keywordArray = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
-            selectedKeywordIndex = savedInstanceState.getInt(Constants.SELECTED_KEYWORD_INDEX);
-            mediaItemArray = savedInstanceState.getParcelableArray(Constants.IMAGE_ARRAY);
-        }
-
-        if (keywordArray != null && keywordArray.length > 0 && selectedKeywordIndex != Spinner.INVALID_POSITION) {
-            Log.i(TAG, "Restoring keywords and media items from bundle...");
-            // load keywords in spinner
-            List<Keyword> keywordList = new ArrayList<>();
-
-            for (int i = 0; i < keywordArray.length; i++) {
-                keywordList.add((Keyword) keywordArray[i]);
-            }
-
-            loadKeywords(keywordList);
-            keywordSpinner.setSelection(selectedKeywordIndex);
-
-            // load media items
-            ArrayAdapter<MediaItem> imageListAdapter = new ImageListAdapter(this);
-            imageListView.setAdapter(imageListAdapter);
-            List<MediaItem> imageList = new ArrayList<>();
-
-            if (mediaItemArray != null) {
-                for (int i = 0; i < mediaItemArray.length; i++) {
-                    imageList.add((MediaItem) mediaItemArray[i]);
-                }
-            }
-
-            imageListAdapter.addAll(imageList);
-        } else {
-            Log.i(TAG, "Loading keywords from database and media items from Internet...");
-            SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
-            searchKeywordTask.execute();
-        }
-
+        loadApplicationData(savedInstanceState);
         loadAdvertisement();
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    protected Spinner getKeywordSpinner() {
+        return (Spinner) findViewById(R.id.keyword_spinner);
+    }
 
-        final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
-        ArrayAdapter<Keyword> spinnerAdapter = (ArrayAdapter<Keyword>) keywordSpinner.getAdapter();
-        final int keywordCount = keywordSpinner.getCount();
-        Keyword[] keywordArray = new Keyword[keywordCount];
+    @Override
+    protected ListView getMediaItemListView() {
+        return (ListView) findViewById(R.id.image_list);
+    }
 
-        for (int i = 0; i < keywordCount; i++) {
-            keywordArray[i] = spinnerAdapter.getItem(i);
-        }
-
-        outState.putParcelableArray(Constants.KEYWORD_ARRAY, keywordArray);
-        outState.putInt(Constants.SELECTED_KEYWORD_INDEX, keywordSpinner.getSelectedItemPosition());
-
-        ListView imageList = (ListView) findViewById(R.id.image_list);
-        ArrayAdapter<MediaItem> adapter = (ArrayAdapter<MediaItem>) imageList.getAdapter();
-        final int imageCount = adapter.getCount();
-        MediaItem[] imageArray = new MediaItem[imageCount];
-
-        for (int i = 0; i < imageCount; i++) {
-            imageArray[i] = adapter.getItem(i);
-        }
-
-        outState.putParcelableArray(Constants.IMAGE_ARRAY, imageArray);
+    @Override
+    protected ArrayAdapter<MediaItem> createMediaItemListAdapter() {
+        return new ImageListAdapter(this);
     }
 }

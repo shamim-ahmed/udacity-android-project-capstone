@@ -38,8 +38,8 @@ public class YouTubeVideoSearchActivity extends AbstractMediaItemSearchActivity 
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 Intent intent = new Intent(YouTubeVideoSearchActivity.this, YouTubeVideoDetailActivity.class);
-                intent.putExtra(Constants.SELECTED_VIDEO_KEY, searchResult);
-                intent.putExtra(Constants.SELECTED_VIDEO_KEYWORD, selectedKeyword);
+                intent.putExtra(Constants.SELECTED_MEDIA_ITEM, searchResult);
+                intent.putExtra(Constants.SELECTED_KEYWORD, selectedKeyword);
                 startActivity(intent);
             }
         });

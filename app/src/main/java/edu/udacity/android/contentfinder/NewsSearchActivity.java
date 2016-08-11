@@ -38,8 +38,8 @@ public class NewsSearchActivity extends AbstractMediaItemSearchActivity {
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 Intent intent = new Intent(NewsSearchActivity.this, NewsDetailActivity.class);
-                intent.putExtra(Constants.SELECTED_NEWS_KEY, selectedResult);
-                intent.putExtra(Constants.SELECTED_NEWS_KEYWORD, selectedKeyword);
+                intent.putExtra(Constants.SELECTED_MEDIA_ITEM, selectedResult);
+                intent.putExtra(Constants.SELECTED_KEYWORD, selectedKeyword);
                 startActivity(intent);
             }
         });

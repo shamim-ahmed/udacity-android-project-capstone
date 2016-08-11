@@ -4,18 +4,17 @@ package edu.udacity.android.contentfinder.util;
  * Created by shamim on 6/21/16.
  */
 public class Constants {
-    public static final String SELECTED_NEWS_KEY = "selectedNews";
-    public static final String SELECTED_NEWS_KEYWORD = "selectedNewsKeyword";
-    public static final String SELECTED_IMAGE_KEY = "selectedImage";
-    public static final String SELECTED_IMAGE_KEYWORD = "selectedImageKeyword";
-    public static final String SELECTED_VIDEO_KEY = "selectedVideo";
-    public static final String SELECTED_VIDEO_KEYWORD = "selectedVideoKeyword";
-    public static final String ACTION_DATA_UPDATED = "edu.udacity.android.contentfinder.DATA_UPDATED";
-    public static final String SELECTED_INDEX_ATTRIBUTE = "selected_index";
-
+    // constants related to search screens
     public static final String KEYWORD_ARRAY = "keyword_array";
     public static final String SELECTED_KEYWORD_INDEX = "keyword_index";
     public static final String MEDIA_ITEM_ARRAY = "media_item_array";
+
+    // constants related to details screens
+    public static final String SELECTED_MEDIA_ITEM = "selected_media_item";
+    public static final String SELECTED_KEYWORD = "selected_keyword";
+
+    // widget broadcast event
+    public static final String ACTION_DATA_UPDATED = "edu.udacity.android.contentfinder.DATA_UPDATED";
 
     // private constructor to prevent instantiation
     private Constants() {

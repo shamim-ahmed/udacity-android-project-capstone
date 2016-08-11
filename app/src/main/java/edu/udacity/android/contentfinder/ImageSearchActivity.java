@@ -39,8 +39,8 @@ public class ImageSearchActivity extends AbstractMediaItemSearchActivity {
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
                 Intent intent = new Intent(ImageSearchActivity.this, ImageDetailActivity.class);
-                intent.putExtra(Constants.SELECTED_IMAGE_KEY, selectedResult);
-                intent.putExtra(Constants.SELECTED_IMAGE_KEYWORD, selectedKeyword);
+                intent.putExtra(Constants.SELECTED_MEDIA_ITEM, selectedResult);
+                intent.putExtra(Constants.SELECTED_KEYWORD, selectedKeyword);
                 startActivity(intent);
             }
         });

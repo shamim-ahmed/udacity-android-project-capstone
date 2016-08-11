@@ -72,7 +72,6 @@ public class KeywordListIntentService extends RemoteViewsService {
                 WidgetUtils.populateView(values, views, getApplicationContext());
 
                 final Intent fillInIntent = new Intent();
-                fillInIntent.putExtra(Constants.SELECTED_INDEX_ATTRIBUTE, position);
                 views.setOnClickFillInIntent(R.id.list_item_root, fillInIntent);
 
                 return views;

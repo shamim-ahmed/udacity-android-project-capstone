@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Map;
+
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
@@ -17,7 +20,7 @@ import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class ImageDetailActivity extends AbstractActivity {
+public class ImageDetailActivity extends AbstractMediaDetailActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +36,9 @@ public class ImageDetailActivity extends AbstractActivity {
         TextView sourceView = (TextView) findViewById(R.id.image_detail_source);
         ImageView imageView = (ImageView) findViewById(R.id.image_detail_binary);
 
-        Bundle bundle = getIntent().getExtras();
-
-        if (bundle == null) {
-            return;
-        }
-
-        final MediaItem mediaItem = (MediaItem) bundle.get(Constants.SELECTED_IMAGE_KEY);
-        final Keyword keyword = (Keyword) bundle.get(Constants.SELECTED_IMAGE_KEYWORD);
+        Map<String, Parcelable> dataMap = getMediaItemAndKeyword(savedInstanceState);
+        final MediaItem mediaItem = (MediaItem) dataMap.get(Constants.SELECTED_MEDIA_ITEM);
+        final Keyword keyword = (Keyword) dataMap.get(Constants.SELECTED_KEYWORD);
 
         if (mediaItem == null || keyword == null) {
             return;

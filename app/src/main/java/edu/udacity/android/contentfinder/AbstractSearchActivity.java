@@ -7,7 +7,6 @@ import android.widget.Spinner;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 
 /**
@@ -15,7 +14,7 @@ import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
  */
 public abstract class AbstractSearchActivity extends AbstractActivity {
 
-    public void loadKeywords(List<Keyword> keywordList) {
+    public void loadKeywords(List<Keyword> keywordList, boolean mediaSearchFlag) {
         ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);
         adapter.addAll(keywordList);
 
@@ -26,7 +25,9 @@ public abstract class AbstractSearchActivity extends AbstractActivity {
             keywordSpinner.setSelection(0);
         }
 
-        Button searchButton = (Button) findViewById(R.id.search_button);
-        searchButton.performClick();
+        if (mediaSearchFlag) {
+            Button searchButton = (Button) findViewById(R.id.search_button);
+            searchButton.performClick();
+        }
     }
 }

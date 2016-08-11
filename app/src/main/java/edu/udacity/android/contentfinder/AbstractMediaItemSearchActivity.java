@@ -48,7 +48,7 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
                 keywordList.add((Keyword) keywordArray[i]);
             }
 
-            loadKeywords(keywordList);
+            loadKeywords(keywordList, false);
             keywordSpinner.setSelection(selectedKeywordIndex);
 
             // load media items

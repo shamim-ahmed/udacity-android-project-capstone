@@ -68,7 +68,7 @@ public class MainActivity extends AbstractSearchActivity
                 keywordList.add((Keyword) p);
             }
 
-            loadKeywords(keywordList);
+            loadKeywords(keywordList, false);
         } else {
             Log.i(TAG, "Loading keywords from database...");
             SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
@@ -147,7 +147,7 @@ public class MainActivity extends AbstractSearchActivity
     }
 
     @Override
-    public void loadKeywords(List<Keyword> keywordList) {
+    public void loadKeywords(List<Keyword> keywordList, boolean mediaSearchFlag) {
         ListView listView = (ListView) findViewById(R.id.keyword_list);
         ArrayAdapter<Keyword> adapter = new KeywordListAdapter(this);
         adapter.addAll(keywordList);

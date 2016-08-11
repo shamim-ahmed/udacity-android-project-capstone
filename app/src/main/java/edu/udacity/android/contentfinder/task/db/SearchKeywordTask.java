@@ -48,7 +48,7 @@ public class SearchKeywordTask extends AsyncTask<Void, Void, List<Keyword>> {
 
     @Override
     public void onPostExecute(List<Keyword> resultList) {
-        ((AbstractSearchActivity) activity).loadKeywords(resultList);
+        ((AbstractSearchActivity) activity).loadKeywords(resultList, true);
     }
 
     private Keyword readKeyword(Cursor cursor) {

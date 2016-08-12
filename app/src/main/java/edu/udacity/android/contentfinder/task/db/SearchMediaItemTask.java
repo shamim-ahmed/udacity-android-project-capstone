@@ -58,7 +58,7 @@ public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> 
         int itemIdIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID);
         int mediaTypeIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID);
         int titleIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_TITLE);
-        int summaryIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY);
+        int summaryIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_DESCRIPTION);
         int urlIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_URL);
         int thumbnailIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL);
         int sourceIdx = cursor.getColumnIndex(ContentFinderContract.MediaItemEntry.COLUMN_SOURCE);
@@ -69,7 +69,7 @@ public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> 
         mediaItem.setItemId(cursor.getString(itemIdIdx));
         mediaItem.setContentType(MediaItemType.fromId(cursor.getLong(mediaTypeIdx)));
         mediaItem.setTitle(cursor.getString(titleIdx));
-        mediaItem.setSummary(cursor.getString(summaryIdx));
+        mediaItem.setDescription(cursor.getString(summaryIdx));
         mediaItem.setWebUrl(cursor.getString(urlIdx));
         mediaItem.setThumbnailUrl(cursor.getString(thumbnailIdx));
         mediaItem.setSource(cursor.getString(sourceIdx));

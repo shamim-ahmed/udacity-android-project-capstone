@@ -60,7 +60,7 @@ public class YouTubeVideoDetailActivity extends AbstractMediaDetailActivity {
                 .into(imageView);
 
         videoTitle.setText(mediaItem.getTitle());
-        videoDescription.setText(mediaItem.getSummary());
+        videoDescription.setText(mediaItem.getDescription());
         videoSource.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
         Button saveButton = (Button) findViewById(R.id.favorite_button);

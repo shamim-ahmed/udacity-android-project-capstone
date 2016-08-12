@@ -65,7 +65,7 @@ public class MediaItemListAdapter extends ArrayAdapter<MediaItem> {
                 .into(iconView);
 
         titleView.setText(mediaItem.getTitle());
-        summaryView.setText(mediaItem.getSummary());
+        summaryView.setText(mediaItem.getDescription());
 
         return containerView;
     }

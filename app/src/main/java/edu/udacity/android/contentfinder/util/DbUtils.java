@@ -26,7 +26,7 @@ public class DbUtils {
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_TITLE, mediaItem.getTitle());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_URL, mediaItem.getWebUrl());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID, mediaItem.getKeywordId());
-        values.put(ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY, mediaItem.getSummary());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_DESCRIPTION, mediaItem.getDescription());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL, mediaItem.getThumbnailUrl());
 
         return values;

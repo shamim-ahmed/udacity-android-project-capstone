@@ -60,7 +60,7 @@ public class ContentFinderContract {
         public static final String COLUMN_ITEM_ID = "item_id";
         public static final String COLUMN_CONTENT_TYPE_ID = "media_type_id";
         public static final String COLUMN_TITLE = "title";
-        public static final String COLUMN_SUMMARY = "summary";
+        public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_URL = "url";
         public static final String COLUMN_THUMBNAIL_URL = "thumbnail_url";
         public static final String COLUMN_SOURCE = "source";

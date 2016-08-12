@@ -14,7 +14,7 @@ public class MediaItem implements Parcelable {
     private String itemId;
     private MediaItemType contentType;
     private String title;
-    private String summary;
+    private String description;
     private String webUrl;
     private String thumbnailUrl;
     private String source;
@@ -43,7 +43,7 @@ public class MediaItem implements Parcelable {
         itemId = (String) fieldValues[1];
         contentType = (MediaItemType) fieldValues[2];
         title = (String) fieldValues[3];
-        summary = (String) fieldValues[4];
+        description = (String) fieldValues[4];
         webUrl = (String) fieldValues[5];
         thumbnailUrl = (String) fieldValues[6];
         source = (String) fieldValues[7];
@@ -115,12 +115,12 @@ public class MediaItem implements Parcelable {
         this.itemId = itemId;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getSource() {
@@ -143,7 +143,7 @@ public class MediaItem implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        Object[] fields = {id, itemId, contentType, title, summary, webUrl, thumbnailUrl, source, publishDate, keywordId};
+        Object[] fields = {id, itemId, contentType, title, description, webUrl, thumbnailUrl, source, publishDate, keywordId};
         dest.writeArray(fields);
     }
 }

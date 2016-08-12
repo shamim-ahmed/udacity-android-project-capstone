@@ -43,7 +43,7 @@ public class NewsDetailActivity extends AbstractMediaDetailActivity {
         titleView.setText(mediaItem.getTitle());
 
         TextView descriptionView = (TextView) findViewById(R.id.news_detail_description);
-        descriptionView.setText(mediaItem.getSummary());
+        descriptionView.setText(mediaItem.getDescription());
 
         TextView sourceView = (TextView) findViewById(R.id.news_detail_source);
         sourceView.setText(getString(R.string.content_source, AppUtils.getSource(mediaItem.getWebUrl())));

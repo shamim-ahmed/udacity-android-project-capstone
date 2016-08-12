@@ -54,6 +54,7 @@ public class BingImageSearchTask extends BingSearchTask {
                 result.setItemId(webUrl);
                 result.setContentType(MediaItemType.PHOTO);
                 result.setTitle(title);
+                result.setDescription(webUrl);
                 result.setWebUrl(webUrl);
                 result.setThumbnailUrl(thumbnailUrl);
                 result.setSource(source);

@@ -37,7 +37,7 @@ public class TestUtils {
         mediaValues1.put(ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID, MediaItemType.NEWS.getId());
         mediaValues1.put(ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID, 1L);
         mediaValues1.put(ContentFinderContract.MediaItemEntry.COLUMN_TITLE, "This is a test title");
-        mediaValues1.put(ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY, "This is a test summary");
+        mediaValues1.put(ContentFinderContract.MediaItemEntry.COLUMN_DESCRIPTION, "This is a test summary");
         mediaValues1.put(ContentFinderContract.MediaItemEntry.COLUMN_URL, "https://www.google.com");
 
 
@@ -46,7 +46,7 @@ public class TestUtils {
         mediaValues2.put(ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID, MediaItemType.NEWS.getId());
         mediaValues2.put(ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID, 1L);
         mediaValues2.put(ContentFinderContract.MediaItemEntry.COLUMN_TITLE, "This is a test title 2");
-        mediaValues2.put(ContentFinderContract.MediaItemEntry.COLUMN_SUMMARY, "This is a test summary 2");
+        mediaValues2.put(ContentFinderContract.MediaItemEntry.COLUMN_DESCRIPTION, "This is a test summary 2");
         mediaValues2.put(ContentFinderContract.MediaItemEntry.COLUMN_URL, "https://www.facebook.com");
 
         resultList.add(mediaValues1);

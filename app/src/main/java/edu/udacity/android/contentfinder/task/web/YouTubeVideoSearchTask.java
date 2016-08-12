@@ -83,7 +83,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
                 result.setItemId(videoId);
                 result.setContentType(MediaItemType.VIDEO);
                 result.setTitle(title);
-                result.setSummary(description);
+                result.setDescription(description);
                 result.setWebUrl(thumbnailUrl);
                 result.setThumbnailUrl(thumbnailUrl);
                 result.setSource("youtube.com");

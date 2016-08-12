@@ -75,7 +75,7 @@ public class BingNewsSearchTask extends BingSearchTask {
                     result.setItemId(webUrl);
                     result.setContentType(MediaItemType.NEWS);
                     result.setTitle(title);
-                    result.setSummary(description);
+                    result.setDescription(description);
                     result.setWebUrl(webUrl);
                     result.setSource(source);
                     result.setPublishDate(publishDate);

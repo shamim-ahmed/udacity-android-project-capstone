@@ -33,7 +33,7 @@ public class NewsListAdapter extends ArrayAdapter<MediaItem> {
         titleView.setText(newsItem.getTitle());
 
         TextView descriptionView = (TextView) containerView.findViewById(R.id.news_summary_description);
-        descriptionView.setText(newsItem.getSummary());
+        descriptionView.setText(newsItem.getDescription());
 
         TextView sourceView = (TextView) containerView.findViewById(R.id.news_summary_source);
         sourceView.setText(context.getString(R.string.content_source, AppUtils.getSource(newsItem.getWebUrl())));

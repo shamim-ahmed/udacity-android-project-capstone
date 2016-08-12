@@ -7,37 +7,42 @@
 
     <ImageView
             android:id="@+id/saved_mediaItem_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/mediaList_thumb_width"
+            android:layout_height="@dimen/mediaList_thumb_height"
             android:layout_marginRight="@dimen/saved_mediaItem_binary_marginRight"
             android:layout_marginEnd="@dimen/saved_mediaItem_binary_marginRight"
             android:layout_marginTop="@dimen/saved_mediaItem_binary_marginTop"
             android:layout_marginBottom="@dimen/saved_mediaItem_binary_marginBottom"
             android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@string/savedMediaItem_icon_contentDescription"/>
 
     <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3">
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:layout_marginTop="@dimen/saved_mediaItem_marginTop"
+            android:orientation="vertical">
 
         <TextView
                 android:id="@+id/saved_mediaITem_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/saved_mediaItem_summary_textSize"
+                android:textSize="@dimen/saved_mediaItem_title_textSize"
                 android:layout_margin="@dimen/saved_mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/saved_mediaItem_textColor"/>
 
         <TextView
-                android:id="@+id/saved_mediaITem_source"
+                android:id="@+id/saved_mediaITem_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/saved_mediaItem_summary_textSize"
                 android:layout_margin="@dimen/saved_mediaItem_layout_margin"
                 android:textStyle="bold"
-                android:textColor="@color/saved_mediaItem_textColor"/>
+                android:textColor="@color/saved_mediaItem_textColor"
+                android:maxLines="3"
+                android:ellipsize="end"/>
     </LinearLayout>
 
 

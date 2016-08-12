@@ -34,7 +34,7 @@ public class MediaItemListAdapter extends ArrayAdapter<MediaItem> {
 
         ImageView iconView = (ImageView) containerView.findViewById(R.id.saved_mediaItem_icon);
         TextView titleView = (TextView) containerView.findViewById(R.id.saved_mediaITem_title);
-        TextView sourceView = (TextView) containerView.findViewById(R.id.saved_mediaITem_source);
+        TextView summaryView = (TextView) containerView.findViewById(R.id.saved_mediaITem_summary);
 
         int iconId;
 
@@ -65,7 +65,7 @@ public class MediaItemListAdapter extends ArrayAdapter<MediaItem> {
                 .into(iconView);
 
         titleView.setText(mediaItem.getTitle());
-        sourceView.setText(mediaItem.getSource());
+        summaryView.setText(mediaItem.getSummary());
 
         return containerView;
     }

@@ -1,6 +1,7 @@
 package edu.udacity.android.contentfinder.ui;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import com.squareup.picasso.Picasso;
 
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItem;
-import edu.udacity.android.contentfinder.util.AppUtils;
 
 /**
  * Created by shamim on 8/7/16.
@@ -53,7 +53,17 @@ public class MediaItemListAdapter extends ArrayAdapter<MediaItem> {
                 break;
         }
 
-        Picasso.with(context).load(iconId).into(iconView);
+        Resources resources = context.getResources();
+        int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
+        int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
+
+        Picasso.with(context)
+                .load(iconId)
+                .noFade()
+                .resize(width, height)
+                .centerCrop()
+                .into(iconView);
+
         titleView.setText(mediaItem.getTitle());
         sourceView.setText(mediaItem.getSource());
 

@@ -28,7 +28,7 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
         setSupportActionBar(toolbar);
 
         // display the back button
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final ListView savedMediaItemListView = getMediaItemListView();
         savedMediaItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

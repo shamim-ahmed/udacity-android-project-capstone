@@ -3,11 +3,9 @@
 <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context="edu.udacity.android.contentfinder.AddKeywordActivity">
+        android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
             android:layout_height="wrap_content"
@@ -23,6 +21,52 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_add_keyword"/>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+                android:id="@+id/keyword_input_fields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_keyword_input_label"
+                    android:textSize="@dimen/addKeyword_label_fontSize"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/addKeyword_label_marginLeft"
+                    android:layout_marginStart="@dimen/addKeyword_label_marginLeft"/>
+
+            <EditText
+                    android:id="@+id/new_keyword"
+                    android:layout_width="@dimen/addKeyword_textField_width"
+                    android:layout_marginLeft="@dimen/addKeyword_textField_marginLeft"
+                    android:layout_marginStart="@dimen/addKeyword_textField_marginLeft"
+                    android:textSize="@dimen/addKeyword_textField_textSize"
+                    android:padding="@dimen/addKeyword_textField_padding"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:background="@drawable/edittext_bg"/>
+        </LinearLayout>
+
+        <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_keyword_button_label"
+                android:layout_below="@id/keyword_input_fields"
+                android:layout_centerHorizontal="true"/>
+
+        <include layout="@layout/ad_view"/>
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

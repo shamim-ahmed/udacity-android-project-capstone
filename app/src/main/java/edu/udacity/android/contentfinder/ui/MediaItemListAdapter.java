@@ -14,9 +14,6 @@ import com.squareup.picasso.Picasso;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-/**
- * Created by shamim on 8/7/16.
- */
 public class MediaItemListAdapter extends ArrayAdapter<MediaItem> {
 
     public MediaItemListAdapter(Context context) {

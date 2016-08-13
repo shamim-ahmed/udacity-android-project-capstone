@@ -17,9 +17,6 @@ import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.DbUtils;
 
-/**
- * Created by shamim on 7/30/16.
- */
 public class SaveKeywordTask extends AsyncTask<Void, Void, Uri> {
     private final Activity activity;
     private final Keyword keyword;

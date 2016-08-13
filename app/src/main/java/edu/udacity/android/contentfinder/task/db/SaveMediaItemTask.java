@@ -13,9 +13,6 @@ import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.util.DbUtils;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-/**
- * Created by shamim on 7/31/16.
- */
 public class SaveMediaItemTask extends AsyncTask<Void, Void, Uri> {
     private final Activity activity;
     private final MediaItem mediaItem;

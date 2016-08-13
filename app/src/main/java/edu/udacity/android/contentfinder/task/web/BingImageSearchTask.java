@@ -17,9 +17,6 @@ import edu.udacity.android.contentfinder.ui.ImageListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.AppUtils;
 
-/**
- * Created by shamim on 6/18/16.
- */
 public class BingImageSearchTask extends BingSearchTask {
     private static final String TAG = BingSearchTask.class.getSimpleName();
 

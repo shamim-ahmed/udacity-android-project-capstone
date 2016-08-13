@@ -14,9 +14,6 @@ import android.widget.RemoteViews;
 
 import edu.udacity.android.contentfinder.util.Constants;
 
-/**
- * Created by shamim on 8/8/16.
- */
 public class KeywordListWidgetProvider extends AppWidgetProvider {
     private static final String TAG = KeywordListWidgetProvider.class.getSimpleName();
 

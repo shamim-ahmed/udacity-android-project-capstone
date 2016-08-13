@@ -17,10 +17,6 @@ import edu.udacity.android.contentfinder.util.IOUtils;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
-/**
- * Created by shamim on 5/3/16.
- */
-
 public abstract class SearchTask extends AsyncTask<String, Void, List<MediaItem>> {
     private static final String TAG = SearchTask.class.getSimpleName();
 

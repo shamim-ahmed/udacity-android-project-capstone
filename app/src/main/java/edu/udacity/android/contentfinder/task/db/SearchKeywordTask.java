@@ -15,9 +15,6 @@ import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.DbUtils;
 
-/**
- * Created by shamim on 7/31/16.
- */
 public class SearchKeywordTask extends AsyncTask<Void, Void, List<Keyword>> {
     private final Activity activity;
 

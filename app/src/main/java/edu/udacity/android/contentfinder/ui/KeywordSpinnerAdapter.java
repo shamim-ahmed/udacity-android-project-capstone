@@ -10,9 +10,6 @@ import android.widget.TextView;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.Keyword;
 
-/**
- * Created by shamim on 6/26/16.
- */
 public class KeywordSpinnerAdapter extends ArrayAdapter<Keyword> {
     public KeywordSpinnerAdapter(Context context) {
         super(context, R.layout.spinner_item);

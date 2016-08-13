@@ -13,9 +13,6 @@ import android.util.Log;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
-/**
- * Created by shamim on 5/9/16.
- */
 public class ContentFinderDataProvider extends ContentProvider {
     private static final String TAG = ContentFinderDataProvider.class.getSimpleName();
 

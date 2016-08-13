@@ -15,9 +15,6 @@ import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 
-/**
- * Created by shamim on 8/12/16.
- */
 public abstract class AbstractMediaDetailActivity extends AbstractActivity {
     private static final String TAG = AbstractMediaDetailActivity.class.getSimpleName();
 

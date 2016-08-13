@@ -11,9 +11,6 @@ import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-/**
- * Created by shamim on 6/17/16.
- */
 public class NewsListAdapter extends ArrayAdapter<MediaItem> {
 
     public NewsListAdapter(Context context) {

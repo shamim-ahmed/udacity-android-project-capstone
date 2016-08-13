@@ -15,9 +15,6 @@ import java.util.Locale;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.Keyword;
 
-/**
- * Created by shamim on 6/26/16.
- */
 public class KeywordListAdapter extends ArrayAdapter<Keyword> {
     private static final String DATE_FORMAT_STR = "yyyy-MM-dd";
 

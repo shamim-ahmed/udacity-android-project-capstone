@@ -14,9 +14,6 @@ import com.squareup.picasso.Picasso;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-/**
- * Created by shamim on 6/28/16.
- */
 public class VideoListAdapter extends ArrayAdapter<MediaItem> {
     public VideoListAdapter(Context context) {
         super(context, R.layout.video_item);

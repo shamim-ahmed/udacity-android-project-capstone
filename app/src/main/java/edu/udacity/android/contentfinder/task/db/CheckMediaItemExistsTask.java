@@ -12,9 +12,6 @@ import edu.udacity.android.contentfinder.db.ContentFinderDataProvider;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.DbUtils;
 
-/**
- * Created by shamim on 8/2/16.
- */
 public class CheckMediaItemExistsTask extends AsyncTask<Void, Void, Boolean> {
     private final Activity activity;
     private final MediaItem mediaItem;

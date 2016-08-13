@@ -4,9 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by shamim on 5/9/16.
- */
 public class ContentFinderDbHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "contentFinder.db";
     public static final int DATABASE_VERSION = 1;

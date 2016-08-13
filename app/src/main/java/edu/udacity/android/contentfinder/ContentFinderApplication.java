@@ -14,9 +14,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by shamim on 5/1/16.
- */
 public class ContentFinderApplication extends Application {
     private static final String TAG = ContentFinderApplication.class.getSimpleName();
     private static final int CACHE_TIMEOUT = 5;

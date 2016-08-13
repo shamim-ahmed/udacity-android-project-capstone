@@ -9,9 +9,6 @@ import java.util.List;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 
-/**
- * Created by shamim on 8/7/16.
- */
 public abstract class AbstractSearchActivity extends AbstractActivity {
 
     public void loadKeywords(List<Keyword> keywordList, boolean mediaSearchFlag) {

@@ -7,9 +7,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 import edu.udacity.android.contentfinder.ContentFinderApplication;
 
-/**
- * Created by shamim on 6/13/16.
- */
 public abstract class BingSearchTask extends SearchTask {
     private final String apiKey;
 

@@ -3,9 +3,6 @@ package edu.udacity.android.contentfinder.util;
 import android.net.Uri;
 import android.util.Log;
 
-/**
- * Created by shamim on 8/1/16.
- */
 public class AppUtils {
     private static final String TAG = AppUtils.class.getSimpleName();
 

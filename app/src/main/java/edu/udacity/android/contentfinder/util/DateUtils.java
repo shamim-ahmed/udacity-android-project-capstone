@@ -7,9 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by shamim on 7/31/16.
- */
 public class DateUtils {
     private static final String TAG = DateUtils.class.getSimpleName();
 

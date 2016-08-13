@@ -23,9 +23,6 @@ import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
-/**
- * Created by shamim on 5/6/16.
- */
 public class YouTubeVideoSearchTask extends SearchTask {
     private static final String TAG = YouTubeVideoSearchTask.class.getSimpleName();
 

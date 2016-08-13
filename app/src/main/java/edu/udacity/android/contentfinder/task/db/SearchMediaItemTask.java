@@ -17,9 +17,6 @@ import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.util.DateUtils;
 
-/**
- * Created by shamim on 8/7/16.
- */
 public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> {
     private final Activity activity;
     private final Keyword keyword;

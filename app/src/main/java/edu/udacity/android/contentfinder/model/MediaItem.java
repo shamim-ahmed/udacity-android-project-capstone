@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
-/**
- * Created by shamim on 5/06/16.
- */
-
 public class MediaItem implements Parcelable {
     private Long id;
     private String itemId;

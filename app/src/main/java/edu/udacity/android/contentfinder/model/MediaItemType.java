@@ -3,9 +3,6 @@ package edu.udacity.android.contentfinder.model;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by shamim on 5/4/16.
- */
 public enum MediaItemType {
     NEWS(1L, "news"), PHOTO(2L, "photo"), VIDEO(3L, "video");
 

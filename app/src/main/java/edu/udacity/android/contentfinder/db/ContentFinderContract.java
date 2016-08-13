@@ -9,9 +9,6 @@ import java.util.List;
 
 import edu.udacity.android.contentfinder.model.MediaItemType;
 
-/**
- * Created by shamim on 5/6/16.
- */
 public class ContentFinderContract {
     private static final String TAG = ContentFinderContract.class.getSimpleName();
 

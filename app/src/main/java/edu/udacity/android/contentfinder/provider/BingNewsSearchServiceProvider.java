@@ -7,10 +7,6 @@ import edu.udacity.android.contentfinder.ContentFinderApplication;
 import edu.udacity.android.contentfinder.task.web.BingNewsSearchTask;
 import edu.udacity.android.contentfinder.task.web.SearchTask;
 
-/**
- * Created by shamim on 5/1/16.
- */
-
 public class BingNewsSearchServiceProvider implements SearchServiceProvider {
     private static final BingNewsSearchServiceProvider INSTANCE = new BingNewsSearchServiceProvider();
 

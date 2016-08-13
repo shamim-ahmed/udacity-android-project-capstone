@@ -24,9 +24,6 @@ import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
-/**
- * Created by shamim on 5/3/16.
- */
 public class BingNewsSearchTask extends BingSearchTask {
     private static final String TAG = BingNewsSearchTask.class.getSimpleName();
 

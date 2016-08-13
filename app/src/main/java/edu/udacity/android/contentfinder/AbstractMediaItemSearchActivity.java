@@ -15,9 +15,6 @@ import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
 import edu.udacity.android.contentfinder.util.Constants;
 
-/**
- * Created by shamim on 8/11/16.
- */
 public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActivity {
     private static final String TAG = AbstractMediaItemSearchActivity.class.getSimpleName();
 
@@ -79,6 +76,7 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         super.onSaveInstanceState(outState);
 
         final Spinner keywordSpinner = getKeywordSpinner();
+        @SuppressWarnings("unchecked")
         ArrayAdapter<Keyword> spinnerAdapter = (ArrayAdapter<Keyword>) keywordSpinner.getAdapter();
         final int keywordCount = keywordSpinner.getCount();
         Keyword[] keywordArray = new Keyword[keywordCount];
@@ -91,6 +89,7 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         outState.putInt(Constants.SELECTED_KEYWORD_INDEX, keywordSpinner.getSelectedItemPosition());
 
         ListView mediaItemListView = getMediaItemListView();
+        @SuppressWarnings("unchecked")
         ArrayAdapter<MediaItem> mediaItemListAdapter = (ArrayAdapter<MediaItem>) mediaItemListView.getAdapter();
 
         if (mediaItemListAdapter == null) {

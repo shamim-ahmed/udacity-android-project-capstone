@@ -7,9 +7,6 @@ import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-/**
- * Created by shamim on 7/31/16.
- */
 public class DbUtils {
     public static ContentValues convertKeyword(Keyword keyword) {
         ContentValues values = new ContentValues();

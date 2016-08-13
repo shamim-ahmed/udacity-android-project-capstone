@@ -19,9 +19,6 @@ import edu.udacity.android.contentfinder.task.db.SearchMediaItemTask;
 import edu.udacity.android.contentfinder.ui.MediaItemListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 
-/**
- * Created by shamim on 8/7/16.
- */
 public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivity implements MediaItemListContainer {
     private static final String TAG = SavedMediaItemSearchActivity.class.getSimpleName();
 

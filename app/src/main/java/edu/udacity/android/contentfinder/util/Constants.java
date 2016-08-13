@@ -1,8 +1,5 @@
 package edu.udacity.android.contentfinder.util;
 
-/**
- * Created by shamim on 6/21/16.
- */
 public class Constants {
     // constants related to search screens
     public static final String KEYWORD_ARRAY = "keyword_array";

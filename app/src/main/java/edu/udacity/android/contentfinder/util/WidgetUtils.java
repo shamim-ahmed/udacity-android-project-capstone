@@ -10,9 +10,6 @@ import java.util.Date;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 
-/**
- * Created by shamim on 8/8/16.
- */
 public class WidgetUtils {
 
     public static ContentValues readCursor(Cursor cursor) {

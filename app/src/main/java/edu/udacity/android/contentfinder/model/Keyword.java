@@ -5,9 +5,6 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
-/**
- * Created by shamim on 5/31/16.
- */
 public class Keyword implements Parcelable {
     private Long id;
     private String word;

@@ -10,9 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 
-/**
- * Created by shamim on 8/4/16.
- */
 public abstract class AbstractActivity extends AppCompatActivity {
     private Tracker analyticsTracker;
 

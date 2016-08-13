@@ -131,7 +131,7 @@ public class MainActivity extends AbstractSearchActivity
             Intent intent = new Intent(this, ImageSearchActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_video_search) {
-            Intent intent = new Intent(this, YouTubeVideoSearchActivity.class);
+            Intent intent = new Intent(this, VideoSearchActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_add_keyword) {
             Intent intent = new Intent(this, AddKeywordActivity.class);

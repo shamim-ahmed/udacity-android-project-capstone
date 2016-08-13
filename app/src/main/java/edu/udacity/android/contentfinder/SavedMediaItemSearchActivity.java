@@ -55,7 +55,7 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
                         break;
                     }
                     case VIDEO: {
-                        activityClass = YouTubeVideoDetailActivity.class;
+                        activityClass = VideoDetailActivity.class;
                         break;
                     }
                     default: {

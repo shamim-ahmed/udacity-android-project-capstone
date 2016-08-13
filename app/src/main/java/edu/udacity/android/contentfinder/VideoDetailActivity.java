@@ -19,7 +19,7 @@ import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class YouTubeVideoDetailActivity extends AbstractMediaDetailActivity {
+public class VideoDetailActivity extends AbstractMediaDetailActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class YouTubeVideoDetailActivity extends AbstractMediaDetailActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SaveMediaItemTask saveMediaItemTask = new SaveMediaItemTask(YouTubeVideoDetailActivity.this, mediaItem);
+                SaveMediaItemTask saveMediaItemTask = new SaveMediaItemTask(VideoDetailActivity.this, mediaItem);
                 saveMediaItemTask.execute();
             }
         });

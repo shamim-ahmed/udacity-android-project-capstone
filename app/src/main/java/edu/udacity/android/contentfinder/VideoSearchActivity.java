@@ -16,7 +16,7 @@ import edu.udacity.android.contentfinder.ui.VideoListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class YouTubeVideoSearchActivity extends AbstractMediaItemSearchActivity {
+public class VideoSearchActivity extends AbstractMediaItemSearchActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class YouTubeVideoSearchActivity extends AbstractMediaItemSearchActivity 
                 MediaItem searchResult = (MediaItem) videoList.getItemAtPosition(position);
                 Keyword selectedKeyword = (Keyword) keywordSpinner.getSelectedItem();
 
-                Intent intent = new Intent(YouTubeVideoSearchActivity.this, YouTubeVideoDetailActivity.class);
+                Intent intent = new Intent(VideoSearchActivity.this, VideoDetailActivity.class);
                 intent.putExtra(Constants.SELECTED_MEDIA_ITEM, searchResult);
                 intent.putExtra(Constants.SELECTED_KEYWORD, selectedKeyword);
                 startActivity(intent);
@@ -52,7 +52,7 @@ public class YouTubeVideoSearchActivity extends AbstractMediaItemSearchActivity 
 
                 if (selectedKeyword != null) {
                     YouTubeVideoSearchServiceProvider searchService = YouTubeVideoSearchServiceProvider.getInstance();
-                    searchService.performSearch(selectedKeyword.getWord(), YouTubeVideoSearchActivity.this);
+                    searchService.performSearch(selectedKeyword.getWord(), VideoSearchActivity.this);
                 }
             }
         });

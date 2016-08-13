@@ -6,7 +6,7 @@
               android:layout_height="match_parent">
 
     <ImageView
-            android:id="@+id/video_summary_thumbnail"
+            android:id="@+id/video_item_thumbnail"
             android:layout_width="@dimen/mediaList_thumb_width"
             android:layout_height="@dimen/mediaList_thumb_height"
             android:layout_marginRight="@dimen/videoItem_thumbnail_marginRight"
@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
         <TextView
-                android:id="@+id/video_summary_title"
+                android:id="@+id/video_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/videoItem_title_textSize"
@@ -32,7 +32,7 @@
                 android:textColor="@color/videoItem_textColor"/>
 
         <TextView
-                android:id="@+id/video_summary_description"
+                android:id="@+id/video_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/videoItem_summary_textSize"

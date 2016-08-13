@@ -8,7 +8,7 @@
               android:paddingBottom="@dimen/newsItem_paddingBottom">
 
     <TextView
-            android:id="@+id/news_summary_title"
+            android:id="@+id/news_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/newsItem_textSize"
@@ -17,7 +17,7 @@
             android:textColor="@color/newsItem_title_textColor"/>
 
     <TextView
-            android:id="@+id/news_summary_description"
+            android:id="@+id/news_item_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/newsItem_summary_textSize"
@@ -26,7 +26,7 @@
             android:ellipsize="end"/>
 
     <TextView
-            android:id="@+id/news_summary_source"
+            android:id="@+id/news_item_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/newsItem_summary_source_textSize"

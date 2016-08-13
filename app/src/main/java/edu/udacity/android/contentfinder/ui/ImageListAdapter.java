@@ -33,9 +33,9 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
             containerView = LayoutInflater.from(context).inflate(R.layout.image_item, parent, false);
         }
 
-        ImageView imageView = (ImageView) containerView.findViewById(R.id.image_summary_binary);
-        TextView titleView = (TextView) containerView.findViewById(R.id.image_summary_title);
-        TextView urlView = (TextView) containerView.findViewById(R.id.image_summary_url);
+        ImageView imageView = (ImageView) containerView.findViewById(R.id.image_item_binary);
+        TextView titleView = (TextView) containerView.findViewById(R.id.image_item_title);
+        TextView descriptionView = (TextView) containerView.findViewById(R.id.image_item_description);
 
         Resources resources = context.getResources();
         int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
@@ -49,7 +49,7 @@ public class ImageListAdapter extends ArrayAdapter<MediaItem> {
                 .into(imageView);
 
         titleView.setText(resultItem.getTitle());
-        urlView.setText(resultItem.getWebUrl());
+        descriptionView.setText(resultItem.getWebUrl());
 
         return containerView;
     }

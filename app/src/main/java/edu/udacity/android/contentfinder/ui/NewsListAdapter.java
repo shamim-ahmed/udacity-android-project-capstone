@@ -29,13 +29,13 @@ public class NewsListAdapter extends ArrayAdapter<MediaItem> {
             containerView = LayoutInflater.from(context).inflate(R.layout.news_item, parent, false);
         }
 
-        TextView titleView = (TextView) containerView.findViewById(R.id.news_summary_title);
+        TextView titleView = (TextView) containerView.findViewById(R.id.news_item_title);
         titleView.setText(newsItem.getTitle());
 
-        TextView descriptionView = (TextView) containerView.findViewById(R.id.news_summary_description);
+        TextView descriptionView = (TextView) containerView.findViewById(R.id.news_item_description);
         descriptionView.setText(newsItem.getDescription());
 
-        TextView sourceView = (TextView) containerView.findViewById(R.id.news_summary_source);
+        TextView sourceView = (TextView) containerView.findViewById(R.id.news_item_source);
         sourceView.setText(context.getString(R.string.content_source, AppUtils.getSource(newsItem.getWebUrl())));
 
         return containerView;

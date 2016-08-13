@@ -66,4 +66,6 @@
     <string name="videoList_thumbnail_contentDescription">Video Thumbnail</string>
     <string name="navHeader_icon_contentDescription">App Icon</string>
     <string name="savedMediaItem_icon_contentDescription">Icon for Saved Media Item</string>
+
+    <string name="placeholder_keyword_text">---None Available---</string>
 </resources>

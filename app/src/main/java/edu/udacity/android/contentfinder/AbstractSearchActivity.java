@@ -21,12 +21,22 @@ public abstract class AbstractSearchActivity extends AbstractActivity {
         final Spinner keywordSpinner = (Spinner) findViewById(R.id.keyword_spinner);
         keywordSpinner.setAdapter(adapter);
 
+        Button searchButton = (Button) findViewById(R.id.search_button);
+
         if (adapter.getCount() > 0) {
             keywordSpinner.setSelection(0);
+        } else {
+            String dummyStr = getString(R.string.placeholder_keyword_text);
+            Keyword dummyKeyword = new Keyword();
+            dummyKeyword.setWord(dummyStr);
+            adapter.add(dummyKeyword);
+
+            // disable the UI items
+            keywordSpinner.setEnabled(false);
+            searchButton.setEnabled(false);
         }
 
         if (mediaSearchFlag) {
-            Button searchButton = (Button) findViewById(R.id.search_button);
             searchButton.performClick();
         }
     }

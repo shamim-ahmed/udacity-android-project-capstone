@@ -21,6 +21,8 @@ import edu.udacity.android.contentfinder.util.Constants;
 public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActivity {
     private static final String TAG = AbstractMediaItemSearchActivity.class.getSimpleName();
 
+    private static final MediaItem[] EMPTY_MEDIA_ITEM_ARRAY = new MediaItem[0];
+
     protected abstract Spinner getKeywordSpinner();
 
     protected abstract ListView getMediaItemListView();
@@ -90,6 +92,12 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
 
         ListView mediaItemListView = getMediaItemListView();
         ArrayAdapter<MediaItem> mediaItemListAdapter = (ArrayAdapter<MediaItem>) mediaItemListView.getAdapter();
+
+        if (mediaItemListAdapter == null) {
+            outState.putParcelableArray(Constants.MEDIA_ITEM_ARRAY, EMPTY_MEDIA_ITEM_ARRAY);
+            return;
+        }
+
         final int mediaItemCount = mediaItemListAdapter.getCount();
         MediaItem[] mediaItemArray = new MediaItem[mediaItemCount];
 

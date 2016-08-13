@@ -12,6 +12,7 @@ import java.util.Locale;
  */
 public class DateUtils {
     private static final String TAG = DateUtils.class.getSimpleName();
+
     public static final String DATE_FORMAT_SHORT = "yyyy-MM-dd";
     public static final String BING_API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     public static final String YOUTUBE_API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";

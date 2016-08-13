@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,12 +21,15 @@ import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.util.Constants;
+import edu.udacity.android.contentfinder.util.StringUtils;
 
 public abstract class AbstractMediaDetailActivity extends AbstractActivity {
     private static final String TAG = AbstractMediaDetailActivity.class.getSimpleName();
+    private static final String TEXT_PLAIN_MIME_TYPE = "text/plain";
+
+    private String shareUrl;
 
     protected abstract void loadImage(MediaItem mediaItem);
-
     protected abstract void configureSaveButton(MediaItem mediaItem);
 
     @Override
@@ -44,6 +51,7 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
         }
 
         mediaItem.setKeywordId(keyword.getId());
+        shareUrl = mediaItem.getWebUrl();
 
         // populate the views
         TextView titleView = (TextView) findViewById(R.id.mediaItem_detail_title);
@@ -76,6 +84,23 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
 
         outBundle.putParcelable(Constants.SELECTED_MEDIA_ITEM, mediaItem);
         outBundle.putParcelable(Constants.SELECTED_KEYWORD, keyword);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_media_item_detail, menu);
+        MenuItem shareMenuItem = menu.findItem(R.id.share_link);
+
+        if (shareMenuItem != null && StringUtils.isNotBlank(shareUrl)) {
+            ShareActionProvider shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareMenuItem);
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType(TEXT_PLAIN_MIME_TYPE);
+            intent.putExtra(Intent.EXTRA_TEXT, shareUrl);
+            shareActionProvider.setShareIntent(intent);
+        }
+
+        return true;
     }
 
     protected void disableSaveButtonIfAlreadySaved(MediaItem mediaItem) {

@@ -22,6 +22,8 @@ public class AppUtils {
 
         return source;
     }
+
+    // private constructor to prevent instantiation
     private AppUtils() {
     }
 }

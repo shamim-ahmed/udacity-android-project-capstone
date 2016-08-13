@@ -69,4 +69,5 @@
     <string name="savedMediaItem_icon_contentDescription">Icon for Saved Media Item</string>
 
     <string name="placeholder_keyword_text">---None Available---</string>
+    <string name="shareLink_menuItem_text">Share Link</string>
 </resources>

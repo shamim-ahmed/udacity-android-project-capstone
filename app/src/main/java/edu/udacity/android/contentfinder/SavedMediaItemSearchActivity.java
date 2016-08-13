@@ -20,12 +20,11 @@ import edu.udacity.android.contentfinder.ui.MediaItemListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 
 public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivity implements MediaItemListContainer {
-    private static final String TAG = SavedMediaItemSearchActivity.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saved_mediaitem_search);
+        setContentView(R.layout.activity_media_item_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -90,7 +89,7 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
         MediaItemListAdapter adapter = new MediaItemListAdapter(this);
         adapter.addAll(mediaItems);
 
-        ListView mediaItemListView = (ListView) findViewById(R.id.saved_mediaItem_list);
+        ListView mediaItemListView = getMediaItemListView();
         mediaItemListView.setAdapter(adapter);
     }
 
@@ -101,7 +100,7 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
 
     @Override
     protected ListView getMediaItemListView() {
-        return (ListView) findViewById(R.id.saved_mediaItem_list);
+        return (ListView) findViewById(R.id.mediaItem_list);
     }
 
     @Override

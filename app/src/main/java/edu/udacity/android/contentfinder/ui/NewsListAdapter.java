@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import edu.udacity.android.contentfinder.R;
-import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
 public class NewsListAdapter extends ArrayAdapter<MediaItem> {

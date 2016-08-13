@@ -35,6 +35,7 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
         Resources resources = context.getResources();
         int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
         int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
+
         ImageView thumbnailView = (ImageView) containerView.findViewById(R.id.video_summary_thumbnail);
         Picasso.with(context)
                 .load(result.getWebUrl())
@@ -45,6 +46,9 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
 
         TextView titleView = (TextView) containerView.findViewById(R.id.video_summary_title);
         titleView.setText(result.getTitle());
+
+        TextView descriptionView = (TextView) containerView.findViewById(R.id.video_summary_description);
+        descriptionView.setText(result.getDescription());
 
         return containerView;
     }

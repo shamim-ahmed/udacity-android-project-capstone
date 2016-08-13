@@ -7,23 +7,40 @@
 
     <ImageView
             android:id="@+id/video_summary_thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/videoItem_marginRight"
-            android:layout_marginEnd="@dimen/videoItem_marginRight"
-            android:layout_marginTop="@dimen/videoItem_marginTop"
-            android:layout_marginBottom="@dimen/videoItem_marginBottom"
+            android:layout_width="@dimen/mediaList_thumb_width"
+            android:layout_height="@dimen/mediaList_thumb_height"
+            android:layout_marginRight="@dimen/videoItem_thumbnail_marginRight"
+            android:layout_marginEnd="@dimen/videoItem_thumbnail_marginRight"
+            android:layout_marginTop="@dimen/videoItem_thumbnail_marginTop"
+            android:layout_marginBottom="@dimen/videoItem_thumbnail_marginBottom"
             android:layout_weight="1"
             android:contentDescription="@string/videoList_thumbnail_contentDescription"/>
 
-    <TextView
-            android:id="@+id/video_summary_title"
+    <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/videoItem_textSize"
-            android:layout_margin="@dimen/videoItem_layout_margin"
-            android:textStyle="bold"
+            android:layout_height="match_parent"
             android:layout_weight="3"
-            android:textColor="@color/videoItem_textColor"/>
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/video_summary_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/videoItem_title_textSize"
+                android:layout_margin="@dimen/videoItem_layout_margin"
+                android:textStyle="bold"
+                android:textColor="@color/videoItem_textColor"/>
+
+        <TextView
+                android:id="@+id/video_summary_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/videoItem_summary_textSize"
+                android:layout_margin="@dimen/videoItem_layout_margin"
+                android:textStyle="bold"
+                android:textColor="@color/videoItem_textColor"
+                android:maxLines="3"
+                android:ellipsize="end"/>
+    </LinearLayout>
 
 </LinearLayout>

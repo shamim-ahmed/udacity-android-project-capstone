@@ -16,7 +16,6 @@ import java.util.Map;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
-import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
 
 public abstract class AbstractMediaDetailActivity extends AbstractActivity {
@@ -54,7 +53,7 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
         descriptionView.setText(mediaItem.getDescription());
 
         TextView sourceView = (TextView) findViewById(R.id.mediaItem_detail_source);
-        sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
+        sourceView.setText(getString(R.string.content_source, mediaItem.getSource()));
 
         loadImage(mediaItem);
         configureOpenButton(mediaItem);

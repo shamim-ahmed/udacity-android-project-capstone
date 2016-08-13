@@ -35,7 +35,7 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
 
         ImageView thumbnailView = (ImageView) containerView.findViewById(R.id.video_item_thumbnail);
         Picasso.with(context)
-                .load(result.getWebUrl())
+                .load(result.getThumbnailUrl())
                 .noFade()
                 .resize(width, height)
                 .centerInside()

@@ -21,6 +21,7 @@ import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.ui.NewsListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.model.MediaItem;
+import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
@@ -64,9 +65,13 @@ public class BingNewsSearchTask extends BingSearchTask {
                     JSONObject item = jsonArray.getJSONObject(i);
                     String title = item.getString(JSON_FIELD_TITLE);
                     String description = item.getString(JSON_FIELD_DESCRIPTION);
-                    String source = item.getString(JSON_FIELD_SOURCE);
                     String webUrl = item.getString(JSON_FIELD_URL);
                     Date publishDate = parseDate(item.getString(JSON_FIELD_DATE));
+
+                    String source = item.getString(JSON_FIELD_SOURCE);
+                    if (StringUtils.isBlank(source)) {
+                        source = AppUtils.getSource(webUrl);
+                    }
 
                     MediaItem result = new MediaItem();
                     result.setItemId(webUrl);

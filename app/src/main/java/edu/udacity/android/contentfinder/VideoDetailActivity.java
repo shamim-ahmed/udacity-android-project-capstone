@@ -21,7 +21,7 @@ public class VideoDetailActivity extends AbstractMediaDetailActivity {
         int height = (int) resources.getDimension(R.dimen.mediaDetail_image_height);
 
         Picasso.with(this)
-                .load(mediaItem.getWebUrl())
+                .load(mediaItem.getThumbnailUrl())
                 .noFade()
                 .resize(width, height)
                 .centerInside()

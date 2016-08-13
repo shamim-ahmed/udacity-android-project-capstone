@@ -26,6 +26,9 @@ import edu.udacity.android.contentfinder.util.StringUtils;
 public class YouTubeVideoSearchTask extends SearchTask {
     private static final String TAG = YouTubeVideoSearchTask.class.getSimpleName();
 
+    private static final String YOUTUBE_URL = "https://www.youtube.com/watch";
+    private static final String VIDEO_SOURCE = "www.youtube.com";
+
     private static final String JSON_FIELD_ITEMS = "items";
     private static final String JSON_FIELD_SNIPPET = "snippet";
     private static final String JSON_FIELD_TITLE = "title";
@@ -74,15 +77,16 @@ public class YouTubeVideoSearchTask extends SearchTask {
                 JSONObject thumbNailObject = snippetObject.getJSONObject(JSON_FIELD_THUMBNAILS);
                 JSONObject mediumObject = thumbNailObject.getJSONObject(JSON_FIELD_MEDIUM);
                 String thumbnailUrl = mediumObject.getString(JSON_FIELD_URL);
+                String webUrl = String.format("%s?v=%s", YOUTUBE_URL, videoId);
 
                 MediaItem result = new MediaItem();
                 result.setItemId(videoId);
                 result.setContentType(MediaItemType.VIDEO);
                 result.setTitle(title);
                 result.setDescription(description);
-                result.setWebUrl(thumbnailUrl);
+                result.setWebUrl(webUrl);
                 result.setThumbnailUrl(thumbnailUrl);
-                result.setSource("youtube.com");
+                result.setSource(VIDEO_SOURCE);
                 result.setPublishDate(publishDate);
 
                 resultList.add(result);
@@ -95,7 +99,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
     }
 
     @Override
-    public void onPostExecute(List<MediaItem> resultList) {
+    protected void onPostExecute(List<MediaItem> resultList) {
         ListView videoListView = (ListView) activity.findViewById(R.id.video_list);
         VideoListAdapter adapter = new VideoListAdapter(activity);
         adapter.addAll(resultList);

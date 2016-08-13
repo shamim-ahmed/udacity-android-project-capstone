@@ -41,6 +41,7 @@
     <string name="save_media_error">The media item could not be saved</string>
 
     <string name="favorite_button_label">Mark as Favorite</string>
+    <string name="open_link_button_label">View Content</string>
     <string name="search_button_label">Go</string>
 
     <string name="nav_drawer_home">Home</string>

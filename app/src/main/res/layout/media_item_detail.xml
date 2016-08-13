@@ -68,18 +68,34 @@
                     android:textColor="@color/source_textColor"
                     android:layout_below="@id/mediaItem_detail_description"/>
 
-            <Button
-                    android:id="@+id/favorite_button"
-                    android:text="@string/favorite_button_label"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                    android:id="@+id/button_group"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/imageDetail_marginTop"
-                    android:layout_below="@id/mediaItem_detail_source"/>
+                    android:orientation="horizontal"
+                    android:layout_below="@id/mediaItem_detail_source">
+
+                <Button
+                        android:id="@+id/open_link_button"
+                        android:text="@string/open_link_button_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/imageDetail_marginTop"
+                        android:layout_weight="1"/>
+
+                <Button
+                        android:id="@+id/favorite_button"
+                        android:text="@string/favorite_button_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/imageDetail_marginTop"
+                        android:layout_weight="1"/>
+            </LinearLayout>
 
             <include
                     layout="@layout/ad_view"
-                    android:layout_below="@id/favorite_button"
+                    android:layout_below="@id/button_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </RelativeLayout>

@@ -12,14 +12,17 @@ import java.util.Locale;
  */
 public class DateUtils {
     private static final String TAG = DateUtils.class.getSimpleName();
-    private static final String DATE_FORMAT_STR = "yyyy-MM-dd:HH:mm:ss";
+    public static final String DATE_FORMAT_SHORT = "yyyy-MM-dd";
+    public static final String BING_API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+    public static final String YOUTUBE_API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+
 
     public static String formatDate(Date date) {
         if (date == null) {
             return null;
         }
 
-        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_STR, Locale.US);
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_SHORT, Locale.US);
         return dateFormat.format(date);
     }
 
@@ -29,7 +32,7 @@ public class DateUtils {
         }
 
         Date result = null;
-        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_STR, Locale.US);
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_SHORT, Locale.US);
 
         try {
             result = dateFormat.parse(dateStr);

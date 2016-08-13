@@ -20,6 +20,7 @@ import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.ui.VideoListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItem;
+import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
 /**
@@ -38,8 +39,6 @@ public class YouTubeVideoSearchTask extends SearchTask {
     private static final String JSON_FIELD_VIDEO_ID = "videoId";
     private static final String JSON_FIELD_MEDIUM = "medium";
     private static final String JSON_FIELD_URL = "url";
-
-    private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
     public YouTubeVideoSearchTask(Activity activity) {
         super(activity);
@@ -66,7 +65,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
                 String title = snippetObject.getString(JSON_FIELD_TITLE);
                 String description = snippetObject.getString(JSON_FIELD_DESCRIPTION);
                 String dateStr = snippetObject.getString(JSON_FIELD_PUBLISHED_AT);
-                DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_STR, Locale.US);
+                DateFormat dateFormat = new SimpleDateFormat(DateUtils.YOUTUBE_API_DATE_FORMAT, Locale.US);
                 Date publishDate = null;
 
                 try {

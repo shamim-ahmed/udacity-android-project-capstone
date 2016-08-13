@@ -21,6 +21,7 @@ import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.ui.NewsListAdapter;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.model.MediaItem;
+import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
 /**
@@ -29,7 +30,6 @@ import edu.udacity.android.contentfinder.util.StringUtils;
 public class BingNewsSearchTask extends BingSearchTask {
     private static final String TAG = BingNewsSearchTask.class.getSimpleName();
 
-    private static final String DATE_FORMAT_STR = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     private static final String JSON_ROOT_FIELD = "d";
     private static final String JSON_FIELD_RESULTS = "results";
     private static final String JSON_FIELD_TITLE = "Title";
@@ -105,7 +105,7 @@ public class BingNewsSearchTask extends BingSearchTask {
         }
 
         Date resultDate = null;
-        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_STR, Locale.US);
+        DateFormat dateFormat = new SimpleDateFormat(DateUtils.BING_API_DATE_FORMAT, Locale.US);
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         try {

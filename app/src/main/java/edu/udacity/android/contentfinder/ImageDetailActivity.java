@@ -14,7 +14,6 @@ import com.squareup.picasso.Picasso;
 import java.util.Map;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -32,10 +31,6 @@ public class ImageDetailActivity extends AbstractMediaDetailActivity {
         // display the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView titleView = (TextView) findViewById(R.id.image_detail_title);
-        TextView sourceView = (TextView) findViewById(R.id.image_detail_source);
-        ImageView imageView = (ImageView) findViewById(R.id.image_detail_binary);
-
         Map<String, Parcelable> dataMap = getMediaItemAndKeyword(savedInstanceState);
         final MediaItem mediaItem = (MediaItem) dataMap.get(Constants.SELECTED_MEDIA_ITEM);
         final Keyword keyword = (Keyword) dataMap.get(Constants.SELECTED_KEYWORD);
@@ -46,6 +41,18 @@ public class ImageDetailActivity extends AbstractMediaDetailActivity {
 
         mediaItem.setKeywordId(keyword.getId());
 
+        // populate the views
+        TextView titleView = (TextView) findViewById(R.id.image_detail_title);
+        titleView.setText(mediaItem.getTitle());
+
+        TextView descriptionView = (TextView) findViewById(R.id.image_detail_description);
+        descriptionView.setText(mediaItem.getDescription());
+
+        TextView sourceView = (TextView) findViewById(R.id.image_detail_source);
+        sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
+
+        ImageView imageView = (ImageView) findViewById(R.id.image_detail_binary);
+        
         Resources resources = getResources();
         int width = (int) resources.getDimension(R.dimen.mediaDetail_image_width);
         int height = (int) resources.getDimension(R.dimen.mediaDetail_image_height);
@@ -57,9 +64,6 @@ public class ImageDetailActivity extends AbstractMediaDetailActivity {
                 .centerInside()
                 .into(imageView);
 
-        titleView.setText(mediaItem.getTitle());
-        sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
-
         final Button saveButton = (Button) findViewById(R.id.favorite_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +73,7 @@ public class ImageDetailActivity extends AbstractMediaDetailActivity {
             }
         });
 
-        // disable the save button if the media is already saved
-        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
-        mediaExistsTask.execute();
-
+        disableSaveButtonIfAlreadySaved(mediaItem);
         loadAdvertisement();
     }
 }

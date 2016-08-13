@@ -1,5 +1,6 @@
 package edu.udacity.android.contentfinder;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +14,6 @@ import com.squareup.picasso.Picasso;
 import java.util.Map;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -47,21 +47,27 @@ public class VideoDetailActivity extends AbstractMediaDetailActivity {
 
         mediaItem.setKeywordId(keyword.getId());
 
-        ImageView imageView = (ImageView) findViewById(R.id.video_detail_image);
         TextView videoTitle = (TextView) findViewById(R.id.video_detail_title);
+        videoTitle.setText(mediaItem.getTitle());
+
         TextView videoDescription = (TextView) findViewById(R.id.video_detail_description);
+        videoDescription.setText(mediaItem.getDescription());
+
         TextView videoSource = (TextView) findViewById(R.id.video_detail_source);
+        videoSource.setText(AppUtils.getSource(mediaItem.getWebUrl()));
+
+        ImageView imageView = (ImageView) findViewById(R.id.video_detail_image);
+        Resources resources = getResources();
+
+        int width = (int) resources.getDimension(R.dimen.mediaDetail_image_width);
+        int height = (int) resources.getDimension(R.dimen.mediaDetail_image_height);
 
         Picasso.with(this)
                 .load(mediaItem.getWebUrl())
                 .noFade()
-                .resize(1000, 600)
+                .resize(width, height)
                 .centerInside()
                 .into(imageView);
-
-        videoTitle.setText(mediaItem.getTitle());
-        videoDescription.setText(mediaItem.getDescription());
-        videoSource.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
         Button saveButton = (Button) findViewById(R.id.favorite_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -72,10 +78,7 @@ public class VideoDetailActivity extends AbstractMediaDetailActivity {
             }
         });
 
-        // disable the save button if the media is already saved
-        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
-        mediaExistsTask.execute();
-
+        disableSaveButtonIfAlreadySaved(mediaItem);
         loadAdvertisement();
     }
 }

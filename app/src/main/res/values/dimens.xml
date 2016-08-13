@@ -33,6 +33,8 @@
     <dimen name="source_textSize">14sp</dimen>
     <dimen name="imageDetail_marginTop">10dp</dimen>
     <dimen name="imageDetail_binary_marginBottom">10dp</dimen>
+    <dimen name="imageDetail_description_textSize">14sp</dimen>
+    <dimen name="imageDetail_description_marginBottom">5dp</dimen>
 
     <dimen name="detail_scrollView_padding">10dp</dimen>
     <dimen name="keyword_label_textSize">20sp</dimen>

@@ -26,22 +26,22 @@
                 android:textColor="@color/newsDetail_title_textColor"/>
 
         <TextView
-                android:id="@+id/news_detail_source"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/newsDetail_source_textSize"
-                android:textStyle="italic"
-                android:textColor="@color/source_textColor"
-                android:layout_below="@+id/news_detail_title"/>
-
-        <TextView
                 android:id="@+id/news_detail_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/newsDetail_description_textSize"
                 android:layout_marginBottom="@dimen/newsDetail_description_marginBottom"
                 android:maxLines="100"
-                android:layout_below="@+id/news_detail_source"/>
+                android:layout_below="@+id/news_detail_title"/>
+
+        <TextView
+                android:id="@+id/news_detail_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/newsDetail_source_textSize"
+                android:textStyle="italic"
+                android:textColor="@color/source_textColor"
+                android:layout_below="@+id/news_detail_description"/>
 
         <TextView
                 android:id="@+id/news_detail_web_url"
@@ -50,21 +50,21 @@
                 android:textSize="@dimen/newsDetail_link_textSize"
                 android:textStyle="italic"
                 android:textColor="@color/newsDetail_link_textColor"
-                android:layout_below="@+id/news_detail_description"/>
+                android:layout_below="@+id/news_detail_source"/>
 
         <Button
                 android:id="@+id/favorite_button"
                 android:text="@string/favorite_button_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/news_detail_web_url"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/favoriteButton_marginTop"/>
+                android:layout_marginTop="@dimen/favoriteButton_marginTop"
+                android:layout_below="@id/news_detail_web_url"/>
 
         <include layout="@layout/ad_view"
-                 android:layout_below="@id/favorite_button"
                  android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"/>
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/favorite_button"/>
 
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

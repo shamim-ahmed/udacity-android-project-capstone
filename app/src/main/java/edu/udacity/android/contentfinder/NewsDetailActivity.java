@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.Map;
 
 import edu.udacity.android.contentfinder.model.Keyword;
-import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.util.AppUtils;
 import edu.udacity.android.contentfinder.util.Constants;
@@ -60,10 +59,7 @@ public class NewsDetailActivity extends AbstractMediaDetailActivity {
             }
         });
 
-        // disable the save button if the media is already saved
-        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
-        mediaExistsTask.execute();
-
+        disableSaveButtonIfAlreadySaved(mediaItem);
         loadAdvertisement();
     }
 }

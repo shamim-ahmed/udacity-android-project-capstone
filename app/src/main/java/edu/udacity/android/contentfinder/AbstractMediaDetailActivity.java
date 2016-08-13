@@ -9,6 +9,7 @@ import java.util.Map;
 
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
+import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.util.Constants;
 
 /**
@@ -54,5 +55,11 @@ public class AbstractMediaDetailActivity extends AbstractActivity {
         resultMap.put(Constants.SELECTED_KEYWORD, keyword);
 
         return resultMap;
+    }
+
+    protected void disableSaveButtonIfAlreadySaved(MediaItem mediaItem) {
+        // disable the save button if the media is already saved
+        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
+        mediaExistsTask.execute();
     }
 }

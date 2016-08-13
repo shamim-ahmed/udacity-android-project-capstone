@@ -1,9 +1,13 @@
 package edu.udacity.android.contentfinder;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -18,9 +22,9 @@ import edu.udacity.android.contentfinder.util.Constants;
 public abstract class AbstractMediaDetailActivity extends AbstractActivity {
     private static final String TAG = AbstractMediaDetailActivity.class.getSimpleName();
 
-    public abstract void loadImage(MediaItem mediaItem);
+    protected abstract void loadImage(MediaItem mediaItem);
 
-    public abstract void configureButtons(MediaItem mediaItem);
+    protected abstract void configureSaveButton(MediaItem mediaItem);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +57,13 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
         sourceView.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
         loadImage(mediaItem);
-        configureButtons(mediaItem);
-        disableSaveButtonIfAlreadySaved(mediaItem);
+        configureOpenButton(mediaItem);
+        configureSaveButton(mediaItem);
         loadAdvertisement();
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outBundle) {
+    protected void onSaveInstanceState(Bundle outBundle) {
         super.onSaveInstanceState(outBundle);
 
         Bundle extras = getIntent().getExtras();
@@ -75,7 +79,13 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
         outBundle.putParcelable(Constants.SELECTED_KEYWORD, keyword);
     }
 
-    public Map<String, Parcelable> getMediaItemAndKeyword(Bundle savedInstanceState) {
+    protected void disableSaveButtonIfAlreadySaved(MediaItem mediaItem) {
+        // disable the save button if the media is already saved
+        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
+        mediaExistsTask.execute();
+    }
+
+    private Map<String, Parcelable> getMediaItemAndKeyword(Bundle savedInstanceState) {
         MediaItem mediaItem;
         Keyword keyword;
 
@@ -97,9 +107,15 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
         return resultMap;
     }
 
-    private void disableSaveButtonIfAlreadySaved(MediaItem mediaItem) {
-        // disable the save button if the media is already saved
-        CheckMediaItemExistsTask mediaExistsTask = new CheckMediaItemExistsTask(this, mediaItem);
-        mediaExistsTask.execute();
+    private void configureOpenButton(final MediaItem mediaItem) {
+        Button openLinkButton = (Button) findViewById(R.id.open_link_button);
+        openLinkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(mediaItem.getWebUrl()));
+                startActivity(intent);
+            }
+        });
     }
 }

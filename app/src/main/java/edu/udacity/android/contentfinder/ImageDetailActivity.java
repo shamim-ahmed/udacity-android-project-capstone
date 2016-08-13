@@ -13,7 +13,7 @@ import edu.udacity.android.contentfinder.model.MediaItem;
 public class ImageDetailActivity extends AbstractMediaDetailActivity {
 
     @Override
-    public void loadImage(MediaItem mediaItem) {
+    protected void loadImage(MediaItem mediaItem) {
         ImageView imageView = (ImageView) findViewById(R.id.mediaItem_detail_image_content);
 
         Resources resources = getResources();
@@ -29,8 +29,8 @@ public class ImageDetailActivity extends AbstractMediaDetailActivity {
     }
 
     @Override
-    public void configureButtons(final MediaItem mediaItem) {
-        final Button saveButton = (Button) findViewById(R.id.favorite_button);
+    protected void configureSaveButton(final MediaItem mediaItem) {
+        Button saveButton = (Button) findViewById(R.id.favorite_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,5 +38,7 @@ public class ImageDetailActivity extends AbstractMediaDetailActivity {
                 saveMediaItemTask.execute();
             }
         });
+
+        disableSaveButtonIfAlreadySaved(mediaItem);
     }
 }

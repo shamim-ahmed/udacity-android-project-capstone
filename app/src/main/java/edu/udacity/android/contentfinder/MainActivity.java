@@ -78,7 +78,6 @@ public class MainActivity extends AbstractSearchActivity
         loadAdvertisement();
     }
 
-
     public void onRestart() {
         super.onRestart();
 
@@ -159,6 +158,7 @@ public class MainActivity extends AbstractSearchActivity
         super.onSaveInstanceState(outState);
 
         ListView listView = (ListView) findViewById(R.id.keyword_list);
+        @SuppressWarnings("unchecked")
         ArrayAdapter<Keyword> adapter = (ArrayAdapter<Keyword>) listView.getAdapter();
         final int n = adapter.getCount();
         Keyword[] keywordArray = new Keyword[n];

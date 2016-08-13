@@ -68,7 +68,7 @@ public class NewsSearchActivity extends AbstractMediaItemSearchActivity {
 
     @Override
     protected ListView getMediaItemListView() {
-        return (ListView) findViewById(R.id.news_list);
+        return (ListView) findViewById(R.id.mediaItem_list);
     }
 
     @Override

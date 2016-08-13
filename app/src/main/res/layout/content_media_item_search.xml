@@ -2,7 +2,6 @@
 
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,12 +9,10 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_youtube_video_search"
-        tools:context=".VideoSearchActivity">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
-            android:id="@+id/video_keyword_widgets"
+            android:id="@+id/keyword_view_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -23,11 +20,12 @@
     </LinearLayout>
 
     <ListView
-            android:id="@+id/video_list"
+            android:id="@+id/mediaItem_list"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:layout_below="@id/video_keyword_widgets"
-            android:layout_marginTop="@dimen/videoList_layout_marginTop"/>
+            android:layout_marginTop="@dimen/newsList_layout_marginTop"
+            android:layout_below="@id/keyword_view_group"/>
 
     <include layout="@layout/ad_view"/>
+
 </RelativeLayout>

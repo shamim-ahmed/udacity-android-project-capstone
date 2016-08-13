@@ -23,6 +23,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_youtube_video_search"/>
+    <include layout="@layout/content_media_item_search"/>
 
 </android.support.design.widget.CoordinatorLayout>

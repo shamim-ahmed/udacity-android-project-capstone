@@ -69,7 +69,7 @@ public class ImageSearchActivity extends AbstractMediaItemSearchActivity {
 
     @Override
     protected ListView getMediaItemListView() {
-        return (ListView) findViewById(R.id.image_list);
+        return (ListView) findViewById(R.id.mediaItem_list);
     }
 
     @Override

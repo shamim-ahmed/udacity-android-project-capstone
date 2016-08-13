@@ -100,7 +100,7 @@ public class YouTubeVideoSearchTask extends SearchTask {
 
     @Override
     protected void onPostExecute(List<MediaItem> resultList) {
-        ListView videoListView = (ListView) activity.findViewById(R.id.video_list);
+        ListView videoListView = (ListView) activity.findViewById(R.id.mediaItem_list);
         VideoListAdapter adapter = new VideoListAdapter(activity);
         adapter.addAll(resultList);
 

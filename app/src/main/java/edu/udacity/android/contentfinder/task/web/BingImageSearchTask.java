@@ -66,7 +66,7 @@ public class BingImageSearchTask extends BingSearchTask {
 
     @Override
     protected void onPostExecute(List<MediaItem> resultList) {
-        ListView imageListView = (ListView) activity.findViewById(R.id.image_list);
+        ListView imageListView = (ListView) activity.findViewById(R.id.mediaItem_list);
         ArrayAdapter<MediaItem> adapter = new ImageListAdapter(activity);
         imageListView.setAdapter(adapter);
 

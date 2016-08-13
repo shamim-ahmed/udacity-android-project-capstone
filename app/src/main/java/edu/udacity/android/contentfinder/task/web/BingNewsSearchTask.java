@@ -94,7 +94,7 @@ public class BingNewsSearchTask extends BingSearchTask {
 
     @Override
     protected void onPostExecute(List<MediaItem> resultList) {
-        ListView listView = (ListView) activity.findViewById(R.id.news_list);
+        ListView listView = (ListView) activity.findViewById(R.id.mediaItem_list);
         ArrayAdapter<MediaItem> adapter = new NewsListAdapter(activity);
         listView.setAdapter(adapter);
 

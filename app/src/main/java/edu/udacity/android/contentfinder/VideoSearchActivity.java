@@ -21,7 +21,7 @@ public class VideoSearchActivity extends AbstractMediaItemSearchActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_youtube_video_search);
+        setContentView(R.layout.activity_media_item_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

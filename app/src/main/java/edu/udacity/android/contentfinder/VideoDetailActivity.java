@@ -47,16 +47,16 @@ public class VideoDetailActivity extends AbstractMediaDetailActivity {
 
         mediaItem.setKeywordId(keyword.getId());
 
-        TextView videoTitle = (TextView) findViewById(R.id.video_detail_title);
+        TextView videoTitle = (TextView) findViewById(R.id.mediaItem_detail_title);
         videoTitle.setText(mediaItem.getTitle());
 
-        TextView videoDescription = (TextView) findViewById(R.id.video_detail_description);
+        TextView videoDescription = (TextView) findViewById(R.id.mediaItem_detail_description);
         videoDescription.setText(mediaItem.getDescription());
 
-        TextView videoSource = (TextView) findViewById(R.id.video_detail_source);
+        TextView videoSource = (TextView) findViewById(R.id.mediaItem_detail_source);
         videoSource.setText(AppUtils.getSource(mediaItem.getWebUrl()));
 
-        ImageView imageView = (ImageView) findViewById(R.id.video_detail_image);
+        ImageView imageView = (ImageView) findViewById(R.id.mediaItem_detail_image_content);
         Resources resources = getResources();
 
         int width = (int) resources.getDimension(R.dimen.mediaDetail_image_width);

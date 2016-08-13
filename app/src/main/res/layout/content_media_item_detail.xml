@@ -2,14 +2,11 @@
 
 <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_video_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/detail_scrollView_padding"
-        tools:context=".VideoDetailActivity">
+        android:padding="@dimen/detail_scrollView_padding">
 
     <RelativeLayout
             android:layout_width="wrap_content"
@@ -17,54 +14,56 @@
             android:orientation="vertical">
 
         <ImageView
-                android:id="@+id/video_detail_image"
+                android:id="@+id/mediaItem_detail_image_content"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="10dp"
-                android:contentDescription="@string/videoDetail_preview_contentDescription"/>
+                android:layout_marginBottom="@dimen/imageDetail_binary_marginBottom"
+                android:contentDescription="@string/imageDetail_contentDescription"/>
 
         <TextView
-                android:id="@+id/video_detail_title"
+                android:id="@+id/mediaItem_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/video_detail_image"
-                android:textSize="16sp"
-                android:layout_marginBottom="@dimen/videoDetail_margin_bottom"
+                android:textSize="@dimen/imageDetail_title_textSize"
+                android:layout_marginBottom="@dimen/imageDetail_title_marginBottom"
                 android:textStyle="bold"
-                android:textColor="@color/videoDetail_textColor"/>
+                android:textColor="@color/imageDetail_title_textColor"
+                android:layout_below="@id/mediaItem_detail_image_content"/>
 
         <TextView
-                android:id="@+id/video_detail_description"
+                android:id="@+id/mediaItem_detail_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/video_detail_title"
-                android:textSize="@dimen/videoDetail_description_textSize"
-                android:layout_marginBottom="@dimen/videoDetail_description_marginBottom"/>
+                android:textSize="@dimen/imageDetail_description_textSize"
+                android:layout_marginBottom="@dimen/imageDetail_description_marginBottom"
+                android:maxLines="100"
+                android:layout_below="@+id/mediaItem_detail_title"/>
 
         <TextView
-                android:id="@+id/video_detail_source"
+                android:id="@+id/mediaItem_detail_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/video_detail_description"
                 android:textSize="@dimen/source_textSize"
                 android:textStyle="italic"
-                android:textColor="@color/source_textColor"/>
+                android:textColor="@color/source_textColor"
+                android:layout_below="@id/mediaItem_detail_description"/>
 
         <Button
                 android:id="@+id/favorite_button"
                 android:text="@string/favorite_button_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/video_detail_source"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/favoriteButton_marginTop"/>
+                android:layout_marginTop="@dimen/imageDetail_marginTop"
+                android:layout_below="@id/mediaItem_detail_source"/>
 
-        <include layout="@layout/ad_view"
-                 android:layout_below="@id/favorite_button"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"/>
+        <include
+                layout="@layout/ad_view"
+                android:layout_below="@id/favorite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

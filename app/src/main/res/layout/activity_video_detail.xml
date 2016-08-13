@@ -23,6 +23,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_video_detail"/>
+    <include layout="@layout/content_media_item_detail"/>
 
 </android.support.design.widget.CoordinatorLayout>

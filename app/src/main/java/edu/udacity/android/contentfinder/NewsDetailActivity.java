@@ -3,9 +3,9 @@ package edu.udacity.android.contentfinder;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Map;
@@ -38,17 +38,17 @@ public class NewsDetailActivity extends AbstractMediaDetailActivity {
 
         mediaItem.setKeywordId(keyword.getId());
 
-        TextView titleView = (TextView) findViewById(R.id.news_detail_title);
+        TextView titleView = (TextView) findViewById(R.id.mediaItem_detail_title);
         titleView.setText(mediaItem.getTitle());
 
-        TextView descriptionView = (TextView) findViewById(R.id.news_detail_description);
+        TextView descriptionView = (TextView) findViewById(R.id.mediaItem_detail_description);
         descriptionView.setText(mediaItem.getDescription());
 
-        TextView sourceView = (TextView) findViewById(R.id.news_detail_source);
+        TextView sourceView = (TextView) findViewById(R.id.mediaItem_detail_source);
         sourceView.setText(getString(R.string.content_source, AppUtils.getSource(mediaItem.getWebUrl())));
 
-        TextView webUrlView = (TextView) findViewById(R.id.news_detail_web_url);
-        webUrlView.setText(Html.fromHtml(String.format("%s %s", getString(R.string.news_detail_full_article), String.format("<a href=\"%s\">here</a>", mediaItem.getWebUrl()))));
+        ImageView imageView = (ImageView) findViewById(R.id.mediaItem_detail_image_content);
+        imageView.setVisibility(View.GONE);
 
         Button saveNewsButton = (Button) findViewById(R.id.favorite_button);
         saveNewsButton.setOnClickListener(new View.OnClickListener() {

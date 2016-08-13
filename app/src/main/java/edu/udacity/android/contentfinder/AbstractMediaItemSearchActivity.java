@@ -46,8 +46,8 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
             // load keywords in spinner
             List<Keyword> keywordList = new ArrayList<>();
 
-            for (int i = 0; i < keywordArray.length; i++) {
-                keywordList.add((Keyword) keywordArray[i]);
+            for (Parcelable keyword : keywordArray) {
+                keywordList.add((Keyword) keyword);
             }
 
             loadKeywords(keywordList, false);
@@ -59,8 +59,8 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
             Parcelable[] mediaItemArray = savedInstanceState.getParcelableArray(Constants.MEDIA_ITEM_ARRAY);
 
             if (mediaItemArray != null && mediaItemArray.length > 0) {
-                for (int i = 0; i < mediaItemArray.length; i++) {
-                    mediaItemList.add((MediaItem) mediaItemArray[i]);
+                for (Parcelable item : mediaItemArray) {
+                    mediaItemList.add((MediaItem) item);
                 }
             }
 

@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class ImageDetailActivity extends AbstractMediaDetailActivity {
+public class ImageDetailActivity extends AbstractMediaItemDetailActivity {
 
     @Override
     protected void loadImage(MediaItem mediaItem) {

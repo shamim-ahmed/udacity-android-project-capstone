@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import edu.udacity.android.contentfinder.task.db.SaveMediaItemTask;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class NewsDetailActivity extends AbstractMediaDetailActivity {
+public class NewsDetailActivity extends AbstractMediaItemDetailActivity {
 
     @Override
     protected void loadImage(MediaItem mediaItem) {

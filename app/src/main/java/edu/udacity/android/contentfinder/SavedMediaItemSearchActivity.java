@@ -14,7 +14,7 @@ import java.util.List;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.task.db.SearchMediaItemTask;
-import edu.udacity.android.contentfinder.ui.MediaItemListAdapter;
+import edu.udacity.android.contentfinder.ui.SavedMediaItemListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 
 public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivity implements MediaItemListContainer {
@@ -72,7 +72,7 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
 
     @Override
     public void loadMediaItems(List<MediaItem> mediaItems) {
-        MediaItemListAdapter adapter = new MediaItemListAdapter(this);
+        SavedMediaItemListAdapter adapter = new SavedMediaItemListAdapter(this);
         adapter.addAll(mediaItems);
 
         ListView mediaItemListView = getMediaItemListView();
@@ -91,6 +91,6 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
 
     @Override
     protected ArrayAdapter<MediaItem> createMediaItemListAdapter() {
-        return new MediaItemListAdapter(this);
+        return new SavedMediaItemListAdapter(this);
     }
 }

@@ -14,9 +14,9 @@ import com.squareup.picasso.Picasso;
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.model.MediaItem;
 
-public class MediaItemListAdapter extends ArrayAdapter<MediaItem> {
+public class SavedMediaItemListAdapter extends ArrayAdapter<MediaItem> {
 
-    public MediaItemListAdapter(Context context) {
+    public SavedMediaItemListAdapter(Context context) {
         super(context, R.layout.saved_media_item);
     }
 

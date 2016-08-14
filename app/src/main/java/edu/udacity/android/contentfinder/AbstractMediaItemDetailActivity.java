@@ -23,8 +23,8 @@ import edu.udacity.android.contentfinder.task.db.CheckMediaItemExistsTask;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.StringUtils;
 
-public abstract class AbstractMediaDetailActivity extends AbstractActivity {
-    private static final String TAG = AbstractMediaDetailActivity.class.getSimpleName();
+public abstract class AbstractMediaItemDetailActivity extends AbstractActivity {
+    private static final String TAG = AbstractMediaItemDetailActivity.class.getSimpleName();
     private static final String TEXT_PLAIN_MIME_TYPE = "text/plain";
 
     private String shareUrl;
@@ -35,7 +35,7 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.media_item_detail);
+        setContentView(R.layout.activity_media_item_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

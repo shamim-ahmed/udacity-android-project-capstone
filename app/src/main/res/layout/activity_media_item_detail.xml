@@ -62,7 +62,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/mediaItem_detail_description_textSize"
                         android:layout_marginBottom="@dimen/mediaItem_detail_description_marginBottom"
-                        android:maxLines="100"/>
+                        android:maxLines="6"
+                        android:ellipsize="end"/>
 
                 <TextView
                         android:id="@+id/mediaItem_detail_source"

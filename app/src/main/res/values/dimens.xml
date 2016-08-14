@@ -37,7 +37,7 @@
     <dimen name="mediaItem_thumbnail_marginTop">5dp</dimen>
     <dimen name="mediaItem_thumbnail_marginBottom">5dp</dimen>
     <dimen name="mediaItem_title_textSize">16sp</dimen>
-    <dimen name="mediaItem_summary_textSize">12sp</dimen>
+    <dimen name="mediaItem_description_textSize">14sp</dimen>
     <dimen name="source_textSize">14sp</dimen>
     <dimen name="mediaItem_thumbnail_width">100dp</dimen>
     <dimen name="mediaItem_thumbnail_height">100dp</dimen>
@@ -48,6 +48,9 @@
     <dimen name="news_item_paddingBottom">5dp</dimen>
     <dimen name="news_item_title_marginBottom">5dp</dimen>
     <dimen name="news_item_summary_marginBottom">5dp</dimen>
+
+    <!--dimension for image items -->
+    <dimen name="image_item_description_textSize">12sp</dimen>
 
     <!-- media detail dimensions  -->
     <dimen name="mediaItem_detail_scrollView_padding">10dp</dimen>

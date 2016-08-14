@@ -30,16 +30,16 @@
                 android:textSize="@dimen/mediaItem_title_textSize"
                 android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
-                android:textColor="@color/imageItem_textColor"/>
+                android:textColor="@color/imageItem_textColor"
+                android:maxLines="3"
+                android:ellipsize="end"/>
 
         <TextView
                 android:id="@+id/image_item_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/mediaItem_summary_textSize"
-                android:layout_margin="@dimen/mediaItem_layout_margin"
-                android:textStyle="bold"
-                android:textColor="@color/imageItem_textColor"/>
+                android:textSize="@dimen/image_item_description_textSize"
+                android:layout_margin="@dimen/mediaItem_layout_margin"/>
 
     </LinearLayout>
 </LinearLayout>

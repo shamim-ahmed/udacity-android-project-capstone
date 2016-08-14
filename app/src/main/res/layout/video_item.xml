@@ -29,16 +29,16 @@
                 android:textSize="@dimen/mediaItem_title_textSize"
                 android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
-                android:textColor="@color/videoItem_textColor"/>
+                android:textColor="@color/videoItem_textColor"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
         <TextView
                 android:id="@+id/video_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/mediaItem_summary_textSize"
+                android:textSize="@dimen/mediaItem_description_textSize"
                 android:layout_margin="@dimen/mediaItem_layout_margin"
-                android:textStyle="bold"
-                android:textColor="@color/videoItem_textColor"
                 android:maxLines="3"
                 android:ellipsize="end"/>
     </LinearLayout>

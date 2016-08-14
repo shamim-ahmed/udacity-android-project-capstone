@@ -20,7 +20,7 @@
             android:id="@+id/news_item_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/mediaItem_summary_textSize"
+            android:textSize="@dimen/mediaItem_description_textSize"
             android:layout_marginBottom="@dimen/news_item_summary_marginBottom"
             android:maxLines="4"
             android:ellipsize="end"/>

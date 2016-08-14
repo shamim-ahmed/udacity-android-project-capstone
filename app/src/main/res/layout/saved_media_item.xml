@@ -36,7 +36,7 @@
                 android:id="@+id/saved_mediaITem_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/mediaItem_summary_textSize"
+                android:textSize="@dimen/mediaItem_description_textSize"
                 android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/saved_mediaItem_textColor"

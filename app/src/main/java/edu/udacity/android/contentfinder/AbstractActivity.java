@@ -7,9 +7,6 @@ import com.google.android.gms.analytics.Tracker;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import edu.udacity.android.contentfinder.util.Constants;
 
 
 public abstract class AbstractActivity extends AppCompatActivity {

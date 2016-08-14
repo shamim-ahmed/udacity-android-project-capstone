@@ -4,9 +4,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
@@ -43,20 +40,6 @@
     <dimen name="keyword_spinner_width">175dp</dimen>
     <dimen name="searchButton_marginTop">7dp</dimen>
 
-    <dimen name="newsDetail_title_textSize">16sp</dimen>
-    <dimen name="newsDetail_title_marginBottom">5dp</dimen>
-    <dimen name="newsDetail_source_textSize">14sp</dimen>
-    <dimen name="newsDetail_description_textSize">14sp</dimen>
-    <dimen name="newsDetail_description_marginBottom">5dp</dimen>
-    <dimen name="newsDetail_link_textSize">14sp</dimen>
-
-    <dimen name="favoriteButton_marginTop">10dp</dimen>
-
-    <dimen name="videoItem_marginRight">10dp</dimen>
-    <dimen name="videoItem_marginTop">5dp</dimen>
-    <dimen name="videoItem_marginBottom">5dp</dimen>
-
-    <dimen name="videoItem_textSize">16sp</dimen>
     <dimen name="videoItem_layout_margin">5dp</dimen>
 
     <dimen name="spinner_textSize">16sp</dimen>
@@ -72,12 +55,6 @@
     <dimen name="newsItem_summary_source_textSize">14sp</dimen>
 
     <dimen name="newsList_layout_marginTop">10dp</dimen>
-    <dimen name="savedMediaList_layout_marginTop">10dp</dimen>
-    <dimen name="videoList_layout_marginTop">10dp</dimen>
-
-    <dimen name="videoDetail_margin_bottom">5dp</dimen>
-    <dimen name="videoDetail_description_textSize">14sp</dimen>
-    <dimen name="videoDetail_description_marginBottom">5dp</dimen>
 
     <dimen name="imageItem_binary_marginRight">10dp</dimen>
     <dimen name="imageItem_binary_marginTop">5dp</dimen>

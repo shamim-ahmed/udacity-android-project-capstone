@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -54,21 +55,22 @@ public class MainActivity extends AbstractSearchActivity
             }
         });
 
-        Parcelable[] keywords = null;
-
         if (savedInstanceState != null) {
-            keywords = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
-        }
+            Parcelable[] keywords = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
 
-        if (keywords != null && keywords.length > 0) {
-            Log.i(TAG, "Restoring keywords from bundle...");
-            List<Keyword> keywordList = new ArrayList<>();
+            if (keywords != null && keywords.length > 0) {
+                Log.i(TAG, "Restoring keywords from bundle...");
+                List<Keyword> keywordList = new ArrayList<>();
 
-            for (Parcelable p : keywords) {
-                keywordList.add((Keyword) p);
+                for (Parcelable p : keywords) {
+                    keywordList.add((Keyword) p);
+                }
+
+                loadKeywords(keywordList, false);
+            } else {
+                Log.i(TAG, "No keyword found in bundle...");
+                loadKeywords(Collections.<Keyword>emptyList(), false);
             }
-
-            loadKeywords(keywordList, false);
         } else {
             Log.i(TAG, "Loading keywords from database...");
             SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
@@ -154,6 +156,14 @@ public class MainActivity extends AbstractSearchActivity
         ArrayAdapter<Keyword> adapter = new KeywordListAdapter(this);
         adapter.addAll(keywordList);
         listView.setAdapter(adapter);
+
+        Button addButton = (Button) findViewById(R.id.add_keyword_button);
+
+        if (adapter.getCount() == 0) {
+            addButton.setVisibility(View.VISIBLE);
+        } else {
+            addButton.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override

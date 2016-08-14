@@ -44,7 +44,7 @@
     <string name="open_link_button_label">View Content</string>
     <string name="search_button_label">Go</string>
 
-    <string name="nav_drawer_home">Home</string>
+    <string name="nav_drawer_start_screen">Content Finder</string>
     <string name="nav_drawer_news_search">News Search</string>
     <string name="nav_drawer_image_search">Image Search</string>
     <string name="nav_drawer_video_search">Youtube Video Search</string>

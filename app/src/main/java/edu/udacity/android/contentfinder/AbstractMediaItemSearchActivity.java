@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -15,6 +16,7 @@ import java.util.List;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.task.db.SearchKeywordTask;
+import edu.udacity.android.contentfinder.ui.KeywordSpinnerAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 
 public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActivity {
@@ -24,11 +26,6 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
     private static final Keyword[] EMPTY_KEYWORD_ARRAY = new Keyword[0];
 
     protected abstract void configureActionListeners();
-
-    protected abstract Spinner getKeywordSpinner();
-
-    protected abstract ListView getMediaItemListView();
-
     protected abstract ArrayAdapter<MediaItem> createMediaItemListAdapter();
 
     @Override
@@ -43,6 +40,34 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         configureActionListeners();
         loadApplicationData(savedInstanceState);
         loadAdvertisement();
+    }
+
+    @Override
+    public void loadKeywords(List<Keyword> keywordList, boolean mediaSearchFlag) {
+        ArrayAdapter<Keyword> adapter = new KeywordSpinnerAdapter(this);
+        adapter.addAll(keywordList);
+
+        final Spinner keywordSpinner = getKeywordSpinner();
+        keywordSpinner.setAdapter(adapter);
+
+        Button searchButton = getSearchButton();
+
+        if (adapter.getCount() > 0) {
+            keywordSpinner.setSelection(0);
+        } else {
+            String dummyStr = getString(R.string.placeholder_keyword_text);
+            Keyword dummyKeyword = new Keyword();
+            dummyKeyword.setWord(dummyStr);
+            adapter.add(dummyKeyword);
+
+            // disable the UI items
+            keywordSpinner.setEnabled(false);
+            searchButton.setEnabled(false);
+        }
+
+        if (mediaSearchFlag) {
+            searchButton.performClick();
+        }
     }
 
     protected void loadApplicationData(Bundle savedInstanceState) {
@@ -130,6 +155,18 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         outState.putParcelableArray(Constants.MEDIA_ITEM_ARRAY, mediaItemArray);
     }
 
+    protected Spinner getKeywordSpinner() {
+        return (Spinner) findViewById(R.id.keyword_spinner);
+    }
+
+    protected ListView getMediaItemListView() {
+        return (ListView) findViewById(R.id.mediaItem_list);
+    }
+
+    protected Button getSearchButton() {
+        return (Button) findViewById(R.id.search_button);
+    }
+
     private boolean hasValidKeyword(Keyword[] keywordArray) {
         if (keywordArray == null || keywordArray.length == 0) {
             return false;
@@ -146,6 +183,5 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         }
 
         return true;
-
     }
 }

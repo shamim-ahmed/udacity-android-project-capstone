@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,12 +13,15 @@ import java.util.List;
 
 import edu.udacity.android.contentfinder.SavedMediaItemSearchActivity;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
+import edu.udacity.android.contentfinder.db.ContentFinderDataProvider;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.model.MediaItemType;
 import edu.udacity.android.contentfinder.util.DateUtils;
 
 public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> {
+    private static final String TAG = SearchMediaItemTask.class.getSimpleName();
+
     private final Activity activity;
     private final Keyword keyword;
 
@@ -29,8 +33,17 @@ public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> 
     @Override
     protected List<MediaItem> doInBackground(Void... params) {
         ContentResolver contentResolver = activity.getContentResolver();
-        Uri searchUri = ContentFinderContract.MediaItemEntry.buildUriFromKeywordId(keyword.getId());
-        Cursor cursor = contentResolver.query(searchUri, null, null, null, null);
+        Long keywordId = keyword.getId();
+
+        if (keywordId == null) {
+            Log.e(TAG, "keywordId cannot be null");
+            return Collections.emptyList();
+        }
+
+        Uri searchUri = ContentFinderContract.MediaItemEntry.buildUriFromKeywordId(keywordId);
+        String sortOrder = String.format("%s desc", ContentFinderContract.KeywordEntry._ID);
+
+        Cursor cursor = contentResolver.query(searchUri, null, ContentFinderDataProvider.MEDIA_ITEM_KEYWORD_ID_SELECTION, new String[] {keywordId.toString()}, sortOrder);
 
         if (cursor == null) {
             return Collections.emptyList();

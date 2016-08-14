@@ -70,4 +70,6 @@
 
     <string name="placeholder_keyword_text">--None--</string>
     <string name="shareLink_menuItem_text">Share Link</string>
+
+    <string name="no_results_text">No results</string>
 </resources>

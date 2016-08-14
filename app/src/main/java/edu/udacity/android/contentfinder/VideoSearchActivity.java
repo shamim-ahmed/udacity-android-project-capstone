@@ -49,16 +49,6 @@ public class VideoSearchActivity extends AbstractMediaItemSearchActivity {
     }
 
     @Override
-    protected Spinner getKeywordSpinner() {
-        return (Spinner) findViewById(R.id.keyword_spinner);
-    }
-
-    @Override
-    protected ListView getMediaItemListView() {
-        return (ListView) findViewById(R.id.mediaItem_list);
-    }
-
-    @Override
     protected ArrayAdapter<MediaItem> createMediaItemListAdapter() {
         return new VideoListAdapter(this);
     }

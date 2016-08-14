@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mediaItem_title_textSize"
-                android:layout_margin="@dimen/imageItem_layout_margin"
+                android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/imageItem_textColor"/>
 
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mediaItem_summary_textSize"
-                android:layout_margin="@dimen/imageItem_layout_margin"
+                android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/imageItem_textColor"/>
 

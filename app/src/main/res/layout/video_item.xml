@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mediaItem_title_textSize"
-                android:layout_margin="@dimen/videoItem_layout_margin"
+                android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/videoItem_textColor"/>
 
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mediaItem_summary_textSize"
-                android:layout_margin="@dimen/videoItem_layout_margin"
+                android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/videoItem_textColor"
                 android:maxLines="3"

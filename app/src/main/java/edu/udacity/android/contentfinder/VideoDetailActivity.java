@@ -17,8 +17,8 @@ public class VideoDetailActivity extends AbstractMediaItemDetailActivity {
         ImageView imageView = (ImageView) findViewById(R.id.mediaItem_detail_image_content);
         Resources resources = getResources();
 
-        int width = (int) resources.getDimension(R.dimen.mediaDetail_image_width);
-        int height = (int) resources.getDimension(R.dimen.mediaDetail_image_height);
+        int width = (int) resources.getDimension(R.dimen.mediaItem_detail_image_width);
+        int height = (int) resources.getDimension(R.dimen.mediaItem_detail_image_height);
 
         Picasso.with(this)
                 .load(mediaItem.getThumbnailUrl())

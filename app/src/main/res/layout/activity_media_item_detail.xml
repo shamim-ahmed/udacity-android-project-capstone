@@ -24,7 +24,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/detail_scrollView_padding">
+            android:padding="@dimen/mediaItem_detail_scrollView_padding">
 
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -37,15 +37,15 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:layout_marginBottom="@dimen/imageDetail_binary_marginBottom"
+                    android:layout_marginBottom="@dimen/mediaItem_detail_binary_marginBottom"
                     android:contentDescription="@string/imageDetail_contentDescription"/>
 
             <TextView
                     android:id="@+id/mediaItem_detail_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/imageDetail_title_textSize"
-                    android:layout_marginBottom="@dimen/imageDetail_title_marginBottom"
+                    android:textSize="@dimen/mediaItem_detail_title_textSize"
+                    android:layout_marginBottom="@dimen/mediaItem_detail_title_marginBottom"
                     android:textStyle="bold"
                     android:textColor="@color/imageDetail_title_textColor"
                     android:layout_below="@id/mediaItem_detail_image_content"/>
@@ -54,8 +54,8 @@
                     android:id="@+id/mediaItem_detail_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/imageDetail_description_textSize"
-                    android:layout_marginBottom="@dimen/imageDetail_description_marginBottom"
+                    android:textSize="@dimen/mediaItem_detail_description_textSize"
+                    android:layout_marginBottom="@dimen/mediaItem_detail_description_marginBottom"
                     android:maxLines="100"
                     android:layout_below="@+id/mediaItem_detail_title"/>
 
@@ -81,7 +81,7 @@
                         android:text="@string/open_link_button_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/imageDetail_marginTop"
+                        android:layout_marginTop="@dimen/mediaItem_detail_marginTop"
                         android:layout_weight="1"/>
 
                 <Button
@@ -89,7 +89,7 @@
                         android:text="@string/favorite_button_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/imageDetail_marginTop"
+                        android:layout_marginTop="@dimen/mediaItem_detail_marginTop"
                         android:layout_weight="1"/>
             </LinearLayout>
 

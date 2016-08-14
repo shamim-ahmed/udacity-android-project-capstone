@@ -43,7 +43,7 @@
                 android:id="@+id/mediaItem_list"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
-                android:layout_marginTop="@dimen/newsList_layout_marginTop"
+                android:layout_marginTop="@dimen/mediaItem_list_layout_marginTop"
                 android:layout_below="@id/keyword_view_group"/>
 
         <include layout="@layout/ad_view"/>

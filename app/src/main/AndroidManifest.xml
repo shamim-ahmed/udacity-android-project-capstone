@@ -75,6 +75,12 @@
                 android:theme="@style/AppTheme.NoActionBar"
                 android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+                android:name=".DisplayInfoActivity"
+                android:label="@string/title_activity_display_info"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName=".MainActivity">
+        </activity>
 
         <!-- widget definitions -->
         <receiver android:name=".KeywordListWidgetProvider"

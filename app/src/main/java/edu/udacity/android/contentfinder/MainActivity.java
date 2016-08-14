@@ -111,6 +111,9 @@ public class MainActivity extends AbstractSearchActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
+            Intent intent = new Intent(this, DisplayInfoActivity.class);
+            startActivity(intent);
+
             return true;
         }
 

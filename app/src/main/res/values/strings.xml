@@ -3,6 +3,8 @@
 <resources>
     <string name="app_name">Content Finder</string>
     <string name="app_email">content.finder@udacity.com</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="app_copyright">Copyright 2016 Udacity Inc. All rights reserved.</string>
     <string name="action_about_title">About</string>
 
     <string name="title_activity_news_detail">News Details</string>
@@ -18,6 +20,7 @@
     <string name="title_activity_you_tube_video_search">YouTube Video Search Result</string>
     <string name="title_activity_video_detail">Video Details</string>
     <string name="title_activity_view_favorite_content">View Saved Content</string>
+    <string name="title_activity_display_info">About</string>
 
     <!-- news detail activity -->
     <string name="content_source">Source : %1$s</string>

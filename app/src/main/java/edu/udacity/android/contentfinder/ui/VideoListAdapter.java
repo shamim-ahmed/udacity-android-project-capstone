@@ -28,7 +28,6 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
             containerView = LayoutInflater.from(context).inflate(R.layout.video_item, parent, false);
         }
 
-        // TODO investigate thumbnail resize issue
         Resources resources = context.getResources();
         int width = (int) resources.getDimension(R.dimen.mediaItem_thumbnail_width);
         int height = (int) resources.getDimension(R.dimen.mediaItem_thumbnail_height);

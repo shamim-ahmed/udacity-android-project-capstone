@@ -24,7 +24,7 @@ public class ImageDetailActivity extends AbstractMediaItemDetailActivity {
                 .load(mediaItem.getThumbnailUrl())
                 .noFade()
                 .resize(width, height)
-                .centerInside()
+                .centerCrop()
                 .into(imageView);
     }
 

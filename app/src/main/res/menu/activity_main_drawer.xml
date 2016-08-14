@@ -5,19 +5,19 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_home"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@drawable/home_icon"
                 android:title="@string/nav_drawer_home"/>
         <item
                 android:id="@+id/nav_news_search"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@drawable/news_icon"
                 android:title="@string/nav_drawer_news_search"/>
         <item
                 android:id="@+id/nav_image_search"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@drawable/image_icon"
                 android:title="@string/nav_drawer_image_search"/>
         <item
                 android:id="@+id/nav_video_search"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@drawable/video_icon"
                 android:title="@string/nav_drawer_video_search"/>
     </group>
 
@@ -25,11 +25,11 @@
         <menu>
             <item
                     android:id="@+id/nav_add_keyword"
-                    android:icon="@mipmap/ic_launcher"
+                    android:icon="@drawable/add_keyword_icon"
                     android:title="@string/nav_drawer_add_new_keyword"/>
             <item
                     android:id="@+id/nav_saved_content"
-                    android:icon="@mipmap/ic_launcher"
+                    android:icon="@drawable/saved_content_icon"
                     android:title="@string/nav_drawer_view_saved_content"/>
         </menu>
     </item>

@@ -21,10 +21,12 @@ public class DbUtils {
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_ITEM_ID, mediaItem.getItemId());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_CONTENT_TYPE_ID, mediaItem.getContentType().getId());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_TITLE, mediaItem.getTitle());
-        values.put(ContentFinderContract.MediaItemEntry.COLUMN_URL, mediaItem.getWebUrl());
-        values.put(ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID, mediaItem.getKeywordId());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_DESCRIPTION, mediaItem.getDescription());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_URL, mediaItem.getWebUrl());
         values.put(ContentFinderContract.MediaItemEntry.COLUMN_THUMBNAIL_URL, mediaItem.getThumbnailUrl());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_SOURCE, mediaItem.getSource());
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_PUBLISH_DATE, DateUtils.formatDate(mediaItem.getPublishDate()));
+        values.put(ContentFinderContract.MediaItemEntry.COLUMN_KEYWORD_ID, mediaItem.getKeywordId());
 
         return values;
     }

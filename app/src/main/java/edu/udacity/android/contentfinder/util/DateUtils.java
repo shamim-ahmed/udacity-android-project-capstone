@@ -20,8 +20,16 @@ public class DateUtils {
             return null;
         }
 
-        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_SHORT, Locale.US);
-        return dateFormat.format(date);
+        String result = null;
+
+        try {
+            DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_SHORT, Locale.US);
+            result = dateFormat.format(date);
+        } catch (Exception ex) {
+            Log.e(TAG, "Error while formatting date");
+        }
+
+        return result;
     }
 
     public static Date parseDate(String dateStr) {

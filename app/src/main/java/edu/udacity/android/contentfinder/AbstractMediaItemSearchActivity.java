@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -20,10 +21,14 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
     private static final String TAG = AbstractMediaItemSearchActivity.class.getSimpleName();
 
     private static final MediaItem[] EMPTY_MEDIA_ITEM_ARRAY = new MediaItem[0];
+    private static final Keyword[] EMPTY_KEYWORD_ARRAY = new Keyword[0];
 
     protected abstract void configureActionListeners();
+
     protected abstract Spinner getKeywordSpinner();
+
     protected abstract ListView getMediaItemListView();
+
     protected abstract ArrayAdapter<MediaItem> createMediaItemListAdapter();
 
     @Override
@@ -44,40 +49,39 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         Spinner keywordSpinner = getKeywordSpinner();
         ListView mediaItemListView = getMediaItemListView();
 
-        Parcelable[] keywordArray = null;
-        int selectedKeywordIndex = Spinner.INVALID_POSITION;
-
         if (savedInstanceState != null) {
-            keywordArray = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
-            selectedKeywordIndex = savedInstanceState.getInt(Constants.SELECTED_KEYWORD_INDEX);
-        }
+            Parcelable[] keywordArray = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
+            int selectedKeywordIndex = savedInstanceState.getInt(Constants.SELECTED_KEYWORD_INDEX);
 
-        if (keywordArray != null && keywordArray.length > 0 && selectedKeywordIndex != Spinner.INVALID_POSITION) {
-            Log.i(TAG, "Restoring keywords and media items from bundle...");
-            // load keywords in spinner
-            List<Keyword> keywordList = new ArrayList<>();
+            if (keywordArray != null && keywordArray.length > 0 && selectedKeywordIndex != Spinner.INVALID_POSITION) {
+                Log.i(TAG, "Restoring keywords and media items from bundle...");
+                // load keywords in spinner
+                List<Keyword> keywordList = new ArrayList<>();
 
-            for (Parcelable keyword : keywordArray) {
-                keywordList.add((Keyword) keyword);
-            }
-
-            loadKeywords(keywordList, false);
-            keywordSpinner.setSelection(selectedKeywordIndex);
-
-            // load media items
-            List<MediaItem> mediaItemList = new ArrayList<>();
-
-            Parcelable[] mediaItemArray = savedInstanceState.getParcelableArray(Constants.MEDIA_ITEM_ARRAY);
-
-            if (mediaItemArray != null && mediaItemArray.length > 0) {
-                for (Parcelable item : mediaItemArray) {
-                    mediaItemList.add((MediaItem) item);
+                for (Parcelable keyword : keywordArray) {
+                    keywordList.add((Keyword) keyword);
                 }
-            }
 
-            ArrayAdapter<MediaItem> mediaItemListAdapter = createMediaItemListAdapter();
-            mediaItemListAdapter.addAll(mediaItemList);
-            mediaItemListView.setAdapter(mediaItemListAdapter);
+                loadKeywords(keywordList, false);
+                keywordSpinner.setSelection(selectedKeywordIndex);
+
+                // load media items
+                List<MediaItem> mediaItemList = new ArrayList<>();
+                Parcelable[] mediaItemArray = savedInstanceState.getParcelableArray(Constants.MEDIA_ITEM_ARRAY);
+
+                if (mediaItemArray != null && mediaItemArray.length > 0) {
+                    for (Parcelable item : mediaItemArray) {
+                        mediaItemList.add((MediaItem) item);
+                    }
+                }
+
+                ArrayAdapter<MediaItem> mediaItemListAdapter = createMediaItemListAdapter();
+                mediaItemListAdapter.addAll(mediaItemList);
+                mediaItemListView.setAdapter(mediaItemListAdapter);
+            } else {
+                Log.i(TAG, "No keyword was found in bundle...");
+                loadKeywords(Collections.<Keyword>emptyList(), false);
+            }
         } else {
             Log.i(TAG, "Loading keywords from database and media items from Internet...");
             SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);
@@ -99,8 +103,13 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
             keywordArray[i] = spinnerAdapter.getItem(i);
         }
 
-        outState.putParcelableArray(Constants.KEYWORD_ARRAY, keywordArray);
-        outState.putInt(Constants.SELECTED_KEYWORD_INDEX, keywordSpinner.getSelectedItemPosition());
+        if (hasValidKeyword(keywordArray)) {
+            outState.putParcelableArray(Constants.KEYWORD_ARRAY, keywordArray);
+            outState.putInt(Constants.SELECTED_KEYWORD_INDEX, keywordSpinner.getSelectedItemPosition());
+        } else {
+            outState.putParcelableArray(Constants.KEYWORD_ARRAY, EMPTY_KEYWORD_ARRAY);
+            outState.putInt(Constants.SELECTED_KEYWORD_INDEX, Spinner.INVALID_POSITION);
+        }
 
         ListView mediaItemListView = getMediaItemListView();
         @SuppressWarnings("unchecked")
@@ -119,5 +128,24 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
         }
 
         outState.putParcelableArray(Constants.MEDIA_ITEM_ARRAY, mediaItemArray);
+    }
+
+    private boolean hasValidKeyword(Keyword[] keywordArray) {
+        if (keywordArray == null || keywordArray.length == 0) {
+            return false;
+        }
+
+        if (keywordArray.length >= 2) {
+            return true;
+        }
+
+        Keyword keyword = keywordArray[0];
+
+        if (keyword.getWord().equals(getString(R.string.placeholder_keyword_text))) {
+            return false;
+        }
+
+        return true;
+
     }
 }

@@ -56,31 +56,25 @@
 
     <dimen name="newsList_layout_marginTop">10dp</dimen>
 
-    <dimen name="imageItem_binary_marginRight">10dp</dimen>
-    <dimen name="imageItem_binary_marginTop">5dp</dimen>
-    <dimen name="imageItem_binary_marginBottom">5dp</dimen>
     <dimen name="imageItem_summary_textSize">16sp</dimen>
     <dimen name="imageItem_url_textSize">12sp</dimen>
     <dimen name="imageItem_layout_margin">5dp</dimen>
 
-    <dimen name="saved_mediaItem_binary_marginRight">10dp</dimen>
-    <dimen name="saved_mediaItem_binary_marginTop">5dp</dimen>
-    <dimen name="saved_mediaItem_binary_marginBottom">5dp</dimen>
     <dimen name="saved_mediaItem_marginTop">3sp</dimen>
     <dimen name="saved_mediaItem_title_textSize">16sp</dimen>
     <dimen name="saved_mediaItem_summary_textSize">12sp</dimen>
     <dimen name="saved_mediaItem_layout_margin">5dp</dimen>
 
-    <dimen name="videoItem_thumbnail_marginRight">10dp</dimen>
-    <dimen name="videoItem_thumbnail_marginTop">5dp</dimen>
-    <dimen name="videoItem_thumbnail_marginBottom">5dp</dimen>
+    <dimen name="mediaItem_thumbnail_marginRight">10dp</dimen>
+    <dimen name="mediaItem_thumbnail_marginTop">5dp</dimen>
+    <dimen name="mediaItem_thumbnail_marginBottom">5dp</dimen>
     <dimen name="videoItem_title_textSize">16sp</dimen>
     <dimen name="videoItem_summary_textSize">12sp</dimen>
 
-    <dimen name="keywordItem_padding">15dp</dimen>
-    <dimen name="keywordItem_textSize">20sp</dimen>
-    <dimen name="keywordItem_marginBottom">5dp</dimen>
-    <dimen name="keywordItem_createdDate_textSize">16sp</dimen>
+    <dimen name="keyword_item_padding">15dp</dimen>
+    <dimen name="keyword_item_textSize">20sp</dimen>
+    <dimen name="keyword_item_marginBottom">5dp</dimen>
+    <dimen name="keyword_item_createdDate_textSize">16sp</dimen>
 
     <!-- widget related values -->
     <dimen name="widget_header_height">36dp</dimen>

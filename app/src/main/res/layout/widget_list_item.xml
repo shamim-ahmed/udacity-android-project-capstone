@@ -5,19 +5,19 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:padding="@dimen/keywordItem_padding">
+              android:padding="@dimen/keyword_item_padding">
 
     <TextView
             android:id="@+id/widgetItem_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/keywordItem_textSize"
+            android:textSize="@dimen/keyword_item_textSize"
             android:textStyle="bold"
-            android:layout_marginBottom="@dimen/keywordItem_marginBottom"/>
+            android:layout_marginBottom="@dimen/keyword_item_marginBottom"/>
 
     <TextView
             android:id="@+id/widgetItem_created_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/keywordItem_createdDate_textSize"/>
+            android:textSize="@dimen/keyword_item_createdDate_textSize"/>
 </LinearLayout>

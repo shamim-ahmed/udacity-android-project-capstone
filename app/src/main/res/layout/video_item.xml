@@ -9,10 +9,10 @@
             android:id="@+id/video_item_thumbnail"
             android:layout_width="@dimen/mediaList_thumb_width"
             android:layout_height="@dimen/mediaList_thumb_height"
-            android:layout_marginRight="@dimen/videoItem_thumbnail_marginRight"
-            android:layout_marginEnd="@dimen/videoItem_thumbnail_marginRight"
-            android:layout_marginTop="@dimen/videoItem_thumbnail_marginTop"
-            android:layout_marginBottom="@dimen/videoItem_thumbnail_marginBottom"
+            android:layout_marginRight="@dimen/mediaItem_thumbnail_marginRight"
+            android:layout_marginEnd="@dimen/mediaItem_thumbnail_marginRight"
+            android:layout_marginTop="@dimen/mediaItem_thumbnail_marginTop"
+            android:layout_marginBottom="@dimen/mediaItem_thumbnail_marginBottom"
             android:layout_weight="1"
             android:contentDescription="@string/videoList_thumbnail_contentDescription"/>
 

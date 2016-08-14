@@ -2,6 +2,7 @@ package edu.udacity.android.contentfinder;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -20,11 +21,24 @@ public abstract class AbstractMediaItemSearchActivity extends AbstractSearchActi
 
     private static final MediaItem[] EMPTY_MEDIA_ITEM_ARRAY = new MediaItem[0];
 
+    protected abstract void configureActionListeners();
     protected abstract Spinner getKeywordSpinner();
-
     protected abstract ListView getMediaItemListView();
-
     protected abstract ArrayAdapter<MediaItem> createMediaItemListAdapter();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_media_item_search);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        configureActionListeners();
+        loadApplicationData(savedInstanceState);
+        loadAdvertisement();
+    }
 
     protected void loadApplicationData(Bundle savedInstanceState) {
         Spinner keywordSpinner = getKeywordSpinner();

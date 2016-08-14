@@ -2,8 +2,6 @@ package edu.udacity.android.contentfinder;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,20 +18,11 @@ import edu.udacity.android.contentfinder.ui.MediaItemListAdapter;
 import edu.udacity.android.contentfinder.util.Constants;
 
 public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivity implements MediaItemListContainer {
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_media_item_search);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // display the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+    protected void configureActionListeners() {
         final Spinner keywordSpinner = getKeywordSpinner();
-        final ListView savedMediaItemListView = getMediaItemListView();
 
+        final ListView savedMediaItemListView = getMediaItemListView();
         savedMediaItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,9 +68,6 @@ public class SavedMediaItemSearchActivity extends AbstractMediaItemSearchActivit
                 }
             }
         });
-
-        loadApplicationData(savedInstanceState);
-        loadAdvertisement();
     }
 
     @Override

@@ -39,9 +39,6 @@ public abstract class AbstractMediaDetailActivity extends AbstractActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // display the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Map<String, Parcelable> dataMap = getMediaItemAndKeyword(savedInstanceState);
         final MediaItem mediaItem = (MediaItem) dataMap.get(Constants.SELECTED_MEDIA_ITEM);
         final Keyword keyword = (Keyword) dataMap.get(Constants.SELECTED_KEYWORD);

@@ -26,7 +26,7 @@
                 android:id="@+id/video_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/videoItem_title_textSize"
+                android:textSize="@dimen/mediaItem_title_textSize"
                 android:layout_margin="@dimen/videoItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/videoItem_textColor"/>
@@ -35,7 +35,7 @@
                 android:id="@+id/video_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/videoItem_summary_textSize"
+                android:textSize="@dimen/mediaItem_summary_textSize"
                 android:layout_margin="@dimen/videoItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/videoItem_textColor"

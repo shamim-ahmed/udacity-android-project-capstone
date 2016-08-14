@@ -27,7 +27,7 @@
                 android:id="@+id/image_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/imageItem_summary_textSize"
+                android:textSize="@dimen/mediaItem_title_textSize"
                 android:layout_margin="@dimen/imageItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/imageItem_textColor"/>
@@ -36,7 +36,7 @@
                 android:id="@+id/image_item_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/imageItem_url_textSize"
+                android:textSize="@dimen/mediaItem_summary_textSize"
                 android:layout_margin="@dimen/imageItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/imageItem_textColor"/>

@@ -28,7 +28,7 @@
                 android:id="@+id/saved_mediaITem_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/saved_mediaItem_title_textSize"
+                android:textSize="@dimen/mediaItem_title_textSize"
                 android:layout_margin="@dimen/saved_mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/saved_mediaItem_textColor"/>
@@ -37,7 +37,7 @@
                 android:id="@+id/saved_mediaITem_summary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/saved_mediaItem_summary_textSize"
+                android:textSize="@dimen/mediaItem_summary_textSize"
                 android:layout_margin="@dimen/saved_mediaItem_layout_margin"
                 android:textStyle="bold"
                 android:textColor="@color/saved_mediaItem_textColor"

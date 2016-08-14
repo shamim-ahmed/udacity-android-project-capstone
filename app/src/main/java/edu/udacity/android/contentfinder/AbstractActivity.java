@@ -26,14 +26,9 @@ public abstract class AbstractActivity extends AppCompatActivity {
 
     public void loadAdvertisement() {
         AdView adView = (AdView) findViewById(R.id.adView);
-
-        if (BuildConfig.FLAVOR.equals(Constants.PAID_FLAVOR)) {
-            adView.setVisibility(View.GONE);
-        } else {
-            String deviceId = getString(R.string.device_id);
-            AdRequest adRequest = new AdRequest.Builder().addTestDevice(deviceId).build();
-            adView.loadAd(adRequest);
-        }
+        String deviceId = getString(R.string.device_id);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(deviceId).build();
+        adView.loadAd(adRequest);
     }
 
     public void sendActivityName() {

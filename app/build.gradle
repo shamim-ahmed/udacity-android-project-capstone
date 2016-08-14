@@ -28,14 +28,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-        free {
-            applicationId "edu.udacity.android.contentfinder.free"
-        }
-        paid {
-            applicationId "edu.udacity.android.contentfinder.paid"
-        }
-    }
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
     }

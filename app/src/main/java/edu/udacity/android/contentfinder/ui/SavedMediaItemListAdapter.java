@@ -51,8 +51,8 @@ public class SavedMediaItemListAdapter extends ArrayAdapter<MediaItem> {
         }
 
         Resources resources = context.getResources();
-        int width = (int) resources.getDimension(R.dimen.mediaList_thumb_width);
-        int height = (int) resources.getDimension(R.dimen.mediaList_thumb_height);
+        int width = (int) resources.getDimension(R.dimen.mediaItem_thumbnail_width);
+        int height = (int) resources.getDimension(R.dimen.mediaItem_thumbnail_height);
 
         Picasso.with(context)
                 .load(iconId)

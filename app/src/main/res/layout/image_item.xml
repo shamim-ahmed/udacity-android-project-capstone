@@ -7,8 +7,8 @@
 
     <ImageView
             android:id="@+id/image_item_binary"
-            android:layout_width="@dimen/mediaList_thumb_width"
-            android:layout_height="@dimen/mediaList_thumb_height"
+            android:layout_width="@dimen/mediaItem_thumbnail_width"
+            android:layout_height="@dimen/mediaItem_thumbnail_height"
             android:layout_marginRight="@dimen/mediaItem_thumbnail_marginRight"
             android:layout_marginEnd="@dimen/mediaItem_thumbnail_marginRight"
             android:layout_marginTop="@dimen/mediaItem_thumbnail_marginTop"

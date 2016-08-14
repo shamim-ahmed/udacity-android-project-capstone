@@ -13,6 +13,8 @@ public class Constants {
     // widget broadcast event
     public static final String ACTION_DATA_UPDATED = "edu.udacity.android.contentfinder.DATA_UPDATED";
 
+    public static final String PAID_FLAVOR = "paid";
+
     // private constructor to prevent instantiation
     private Constants() {
     }

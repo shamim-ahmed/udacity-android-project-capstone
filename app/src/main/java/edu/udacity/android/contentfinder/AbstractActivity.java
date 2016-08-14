@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import edu.udacity.android.contentfinder.util.Constants;
+
 
 public abstract class AbstractActivity extends AppCompatActivity {
     private Tracker analyticsTracker;
@@ -25,7 +27,7 @@ public abstract class AbstractActivity extends AppCompatActivity {
     public void loadAdvertisement() {
         AdView adView = (AdView) findViewById(R.id.adView);
 
-        if (BuildConfig.FLAVOR.equals("paid")) {
+        if (BuildConfig.FLAVOR.equals(Constants.PAID_FLAVOR)) {
             adView.setVisibility(View.GONE);
         } else {
             String deviceId = getString(R.string.device_id);

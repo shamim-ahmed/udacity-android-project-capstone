@@ -45,6 +45,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/app_version"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/info_layout_marginBottom"
                 android:layout_below="@id/info_app_name"/>
 
         <TextView

@@ -31,7 +31,7 @@ public class SavedMediaItemListAdapter extends ArrayAdapter<MediaItem> {
 
         ImageView iconView = (ImageView) containerView.findViewById(R.id.saved_mediaItem_icon);
         TextView titleView = (TextView) containerView.findViewById(R.id.saved_mediaITem_title);
-        TextView summaryView = (TextView) containerView.findViewById(R.id.saved_mediaITem_summary);
+        TextView summaryView = (TextView) containerView.findViewById(R.id.saved_mediaITem_description);
 
         int iconId;
 

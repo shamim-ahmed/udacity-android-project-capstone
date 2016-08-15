@@ -39,7 +39,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/image_item_description_textSize"
-                android:layout_margin="@dimen/mediaItem_layout_margin"/>
+                android:layout_margin="@dimen/mediaItem_layout_margin"
+                android:maxLines="3"
+                android:ellipsize="end"/>
 
     </LinearLayout>
 </LinearLayout>

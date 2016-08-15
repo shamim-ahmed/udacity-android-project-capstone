@@ -30,10 +30,12 @@
                 android:textSize="@dimen/mediaItem_title_textSize"
                 android:layout_margin="@dimen/mediaItem_layout_margin"
                 android:textStyle="bold"
-                android:textColor="@color/saved_mediaItem_textColor"/>
+                android:textColor="@color/saved_mediaItem_textColor"
+                android:maxLines="3"
+                android:ellipsize="end"/>
 
         <TextView
-                android:id="@+id/saved_mediaITem_summary"
+                android:id="@+id/saved_mediaITem_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/mediaItem_description_textSize"

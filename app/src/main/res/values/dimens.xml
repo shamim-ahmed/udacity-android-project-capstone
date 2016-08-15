@@ -21,6 +21,7 @@
     <dimen name="keyword_spinner_padding">5dp</dimen>
     <dimen name="keyword_label_textSize">20sp</dimen>
     <dimen name="keyword_label_marginTop">7dp</dimen>
+    <dimen name="keyword_label_marginStart">0dp</dimen>
     <dimen name="keyword_spinner_marginStart">10dp</dimen>
     <dimen name="keyword_spinner_width">175dp</dimen>
     <dimen name="searchButton_marginTop">7dp</dimen>

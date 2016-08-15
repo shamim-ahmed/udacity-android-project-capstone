@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- add keyword screen related dimensions-->
+    <dimen name="add_keyword_label_marginStart">100dp</dimen>
+
+    <!-- dimensions related to keyword ui components -->
+    <dimen name="keyword_label_marginStart">75dp</dimen>
+</resources>

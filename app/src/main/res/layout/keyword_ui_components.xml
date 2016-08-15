@@ -5,6 +5,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <TextView
+            android:layout_marginLeft="@dimen/keyword_label_marginStart"
+            android:layout_marginStart="@dimen/keyword_label_marginStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_keyword_input_label"

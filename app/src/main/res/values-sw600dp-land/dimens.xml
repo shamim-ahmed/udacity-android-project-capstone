@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- add keyword screen related dimensions-->
+    <dimen name="add_keyword_label_marginStart">225dp</dimen>
+    <dimen name="activity_horizontal_padding">100dp</dimen>
+    <dimen name="activity_vertical_padding">25dp</dimen>
+
+    <!-- dimensions related to keyword ui components -->
+    <dimen name="keyword_label_marginStart">170dp</dimen>
+</resources>

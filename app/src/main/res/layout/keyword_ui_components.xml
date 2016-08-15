@@ -13,8 +13,8 @@
             android:textStyle="bold"/>
 
     <Spinner
-            android:layout_marginLeft="@dimen/keyword_spinner_marginLeft"
-            android:layout_marginStart="@dimen/keyword_spinner_marginLeft"
+            android:layout_marginLeft="@dimen/keyword_spinner_marginStart"
+            android:layout_marginStart="@dimen/keyword_spinner_marginStart"
             android:id="@+id/keyword_spinner"
             android:layout_width="@dimen/keyword_spinner_width"
             android:layout_height="wrap_content"

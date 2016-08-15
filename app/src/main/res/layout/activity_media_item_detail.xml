@@ -81,7 +81,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/mediaItem_detail_marginTop"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:contentDescription="@string/open_link_button_label"/>
 
                 <Button
                         android:id="@+id/favorite_button"
@@ -89,7 +90,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/mediaItem_detail_marginTop"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:contentDescription="@string/favorite_button_label"/>
             </LinearLayout>
         </LinearLayout>
 

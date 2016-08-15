@@ -50,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/keyword_list"
                     android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/content_main_add_new_keyword"
                     android:visibility="invisible"/>
 
             <include layout="@layout/ad_view"/>

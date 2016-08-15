@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import edu.udacity.android.contentfinder.model.Keyword;
@@ -55,22 +54,21 @@ public class MainActivity extends AbstractSearchActivity
             }
         });
 
+        Parcelable[] keywords = null;
+
         if (savedInstanceState != null) {
-            Parcelable[] keywords = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
+            keywords = savedInstanceState.getParcelableArray(Constants.KEYWORD_ARRAY);
+        }
 
-            if (keywords != null && keywords.length > 0) {
-                Log.i(TAG, "Restoring keywords from bundle...");
-                List<Keyword> keywordList = new ArrayList<>();
+        if (keywords != null && keywords.length > 0) {
+            Log.i(TAG, "Restoring keywords from bundle...");
+            List<Keyword> keywordList = new ArrayList<>();
 
-                for (Parcelable p : keywords) {
-                    keywordList.add((Keyword) p);
-                }
-
-                loadKeywords(keywordList, false);
-            } else {
-                Log.i(TAG, "No keyword found in bundle...");
-                loadKeywords(Collections.<Keyword>emptyList(), false);
+            for (Parcelable p : keywords) {
+                keywordList.add((Keyword) p);
             }
+
+            loadKeywords(keywordList, false);
         } else {
             Log.i(TAG, "Loading keywords from database...");
             SearchKeywordTask searchKeywordTask = new SearchKeywordTask(this);

@@ -15,7 +15,6 @@ import android.widget.RemoteViews;
 import edu.udacity.android.contentfinder.util.Constants;
 
 public class KeywordListWidgetProvider extends AppWidgetProvider {
-    private static final String TAG = KeywordListWidgetProvider.class.getSimpleName();
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {

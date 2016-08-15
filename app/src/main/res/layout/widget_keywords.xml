@@ -39,7 +39,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textColor="@color/dark_gray"
-                android:text="@string/empty_keyword_list"/>
+                android:text="@string/widget_empty_keyword_list_text"/>
     </FrameLayout>
 
 </LinearLayout>

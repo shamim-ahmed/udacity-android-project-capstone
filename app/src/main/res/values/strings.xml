@@ -56,7 +56,6 @@
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="device_id" translatable="false">D55E75550E2CA393D1269880F1D4D4FC</string>
 
-    <string name="empty_keyword_list">Content Finder: Keywords</string>
     <string name="keyword_list_widget_title">Content Finder: Keyword List</string>
 
     <string name="content_main_add_new_keyword">Add New Keyword</string>
@@ -72,4 +71,6 @@
     <string name="shareLink_menuItem_text">Share Link</string>
 
     <string name="no_results_text">No results</string>
+    <string name="empty_keyword_list_text">Please add some keywords</string>
+    <string name="widget_empty_keyword_list_text">Content Finder: Keywords</string>
 </resources>

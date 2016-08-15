@@ -45,14 +45,8 @@ public class MainActivity extends AbstractSearchActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Button addKeywordButton = (Button) findViewById(R.id.add_keyword_button);
-        addKeywordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddKeywordActivity.class);
-                startActivity(intent);
-            }
-        });
+        ListView listView = (ListView) findViewById(R.id.keyword_list);
+        listView.setEmptyView(findViewById(R.id.empty_view));
 
         Parcelable[] keywords = null;
 
@@ -154,14 +148,6 @@ public class MainActivity extends AbstractSearchActivity
         ArrayAdapter<Keyword> adapter = new KeywordListAdapter(this);
         adapter.addAll(keywordList);
         listView.setAdapter(adapter);
-
-        Button addButton = (Button) findViewById(R.id.add_keyword_button);
-
-        if (adapter.getCount() == 0) {
-            addButton.setVisibility(View.VISIBLE);
-        } else {
-            addButton.setVisibility(View.INVISIBLE);
-        }
     }
 
     @Override

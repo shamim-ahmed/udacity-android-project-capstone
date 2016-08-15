@@ -37,7 +37,7 @@ public class VideoListAdapter extends ArrayAdapter<MediaItem> {
                 .load(result.getThumbnailUrl())
                 .noFade()
                 .resize(width, height)
-                .centerInside()
+                .centerCrop()
                 .into(thumbnailView);
 
         TextView titleView = (TextView) containerView.findViewById(R.id.video_item_title);

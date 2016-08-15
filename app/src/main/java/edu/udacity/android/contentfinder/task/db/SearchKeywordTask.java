@@ -12,6 +12,7 @@ import java.util.List;
 import edu.udacity.android.contentfinder.AbstractSearchActivity;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.model.Keyword;
+import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.DateUtils;
 import edu.udacity.android.contentfinder.util.DbUtils;
 
@@ -25,7 +26,8 @@ public class SearchKeywordTask extends AsyncTask<Void, Void, List<Keyword>> {
     @Override
     protected List<Keyword> doInBackground(Void... params) {
         ContentResolver contentResolver = activity.getContentResolver();
-        Cursor cursor = contentResolver.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, ContentFinderContract.KeywordEntry._ID + " DESC");
+        String sortOrder = String.format("%s DESC LIMIT %d", ContentFinderContract.KeywordEntry._ID, Constants.APP_KEYWORD_LIMIT);
+        Cursor cursor = contentResolver.query(ContentFinderContract.KeywordEntry.CONTENT_URI, null, null, null, sortOrder);
 
         if (cursor == null) {
             return Collections.emptyList();

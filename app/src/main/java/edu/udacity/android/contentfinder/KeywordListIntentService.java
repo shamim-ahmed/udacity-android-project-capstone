@@ -15,9 +15,6 @@ import edu.udacity.android.contentfinder.db.ContentFinderContract;
 import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.WidgetUtils;
 
-/**
- * Created by shamim on 8/8/16.
- */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class KeywordListIntentService extends RemoteViewsService {
 
@@ -43,7 +40,8 @@ public class KeywordListIntentService extends RemoteViewsService {
                 // in database, US locale needs to be used, irrespective of the user's preferred locale.
                 Uri searchUri = ContentFinderContract.KeywordEntry.CONTENT_URI;
 
-                cursor = getContentResolver().query(searchUri, null, null, null, ContentFinderContract.KeywordEntry._ID + " desc");
+                String sortOrder = String.format("%s DESC LIMIT %d", ContentFinderContract.KeywordEntry._ID, Constants.WIDGET_KEYWORD_LIMIT);
+                cursor = getContentResolver().query(searchUri, null, null, null, sortOrder);
                 Binder.restoreCallingIdentity(identityToken);
             }
 
@@ -103,7 +101,4 @@ public class KeywordListIntentService extends RemoteViewsService {
             }
         };
     }
-
-
-
 }

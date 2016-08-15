@@ -11,13 +11,15 @@
             android:id="@+id/widgetItem_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/keyword_item_textSize"
+            android:textSize="@dimen/widget_keyword_item_textSize"
             android:textStyle="bold"
-            android:layout_marginBottom="@dimen/keyword_item_marginBottom"/>
+            android:layout_marginBottom="@dimen/keyword_item_marginBottom"
+            android:textColor="@color/dark_gray"/>
 
     <TextView
             android:id="@+id/widgetItem_created_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/keyword_item_createdDate_textSize"/>
+            android:textSize="@dimen/widget_keyword_item_createdDate_textSize"
+            android:textColor="@color/dark_gray"/>
 </LinearLayout>

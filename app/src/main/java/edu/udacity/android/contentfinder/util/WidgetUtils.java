@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.widget.RemoteViews;
 
-import java.util.Date;
-
 import edu.udacity.android.contentfinder.R;
 import edu.udacity.android.contentfinder.db.ContentFinderContract;
 
@@ -30,7 +28,7 @@ public class WidgetUtils {
         String dateStr = (String) values.get(ContentFinderContract.KeywordEntry.COLUMN_CREATED_DATE);
 
         views.setTextViewText(R.id.widgetItem_word, word);
-        views.setTextViewText(R.id.widgetItem_created_date, dateStr);
+        views.setTextViewText(R.id.widgetItem_created_date, context.getString(R.string.keyword_created_on, dateStr));
     }
 
     // private constructor to prevent instantiation

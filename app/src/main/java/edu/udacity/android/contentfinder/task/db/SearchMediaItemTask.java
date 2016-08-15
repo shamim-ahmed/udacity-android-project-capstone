@@ -17,6 +17,7 @@ import edu.udacity.android.contentfinder.db.ContentFinderDataProvider;
 import edu.udacity.android.contentfinder.model.Keyword;
 import edu.udacity.android.contentfinder.model.MediaItem;
 import edu.udacity.android.contentfinder.model.MediaItemType;
+import edu.udacity.android.contentfinder.util.Constants;
 import edu.udacity.android.contentfinder.util.DateUtils;
 
 public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> {
@@ -41,7 +42,7 @@ public class SearchMediaItemTask extends AsyncTask<Void, Void, List<MediaItem>> 
         }
 
         Uri searchUri = ContentFinderContract.MediaItemEntry.buildUriFromKeywordId(keywordId);
-        String sortOrder = String.format("%s desc", ContentFinderContract.KeywordEntry._ID);
+        String sortOrder = String.format("%s DESC LIMIT %d", ContentFinderContract.KeywordEntry._ID, Constants.APP_MEDIA_ITEM_LIMIT);
 
         Cursor cursor = contentResolver.query(searchUri, null, ContentFinderDataProvider.MEDIA_ITEM_KEYWORD_ID_SELECTION, new String[] {keywordId.toString()}, sortOrder);
 

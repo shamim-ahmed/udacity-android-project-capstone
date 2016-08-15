@@ -65,10 +65,13 @@
 
     <!-- widget related dimensions -->
     <dimen name="widget_header_height">36dp</dimen>
-    <dimen name="widget_keyword_list_default_width">250dp</dimen>
+    <dimen name="widget_keyword_list_default_width">200dp</dimen>
     <dimen name="widget_keyword_list_default_height">110dp</dimen>
     <dimen name="widget_keyword_list_min_resize_width">40dp</dimen>
     <dimen name="widget_keyword_list_min_resize_height">40dp</dimen>
+    <dimen name="widget_title_textSize">20sp</dimen>
+    <dimen name="widget_keyword_item_textSize">16sp</dimen>
+    <dimen name="widget_keyword_item_createdDate_textSize">14sp</dimen>
 
     <!-- info screen -->
     <dimen name="info_layout_marginBottom">5dp</dimen>

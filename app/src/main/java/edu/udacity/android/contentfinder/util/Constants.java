@@ -13,7 +13,10 @@ public class Constants {
     // widget broadcast event
     public static final String ACTION_DATA_UPDATED = "edu.udacity.android.contentfinder.DATA_UPDATED";
 
-    public static final String PAID_FLAVOR = "paid";
+    // limits on db query
+    public static final int WIDGET_KEYWORD_LIMIT = 5;
+    public static final int APP_KEYWORD_LIMIT = 25;
+    public static final int APP_MEDIA_ITEM_LIMIT = 25;
 
     // private constructor to prevent instantiation
     private Constants() {

@@ -8,7 +8,7 @@
                     android:minHeight="@dimen/widget_keyword_list_default_height"
                     android:minResizeWidth="@dimen/widget_keyword_list_min_resize_width"
                     android:minResizeHeight="@dimen/widget_keyword_list_min_resize_height"
-                    android:previewImage="@drawable/image_icon"
+                    android:previewImage="@drawable/content_finder_icon"
                     android:resizeMode="horizontal|vertical"
                     android:updatePeriodMillis="0"
                     android:widgetCategory="home_screen|keyguard"
